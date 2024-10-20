@@ -3,7 +3,7 @@ import { draftMode, cookies } from "next/headers";
 export async function fetchGraphQL<T = any>(
   query: string,
   variables?: { [key: string]: any },
-  headers?: { [key: string]: string },
+  headers?: { [key: string]: string }
 ): Promise<T> {
   const { isEnabled: preview } = draftMode();
 
@@ -38,7 +38,7 @@ export async function fetchGraphQL<T = any>(
         next: {
           tags: ["wordpress"],
         },
-      },
+      }
     );
 
     if (!response.ok) {
