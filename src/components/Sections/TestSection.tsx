@@ -8,7 +8,7 @@ const TestSection: React.FC<TestSectionProps> = ({ test }) => {
   return (
     <div>
       <h2>{test.title}</h2>
-      <p>{test.testPageText}</p>
+      <p>{test.testPageText}c</p>
     </div>
   );
 };
