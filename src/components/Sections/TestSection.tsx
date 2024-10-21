@@ -1,15 +1,14 @@
 import { FlexibleSectionsFlexContentTestSectionLayout } from "@/gql/graphql";
 
-interface TestSectionProps {
-  test: FlexibleSectionsFlexContentTestSectionLayout;
-}
-
-const TestSection: React.FC<TestSectionProps> = ({ test }) => {
+export default function ProductsSection({
+  section,
+}: {
+  section: FlexibleSectionsFlexContentTestSectionLayout;
+}) {
   return (
     <div>
-      <h2>{test.title}</h2>
-      <p>{test.testPageText}c</p>
+      <h2>{section?.title}</h2>
+      <p>{section?.testPageText}</p>
     </div>
   );
-};
-export default TestSection;
+}

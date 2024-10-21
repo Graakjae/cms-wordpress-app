@@ -1,22 +1,21 @@
-import React from "react";
 import { FlexibleSectionsFlexContentProductSectionLayout } from "@/gql/graphql";
+import React from "react";
 
-interface ProductsSectionProps {
-  productSection: FlexibleSectionsFlexContentProductSectionLayout;
+interface ProductSectionProps {
+  section: FlexibleSectionsFlexContentProductSectionLayout;
 }
 
-const ProductsSection: React.FC<ProductsSectionProps> = ({
-  productSection,
-}) => {
+const ProductSection: React.FC<ProductSectionProps> = ({ section }) => {
+  console.log("section", section);
   return (
     <div>
-      <h2>{productSection.productHeader}</h2>
+      <h2 className="produkt-header">{section?.productHeader}</h2>
       <img
-        src={`${productSection?.productImage?.node?.sourceUrl || ""}`}
-        alt={productSection?.productImage?.node?.altText || ""}
+        src={`${section?.productImage?.node?.sourceUrl || ""}`}
+        alt={section?.productImage?.node?.altText || ""}
       />
     </div>
   );
 };
 
-export default ProductsSection;
+export default ProductSection;
