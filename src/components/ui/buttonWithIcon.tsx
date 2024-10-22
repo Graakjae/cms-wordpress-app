@@ -2,33 +2,33 @@ import { Button } from "@/components/ui/button";
 
 export function ButtonWithIcon({ children }: { children: React.ReactNode }) {
   return (
-    <Button variant={"secondary"}>
+    <Button
+      size={"icon"}
+      variant={"secondary"}
+      className="group overflow-visible relative"
+    >
       {children}
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16.768"
-        height="16.457"
-        viewBox="0 0 16.768 16.457"
+        viewBox="0 0 20 15"
+        fill="none"
+        className="overflow-visible"
       >
-        <g
-          id="Icon_feather-arrow-up-right"
-          data-name="Icon feather-arrow-up-right"
-          transform="translate(8.229 -14.099) rotate(45)"
-        >
-          <path
-            id="Path_1378"
-            data-name="Path 1378"
-            d="M11.03,21.607,9.97,20.546,20.546,9.97l1.061,1.061Z"
-            fill="currentColor"
-          />
-          <path
-            id="Path_1379"
-            data-name="Path 1379"
-            d="M18.5,17.755H17v-6.5H10.5V9.75h8Z"
-            fill="currentColor"
-            transform="translate(3.322 0)"
-          />
-        </g>
+        <path
+          className="transition-all duration-300 group-hover:translate-x-[32%] group-hover:transform-origin-left"
+          d="M11.9854 13.5355L18.0209 7.5L11.9854 1.46448"
+          stroke="#005e61"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          className="transition-all duration-300 group-hover:scale-x-[1.3] group-hover:transform-origin-left"
+          d="M17.6304 7.44983L0.999935 7.44983"
+          stroke="#005e61"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
       </svg>
     </Button>
   );

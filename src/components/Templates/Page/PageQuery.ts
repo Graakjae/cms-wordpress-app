@@ -9,18 +9,18 @@ export const PageQuery = gql`
       flexibleSections {
         flexContent {
           ... on FlexibleSectionsFlexContentHeroSectionLayout {
-            acfeFlexibleLayoutTitle
+            heroSection: acfeFlexibleLayoutTitle
             fieldGroupName
             heroHeader
           }
           ... on FlexibleSectionsFlexContentTestSectionLayout {
-            acfeFlexibleLayoutTitle
+            testSection: acfeFlexibleLayoutTitle
             fieldGroupName
             testPageText
             title
           }
           ... on FlexibleSectionsFlexContentProductSectionLayout {
-            acfeFlexibleLayoutTitle
+            productSection: acfeFlexibleLayoutTitle
             fieldGroupName
             productHeader
             productImage {

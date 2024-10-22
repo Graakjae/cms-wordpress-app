@@ -3,6 +3,31 @@
 @tailwind utilities;
 @layer base {
   :root {
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
+}
+
+.line-arrow,
+.line-long {
+  transition: 0.3s;
+}
+
+.arrow-button {
+  overflow: visible; /* Ensure the arrow is visible when animated */
+  position: relative; /* Allow z-index if necessary */
+  z-index: 1000;
+}
+
+.arrow-button svg {
+  overflow: visible;
+}
+
+.arrow-button:hover .line-arrow {
+  transform: translate(32%, 0%);
+  transform-origin: left center;
+}
+
+.arrow-button:hover .line-long {
+  transform: scaleX(1.3);
+  transform-origin: left center;
 }

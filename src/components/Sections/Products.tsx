@@ -2,6 +2,7 @@ import { FlexibleSectionsFlexContentProductSectionLayout } from "@/gql/graphql";
 import React from "react";
 import { Button } from "../ui/button";
 import { ButtonWithIcon } from "../ui/buttonWithIcon";
+import { LinkButton } from "../ui/linkButton";
 
 interface ProductSectionProps {
   section: FlexibleSectionsFlexContentProductSectionLayout;
@@ -17,8 +18,6 @@ const ProductSection: React.FC<ProductSectionProps> = ({ section }) => {
         src={`${section?.productImage?.node?.sourceUrl || ""}`}
         alt={section?.productImage?.node?.altText || ""}
       />
-      <Button variant={"default"}>Primary</Button>
-      <ButtonWithIcon>Secondary knap</ButtonWithIcon>
     </div>
   );
 };
