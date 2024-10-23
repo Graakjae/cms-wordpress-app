@@ -17,11 +17,9 @@ module.exports = {
       },
       colors: {},
       keyframes: {
-        dropInOut: {
+        dropIn: {
           "0%": { transform: "translateY(-150%)" },
-          "10%": { transform: "translateY(0)" },
-          "90%": { transform: "translateY(0)" },
-          "100%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
         },
         dropOut: {
           "0%": { transform: "translateY(0)" },
@@ -29,8 +27,8 @@ module.exports = {
         },
       },
       animation: {
-        dropInOut: "dropInOut 4s ease-in-out 1",
-        dropOut: "dropOut 0.5s ease-in-out 1",
+        dropIn: "dropIn 0.5s ease-in-out forwards",
+        dropOut: "dropOut 0.5s ease-in-out forwards",
       },
     },
   },

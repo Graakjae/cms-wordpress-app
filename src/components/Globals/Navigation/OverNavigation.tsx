@@ -10,34 +10,28 @@ export default function OverNavigation() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false); // Track if the first cycle is done
+  const [animationState, setAnimationState] = useState("enter"); // Possible states: 'enter', 'exit'
 
   useEffect(() => {
-    if (!hasStarted) {
-      // Delay to fix the first animation cycle
-      setTimeout(() => {
-        setHasStarted(true);
-      }, 500); // Slight delay before starting the first animation
-      return;
-    }
-
     const interval = setInterval(() => {
-      setIsAnimating(false); // Start drop-out animation
+      // Set to exit state, wait for animation to complete
+      setAnimationState("exit");
+
+      // Change index after a slight delay to allow exit animation to finish
       setTimeout(() => {
-        setIsAnimating(true); // Start drop-in animation
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % links.length); // Change text after drop-out
-      }, 500); // This delay should match the drop-out timing (500ms in the animation)
-    }, 4000); // Change every 4 seconds
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % links.length);
+        setAnimationState("enter"); // Set back to enter state for next text
+      }, 500); // This delay should match the exit animation duration
+    }, 4000); // Change text every 4 seconds
 
     return () => clearInterval(interval); // Cleanup on component unmount
-  }, [hasStarted, links.length]);
+  }, []);
 
   return (
     <div className="bg-[#E6DAC7] h-[40px] w-full flex justify-center items-center overflow-hidden">
       <Link
-        className={`text-[14px] ${
-          isAnimating ? "animate-dropInOut" : "animate-dropOut"
+        className={`text-[14px] transition-all duration-500 ${
+          animationState === "exit" ? "animate-dropOut" : "animate-dropIn"
         }`}
         href={links[currentIndex].href}
       >
