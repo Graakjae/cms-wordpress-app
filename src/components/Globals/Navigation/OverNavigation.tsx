@@ -10,7 +10,7 @@ export default function OverNavigation() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [hasStarted, setHasStarted] = useState(false); // Track if the first cycle is done
 
   useEffect(() => {
@@ -25,8 +25,8 @@ export default function OverNavigation() {
     const interval = setInterval(() => {
       setIsAnimating(false); // Start drop-out animation
       setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % links.length); // Change text after drop-out
         setIsAnimating(true); // Start drop-in animation
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % links.length); // Change text after drop-out
       }, 500); // This delay should match the drop-out timing (500ms in the animation)
     }, 4000); // Change every 4 seconds
 
