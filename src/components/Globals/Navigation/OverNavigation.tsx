@@ -1,10 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import arrowRight from "@/public/arrow-right-black.svg";
 
 export default function OverNavigation() {
   const links = [
-    { href: "/", text: "Home" },
+    { href: "/", text: "Til minde for vores små aftenstjerner" },
     { href: "/about", text: "About Us" },
     { href: "/contact", text: "Contact" },
   ];
@@ -28,14 +30,15 @@ export default function OverNavigation() {
   }, []);
 
   return (
-    <div className="bg-[#E6DAC7] h-[40px] w-full flex justify-center items-center overflow-hidden">
+    <div className="bg-Beige h-[40px] w-full flex justify-center items-center overflow-hidden">
       <Link
-        className={`text-[14px] transition-all duration-500 ${
+        className={`flex gap-[10px] text-[14px] transition-all duration-500 ${
           animationState === "exit" ? "animate-dropOut" : "animate-dropIn"
         }`}
         href={links[currentIndex].href}
       >
         {links[currentIndex].text}
+        <Image src={arrowRight} alt="Arrow right" width={13} height={13} />
       </Link>
     </div>
   );

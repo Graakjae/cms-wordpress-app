@@ -11,7 +11,17 @@ export const PageQuery = gql`
           ... on FlexibleSectionsFlexContentHeroSectionLayout {
             HeroSection: acfeFlexibleLayoutTitle
             fieldGroupName
-            heroHeader
+            title
+            subtitle
+            buttonText
+            text1
+            text2
+            image {
+              node {
+                sourceUrl
+                altText
+              }
+            }
           }
           ... on FlexibleSectionsFlexContentTestSectionLayout {
             TestSection: acfeFlexibleLayoutTitle

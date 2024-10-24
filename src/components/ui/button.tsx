@@ -10,16 +10,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[#005E61] text-[#FFFFFF] text-[16px] shadow hover:bg-[#004C4E] ",
-        destructive:
-          "bg-red-500 text-neutral-50 shadow-sm hover:bg-red-500/90 dark:bg-red-900 dark:text-neutral-50 dark:hover:bg-red-900/90",
+          "bg-PrimaryGreen text-white text-[16px] shadow hover:bg-PrimaryGreenHover ",
+        destructive: "bg-red-500 text-neutral-50 shadow-sm hover:bg-red-500/90",
         outline:
-          "border border-neutral-200 bg-white shadow-sm hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
+          "border border-neutral-200 bg-white shadow-sm hover:bg-neutral-100 hover:text-neutral-900",
         secondary:
-          "bg-white text-[#005E61] text-[16px] shadow-sm border-2 border-[#005E61]",
-        ghost:
-          "hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
-        link: "text-[#005E61] text-[16px]",
+          "bg-white text-PrimaryGreen text-[16px] shadow-sm border-2 border-PrimaryGreen",
+        ghost: "hover:bg-neutral-100 hover:text-neutral-900",
+        link: "text-PrimaryGreen text-[16px]",
       },
       size: {
         default: "h-[48px] min-w-[196px] rounded-none px-[45px]",

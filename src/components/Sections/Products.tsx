@@ -1,5 +1,6 @@
 import { FlexibleSectionsFlexContentProductSectionLayout } from "@/gql/graphql";
 import React from "react";
+import { ButtonWithIcon } from "../ui/buttonWithIcon";
 
 interface ProductSectionProps {
   section: FlexibleSectionsFlexContentProductSectionLayout;
@@ -14,6 +15,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({ section }) => {
         src={`${section?.productImage?.node?.sourceUrl || ""}`}
         alt={section?.productImage?.node?.altText || ""}
       />
+      <ButtonWithIcon>Hej</ButtonWithIcon>
     </div>
   );
 };

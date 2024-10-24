@@ -15,7 +15,14 @@ module.exports = {
       boxShadow: {
         custom: "0px 3px 6px rgba(0, 0, 0, 0.16)", // #00000029 is rgba(0, 0, 0, 0.16)
       },
-      colors: {},
+
+      colors: {
+        Beige: "#E6DAC7",
+        PrimaryGreen: "#005E61",
+        PrimaryGreenHover: "#004C4E",
+        PrimaryGold: "#E6B14F",
+        SecondaryGreen: "#83C4AE",
+      },
       keyframes: {
         dropIn: {
           "0%": { transform: "translateY(-150%)" },
