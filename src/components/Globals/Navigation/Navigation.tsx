@@ -66,7 +66,9 @@ export default async function Navigation() {
           );
         })}
       </div>
-      <Image src={Logo} alt="logo" width={125} height={52} className="" />
+      <Link href="/">
+        <Image src={Logo} alt="logo" width={125} height={52} className="" />
+      </Link>
       <div className="flex gap-10 w-[400px]">
         {rightMenu.nodes.map((item: MenuItem, index: number) => {
           if (!item.uri) return null;
