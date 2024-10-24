@@ -21,7 +21,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ sections }) => {
     (section) =>
       section.fieldGroupName === "FlexibleSectionsFlexContentTestSectionLayout"
   ) as FlexibleSectionsFlexContentTestSectionLayout;
-
+  console.log("products", sections);
   return (
     <div>
       <ProductsSection section={productsSection} />

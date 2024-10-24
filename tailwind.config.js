@@ -15,9 +15,8 @@ module.exports = {
       boxShadow: {
         custom: "0px 3px 6px rgba(0, 0, 0, 0.16)", // #00000029 is rgba(0, 0, 0, 0.16)
       },
-
       colors: {
-        Beige: "#E6DAC7",
+        Beige: "#ECE2D5",
         PrimaryGreen: "#005E61",
         PrimaryGreenHover: "#004C4E",
         PrimaryGold: "#E6B14F",

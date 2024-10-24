@@ -18,6 +18,7 @@
     "next": "latest",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-infinite-logo-slider": "^1.1.4",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },

@@ -2,13 +2,7 @@
 const nextConfig = {
   trailingSlash: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: "http",
-        hostname: process.env.NEXT_PUBLIC_WORDPRESS_API_HOSTNAME,
-        port: "",
-      },
-    ],
+    domains: ["frederikgraakjaer.byhand.nu"], // Ensure this domain is correctly listed
   },
 };
 

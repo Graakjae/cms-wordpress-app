@@ -9,7 +9,7 @@ export const PageQuery = gql`
       flexibleSections {
         flexContent {
           ... on FlexibleSectionsFlexContentHeroSectionLayout {
-            HeroSection: acfeFlexibleLayoutTitle
+            acfeFlexibleLayoutTitle
             fieldGroupName
             title
             subtitle
@@ -24,19 +24,32 @@ export const PageQuery = gql`
             }
           }
           ... on FlexibleSectionsFlexContentTestSectionLayout {
-            TestSection: acfeFlexibleLayoutTitle
+            acfeFlexibleLayoutTitle
             fieldGroupName
             testPageText
             title
           }
           ... on FlexibleSectionsFlexContentProductSectionLayout {
-            ProductSection: acfeFlexibleLayoutTitle
+            acfeFlexibleLayoutTitle
             fieldGroupName
             productHeader
             productImage {
               node {
                 sourceUrl
                 altText
+              }
+            }
+          }
+          ... on FlexibleSectionsFlexContentInfiniteSliderSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            mentionedIn {
+              # fieldGroupName
+              logo {
+                node {
+                  altText
+                  sourceUrl
+                }
               }
             }
           }
