@@ -10,3 +10,43 @@
 p {
   font-weight: 350;
 }
+
+* {
+  /* border: 1px solid red; */
+  scroll-behavior: smooth;
+}
+
+.scroller[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 10%,
+    white 90%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 60s)
+    var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-speed="fast"] {
+  --_animation-duration: 80s;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+.tag-list {
+  margin: 0;
+  padding-inline: 0;
+  list-style: none;
+}
