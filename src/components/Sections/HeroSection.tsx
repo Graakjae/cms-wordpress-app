@@ -8,7 +8,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
   return (
-    <div className="flex relative pb-[37px]">
+    <div className="flex relative pb-[37px] mt-[130px]">
       <Image
         src={section?.image?.node?.sourceUrl || ""}
         alt={section?.image?.node?.altText || ""}
@@ -18,11 +18,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
       />
       <div className="h-[80vh] w-1/2 flex items-center bg-Beige">
         <div className="w-[600px] pl-20">
-          <h2 className="text-[45px] font-semibold">{section?.title}</h2>
-          <h3 className="text-[18px] font-semibold mb-[35px]">
+          <h2 className="text-[45px] font-medium">{section?.title}</h2>
+          <h3 className="text-[18px] font-medium mb-[35px]">
             {section?.subtitle}
           </h3>
-          <p className="text-[18px] font-normal">{section?.text1}</p>
+          <p className="text-[18px] font-light">{section?.text1}</p>
           <p className="text-[18px] mt-[20px]">{section?.text2}</p>
           <Button className="mt-[50px]">{section?.buttonText}</Button>
         </div>

@@ -21,8 +21,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={source.className}>
         {isEnabled && <PreviewNotice />}
-        <OverNavigation />
-        <Navigation />
+        <div className="fixed top-0 z-50 w-full">
+          <OverNavigation />
+          <Navigation />
+        </div>
         {children}
         <Footer />
       </body>

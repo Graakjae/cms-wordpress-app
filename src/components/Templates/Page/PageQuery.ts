@@ -53,6 +53,23 @@ export const PageQuery = gql`
               }
             }
           }
+          ... on FlexibleSectionsFlexContentHeroPageSection2Layout {
+            acfeFlexibleLayoutTitle
+            buttonText
+            fieldGroupName
+            leftImage {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+            testimonialText
+            text
+            title
+            video {
+              url
+            }
+          }
         }
       }
     }
