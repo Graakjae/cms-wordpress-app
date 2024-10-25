@@ -1,7 +1,5 @@
 import { FlexibleSectionsFlexContentHeroPageSection2Layout } from "@/gql/graphql";
-import { Button } from "../ui/button";
 import Image from "next/image";
-import StarBeige from "../../public/star-beige.svg";
 import { ButtonWithIcon } from "../ui/buttonWithIcon";
 import VideoComponent from "../ui/videoComponent";
 interface Section2Props {
@@ -9,7 +7,6 @@ interface Section2Props {
 }
 
 const Section2: React.FC<Section2Props> = ({ section }) => {
-  console.log("vid", section.video);
   return (
     <div className="flex justify-between relative px-[5%] py-[150px]">
       <div className="w-[45%]">

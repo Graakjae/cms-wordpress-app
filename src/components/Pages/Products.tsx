@@ -3,9 +3,7 @@ import ProductsSection from "../Sections/Products";
 import {
   FlexibleSectionsFlexContentLayout,
   FlexibleSectionsFlexContentProductSectionLayout,
-  FlexibleSectionsFlexContentTestSectionLayout,
 } from "@/gql/graphql";
-import TestSection from "../Sections/TestSection";
 
 interface ProductsPageProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
@@ -17,15 +15,9 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ sections }) => {
       "FlexibleSectionsFlexContentProductSectionLayout"
   ) as FlexibleSectionsFlexContentProductSectionLayout;
 
-  const testSection = sections.find(
-    (section) =>
-      section.fieldGroupName === "FlexibleSectionsFlexContentTestSectionLayout"
-  ) as FlexibleSectionsFlexContentTestSectionLayout;
-  console.log("products", sections);
   return (
     <div>
       <ProductsSection section={productsSection} />
-      <TestSection section={testSection} />
     </div>
   );
 };

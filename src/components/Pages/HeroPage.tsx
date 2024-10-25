@@ -1,6 +1,4 @@
 import React from "react";
-
-import TestSection from "../Sections/TestSection";
 import {
   FlexibleSectionsFlexContentHeroPageSection2Layout,
   FlexibleSectionsFlexContentHeroSectionLayout,
@@ -36,6 +34,9 @@ const HeroPage: React.FC<HeroPageProps> = ({ sections }) => {
     <div>
       <HeroSection section={heroSection} />
       <SliderSection section={sliderSection} />
+      <div className="px-[5%]">
+        <div className="border-b border-[#C6C6C6]"></div>
+      </div>
       <Section2 section={section2} />
     </div>
   );
