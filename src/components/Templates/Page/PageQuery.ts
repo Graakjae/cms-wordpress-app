@@ -69,6 +69,12 @@ export const PageQuery = gql`
             text2
             title
             fieldGroupName
+            image {
+              node {
+                altText
+                sourceUrl
+              }
+            }
           }
           ... on FlexibleSectionsFlexContentHeroPageSection4Layout {
             acfeFlexibleLayoutTitle

@@ -12,7 +12,6 @@ p {
 }
 
 * {
-  /* border: 1px solid red; */
   scroll-behavior: smooth;
 }
 
@@ -33,6 +32,14 @@ p {
   flex-wrap: nowrap;
   animation: scroll var(--_animation-duration, 60s)
     var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="right"] {
+  --_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+  --_animation-direction: forwards;
 }
 
 .scroller[data-speed="fast"] {

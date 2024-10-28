@@ -8,7 +8,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
   return (
-    <div className="flex relative pb-[37px] mt-[130px]">
+    <div className="flex relative pb-[37px] mt-[130px] w-full">
       <Image
         src={section?.image?.node?.sourceUrl || ""}
         alt={section?.image?.node?.altText || ""}

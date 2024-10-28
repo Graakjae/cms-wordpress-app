@@ -8,7 +8,7 @@ interface Section2Props {
 
 const Section2: React.FC<Section2Props> = ({ section }) => {
   return (
-    <div className="flex justify-between relative px-[5%] py-[150px]">
+    <div className="flex justify-between relative py-[150px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
       <div className="w-[45%]">
         <h3 className="text-[35px] font-medium mb-[35px]">{section?.title}</h3>
         <p className="text-[18px] mt-[15px] mb-[30px]">{section.text}</p>

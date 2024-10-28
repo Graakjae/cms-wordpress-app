@@ -45,59 +45,61 @@ export default async function Navigation() {
 
   return (
     <nav
-      className="flex justify-around items-center w-full h-[90px] bg-white text-black shadow-custom"
+      className="w-full h-[90px] bg-white text-black shadow-custom"
       role="navigation"
       itemScope
       itemType="http://schema.org/SiteNavigationElement"
     >
-      <div className="flex gap-20 w-[400px]">
-        {primaryMenu.nodes.map((item: MenuItem, index: number) => {
-          if (!item.uri) return null;
-          return (
-            <Link
-              itemProp="url"
-              href={item.uri}
-              key={index}
-              target={item.target || "_self"}
-              className="text-[18px]"
-            >
-              <span itemProp="name">{item.label}</span>
-            </Link>
-          );
-        })}
-      </div>
-      <Link href="/">
-        <Image src={Logo} alt="logo" width={125} height={52} className="" />
-      </Link>
-      <div className="flex gap-10 w-[400px]">
-        {rightMenu.nodes.map((item: MenuItem, index: number) => {
-          if (!item.uri) return null;
-          return (
-            <Link
-              itemProp="url"
-              href={item.uri}
-              key={index}
-              target={item.target || "_self"}
-            >
-              <span itemProp="name">{item.label}</span>
-            </Link>
-          );
-        })}
-        <div className="flex gap-[38px] items-center">
-          <Image
-            src={SearchIcon}
-            alt="search"
-            width={23}
-            height={23}
-            className=""
-          />
-          <Image
-            src={ShoppingIcon}
-            alt="shopping"
-            width={23}
-            height={23}
-            className=""
-          />
+      <div className="flex justify-between items-center h-[90px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
+        <div className="flex gap-20 w-[400px] ">
+          {primaryMenu.nodes.map((item: MenuItem, index: number) => {
+            if (!item.uri) return null;
+            return (
+              <Link
+                itemProp="url"
+                href={item.uri}
+                key={index}
+                target={item.target || "_self"}
+                className="text-[18px]"
+              >
+                <span itemProp="name">{item.label}</span>
+              </Link>
+            );
+          })}
+        </div>
+        <Link href="/">
+          <Image src={Logo} alt="logo" width={125} height={52} className="" />
+        </Link>
+        <div className="flex justify-end gap-20 w-[400px]">
+          {rightMenu.nodes.map((item: MenuItem, index: number) => {
+            if (!item.uri) return null;
+            return (
+              <Link
+                itemProp="url"
+                href={item.uri}
+                key={index}
+                target={item.target || "_self"}
+              >
+                <span itemProp="name">{item.label}</span>
+              </Link>
+            );
+          })}
+          <div className="flex gap-[38px] items-center">
+            <Image
+              src={SearchIcon}
+              alt="search"
+              width={23}
+              height={23}
+              className=""
+            />
+            <Image
+              src={ShoppingIcon}
+              alt="shopping"
+              width={23}
+              height={23}
+              className=""
+            />
+          </div>
         </div>
       </div>
     </nav>
