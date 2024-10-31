@@ -88,6 +88,11 @@ export const PageQuery = gql`
           ... on FlexibleSectionsFlexContentHeroPageSection5Layout {
             acfeFlexibleLayoutTitle
             fieldGroupName
+            testimonials {
+              fieldGroupName
+              testimonialText
+              testimonialBy
+            }
             image {
               node {
                 altText

@@ -3,15 +3,17 @@ import {
   FlexibleSectionsFlexContentHeroPageSection2Layout,
   FlexibleSectionsFlexContentHeroPageSection3Layout,
   FlexibleSectionsFlexContentHeroPageSection4Layout,
+  FlexibleSectionsFlexContentHeroPageSection5Layout,
   FlexibleSectionsFlexContentHeroSectionLayout,
   FlexibleSectionsFlexContentInfiniteSliderSectionLayout,
   FlexibleSectionsFlexContentLayout,
 } from "@/gql/graphql";
-import HeroSection from "../Sections/HeroSection";
+import HeroSection from "../Sections/HeroPage/HeroSection";
 import SliderSection from "../Sections/SliderSection";
-import Section2 from "../Sections/Section2";
-import Section3 from "../Sections/Section3";
-import Section4 from "../Sections/Section4";
+import Section2 from "../Sections/HeroPage/Section2";
+import Section3 from "../Sections/HeroPage/Section3";
+import Section4 from "../Sections/HeroPage/Section4";
+import Section5 from "../Sections/HeroPage/Section5";
 
 interface HeroPageProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
@@ -45,6 +47,12 @@ const HeroPage: React.FC<HeroPageProps> = ({ sections }) => {
       section.fieldGroupName ===
       "FlexibleSectionsFlexContentHeroPageSection4Layout"
   ) as FlexibleSectionsFlexContentHeroPageSection4Layout;
+
+  const section5 = sections.find(
+    (section) =>
+      section.fieldGroupName ===
+      "FlexibleSectionsFlexContentHeroPageSection5Layout"
+  ) as FlexibleSectionsFlexContentHeroPageSection5Layout;
   return (
     <div className="">
       <HeroSection section={heroSection} />
@@ -55,6 +63,7 @@ const HeroPage: React.FC<HeroPageProps> = ({ sections }) => {
       <Section2 section={section2} />
       <Section3 section={section3} />
       <Section4 section={section4} />
+      <Section5 section={section5} />
     </div>
   );
 };

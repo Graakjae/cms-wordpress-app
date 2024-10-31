@@ -1,8 +1,8 @@
 import { FlexibleSectionsFlexContentHeroPageSection4Layout } from "@/gql/graphql";
 import Image from "next/image";
-import { ButtonWithIcon } from "../ui/buttonWithIcon";
-import VideoComponent from "../ui/videoComponent";
-import { LinkButton } from "../ui/linkButton";
+import { ButtonWithIcon } from "../../ui/buttonWithIcon";
+import VideoComponent from "../../ui/videoComponent";
+import { LinkButton } from "../../ui/linkButton";
 interface Section4Props {
   section: FlexibleSectionsFlexContentHeroPageSection4Layout;
 }

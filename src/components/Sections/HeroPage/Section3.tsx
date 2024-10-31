@@ -1,10 +1,7 @@
-import {
-  FlexibleSectionsFlexContentHeroPageSection3Layout,
-  FlexibleSectionsFlexContentHeroSectionLayout,
-} from "@/gql/graphql";
-import { Button } from "../ui/button";
+import { FlexibleSectionsFlexContentHeroPageSection3Layout } from "@/gql/graphql";
 import Image from "next/image";
-import StarBeige from "../../public/star-beige.svg";
+import StarBeige from "../../../public/star-beige.svg";
+import { Button } from "@/components/ui/button";
 interface Section3Props {
   section: FlexibleSectionsFlexContentHeroPageSection3Layout;
 }

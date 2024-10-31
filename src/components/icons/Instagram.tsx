@@ -2,9 +2,9 @@ const InstagramIcon = () => (
   <div className="group transition-all duration-200 ease-in-out cursor-pointer w-[40px] h-[40px] bg-[#E6DAC7] rounded-full flex justify-center items-center hover:bg-PrimaryGold">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="18.598"
-      height="18.598"
-      viewBox="0 0 18.598 18.598"
+      width="19"
+      height="19"
+      viewBox="0 0 19 19"
     >
       <title id="instagramTitle">Instagram</title>
       <desc id="instagramDesc">Instagram icon</desc>
