@@ -59,13 +59,6 @@ export default async function Page({ params }: Props) {
       idType: isPreview ? "DATABASE_ID" : "URI",
     }
   );
-  console.log(
-    "contentNode",
-    await fetchGraphQL<{ contentNode: ContentNode }>(print(ContentInfoQuery), {
-      slug: isPreview ? slug.split("preview/")[1] : slug,
-      idType: isPreview ? "DATABASE_ID" : "URI",
-    })
-  );
 
   if (!contentNode) return notFound();
 

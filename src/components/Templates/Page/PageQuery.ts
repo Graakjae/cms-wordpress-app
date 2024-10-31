@@ -103,5 +103,26 @@ export const PageQuery = gql`
         }
       }
     }
+    blogs {
+      nodes {
+        blogContent {
+          fieldGroupName
+          postContent
+          subtitle
+          titel
+          blogPostImage {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+        }
+        categories {
+          nodes {
+            name
+          }
+        }
+      }
+    }
   }
 `;

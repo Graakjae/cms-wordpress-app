@@ -1,5 +1,6 @@
 import { print } from "graphql/language/printer";
 import {
+  Blog,
   ContentNode,
   FlexibleSectionsFlexContentLayout,
   Page,
@@ -8,6 +9,7 @@ import { fetchGraphQL } from "@/utils/fetchGraphQL";
 import { PageQuery } from "./PageQuery";
 import ProductsPage from "@/components/Pages/Products";
 import HeroPage from "@/components/Pages/HeroPage";
+import BlogPage from "@/components/Pages/BlogPage";
 
 interface TemplateProps {
   node: ContentNode;
@@ -17,9 +19,14 @@ export default async function PageTemplate({ node }: TemplateProps) {
   const { page } = await fetchGraphQL<{ page: Page }>(print(PageQuery), {
     id: node.databaseId,
   });
+  console.log("page", page);
   const sections = page?.flexibleSections?.flexContent?.map(
     (section) => section
   ) as FlexibleSectionsFlexContentLayout[];
+
+  const { blogs } = await fetchGraphQL<{ blogs: Blog }>(print(PageQuery), {
+    id: node.databaseId,
+  });
 
   const PageToRender = () => {
     switch (node.uri) {
@@ -27,6 +34,9 @@ export default async function PageTemplate({ node }: TemplateProps) {
         return <HeroPage sections={sections} />;
       case "/produkter/":
         return <ProductsPage sections={sections} />;
+      case "/blog/":
+        return <BlogPage sections={sections} blogs={blogs} />;
+
       default:
         return <p>Page not found</p>;
     }
