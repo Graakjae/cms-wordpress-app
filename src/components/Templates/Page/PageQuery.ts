@@ -100,6 +100,13 @@ export const PageQuery = gql`
               }
             }
           }
+          ... on FlexibleSectionsFlexContentBlogTopSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            subtitle
+            text
+            title
+          }
         }
       }
     }

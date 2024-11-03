@@ -4,16 +4,20 @@ import Link from "next/link";
 export function LinkButton({
   children,
   link,
+  color,
 }: {
   children: React.ReactNode;
   link: string;
+  color?: string;
 }) {
   return (
     <Link href={link}>
       <Button
         variant={"link"}
         size="link"
-        className="group overflow-visible relative"
+        className={`group overflow-visible relative text-[${
+          color || "#005e61"
+        }]`}
       >
         {children}
         <svg
@@ -25,7 +29,7 @@ export function LinkButton({
           <path
             className="transition-all duration-300 group-hover:translate-x-[32%] group-hover:transform-origin-left"
             d="M11.9854 13.5355L18.0209 7.5L11.9854 1.46448"
-            stroke="#005e61"
+            stroke={color || "#005e61"}
             stroke-width="1.5"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -33,7 +37,7 @@ export function LinkButton({
           <path
             className="transition-all duration-300 group-hover:scale-x-[1.3] group-hover:transform-origin-left"
             d="M17.6304 7.44983L0.999935 7.44983"
-            stroke="#005e61"
+            stroke={color || "#005e61"}
             stroke-width="1.5"
             stroke-linecap="round"
           />

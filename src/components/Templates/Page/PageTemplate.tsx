@@ -1,6 +1,7 @@
 import { print } from "graphql/language/printer";
 import {
   Blog,
+  BlogConnection,
   ContentNode,
   FlexibleSectionsFlexContentLayout,
   Page,
@@ -24,9 +25,12 @@ export default async function PageTemplate({ node }: TemplateProps) {
     (section) => section
   ) as FlexibleSectionsFlexContentLayout[];
 
-  const { blogs } = await fetchGraphQL<{ blogs: Blog }>(print(PageQuery), {
-    id: node.databaseId,
-  });
+  const { blogs } = await fetchGraphQL<{ blogs: BlogConnection }>(
+    print(PageQuery),
+    {
+      id: node.databaseId,
+    }
+  );
 
   const PageToRender = () => {
     switch (node.uri) {
