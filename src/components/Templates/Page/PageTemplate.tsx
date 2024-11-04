@@ -11,6 +11,7 @@ import { PageQuery } from "./PageQuery";
 import ProductsPage from "@/components/Pages/Products";
 import HeroPage from "@/components/Pages/HeroPage";
 import BlogPage from "@/components/Pages/BlogPage";
+import AtMiste from "@/components/Pages/AtMiste";
 
 interface TemplateProps {
   node: ContentNode;
@@ -40,6 +41,8 @@ export default async function PageTemplate({ node }: TemplateProps) {
         return <ProductsPage sections={sections} />;
       case "/blog/":
         return <BlogPage sections={sections} blogs={blogs} />;
+      case "/at-miste/":
+        return <AtMiste sections={sections} blogs={blogs} />;
 
       default:
         return <p>Page not found</p>;

@@ -12,25 +12,25 @@ import Image from "next/image";
 import { LinkButton } from "../ui/linkButton";
 import BlogTopSection from "../Sections/BlogTopSection";
 import BlogCard from "../ui/blogCard";
-import BlogPageAnimation from "../Animations/BlogPage";
+import AtMisteAnimation from "../Animations/AtMiste";
 
-interface BlogPageProps {
+interface AtMisteProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
   blogs: BlogConnection;
 }
 
-const BlogPage: React.FC<BlogPageProps> = ({ sections, blogs }) => {
+const AtMiste: React.FC<AtMisteProps> = ({ sections, blogs }) => {
   const blogTopSection = sections.find(
     (section) =>
       section.fieldGroupName ===
       "FlexibleSectionsFlexContentBlogTopSectionLayout"
   ) as FlexibleSectionsFlexContentBlogTopSectionLayout;
   return (
-    <div className="pt-[130px] bg-Beige">
+    <div className="pt-[130px] bg-PrimaryGreen">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex justify-between">
           <BlogTopSection section={blogTopSection} />
-          <BlogPageAnimation />
+          <AtMisteAnimation />
         </div>
         <div className="grid grid-cols-3 gap-[31px] relative">
           {blogs?.nodes.map((blog) => (
@@ -42,4 +42,4 @@ const BlogPage: React.FC<BlogPageProps> = ({ sections, blogs }) => {
   );
 };
 
-export default BlogPage;
+export default AtMiste;
