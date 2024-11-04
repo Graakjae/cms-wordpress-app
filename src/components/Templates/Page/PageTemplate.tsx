@@ -11,7 +11,7 @@ import { PageQuery } from "./PageQuery";
 import ProductsPage from "@/components/Pages/Products";
 import HeroPage from "@/components/Pages/HeroPage";
 import BlogPage from "@/components/Pages/BlogPage";
-import AtMiste from "@/components/Pages/AtMiste";
+import AtMistePage from "@/components/Pages/AtMistePage";
 
 interface TemplateProps {
   node: ContentNode;
@@ -33,6 +33,8 @@ export default async function PageTemplate({ node }: TemplateProps) {
     }
   );
 
+  console.log("sections", sections);
+
   const PageToRender = () => {
     switch (node.uri) {
       case "/":
@@ -42,8 +44,7 @@ export default async function PageTemplate({ node }: TemplateProps) {
       case "/blog/":
         return <BlogPage sections={sections} blogs={blogs} />;
       case "/at-miste/":
-        return <AtMiste sections={sections} blogs={blogs} />;
-
+        return <AtMistePage sections={sections} blogs={blogs} />;
       default:
         return <p>Page not found</p>;
     }

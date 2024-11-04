@@ -32,18 +32,17 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
-        <div className="mt-4 ">
+        <div className="">
           <p className="text-[22px] font-semibold mt-[14px]">
             {blog?.blogContent?.titel || "Default Title"}
           </p>
-          <p className="text-[18px] mb-[14px]">
+          <p className="text-[18px] mb-[14px] line-clamp-2">
             {blog?.blogContent?.subtitle || "Default Subtitle"}
           </p>
           <LinkButton color="black" link={`/blog/${blog.slug}`}>
             Læs mere
           </LinkButton>
         </div>
-        <div className="pt-[100%]"></div>
       </div>
     </div>
   );

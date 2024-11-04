@@ -14,17 +14,19 @@ import BlogTopSection from "../Sections/BlogTopSection";
 import BlogCard from "../ui/blogCard";
 import AtMisteAnimation from "../Animations/AtMiste";
 
-interface AtMisteProps {
+interface AtMistePageProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
   blogs: BlogConnection;
 }
 
-const AtMiste: React.FC<AtMisteProps> = ({ sections, blogs }) => {
+const AtMistePage: React.FC<AtMistePageProps> = ({ sections, blogs }) => {
+  console.log("blogs", sections);
   const blogTopSection = sections.find(
     (section) =>
       section.fieldGroupName ===
       "FlexibleSectionsFlexContentBlogTopSectionLayout"
   ) as FlexibleSectionsFlexContentBlogTopSectionLayout;
+
   return (
     <div className="pt-[130px] bg-PrimaryGreen">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
@@ -42,4 +44,4 @@ const AtMiste: React.FC<AtMisteProps> = ({ sections, blogs }) => {
   );
 };
 
-export default AtMiste;
+export default AtMistePage;
