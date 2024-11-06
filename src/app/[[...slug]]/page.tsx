@@ -60,6 +60,8 @@ export default async function Page({ params }: Props) {
     }
   );
 
+  console.log("contentNode", contentNode);
+
   if (!contentNode) return notFound();
 
   switch (contentNode.contentTypeName) {
@@ -68,6 +70,7 @@ export default async function Page({ params }: Props) {
     // case "blog":
     //   return <PostTemplate node={contentNode} />;
     case "blogpost":
+    case "at-miste-post":
       return <PostTemplate node={contentNode} />;
     default:
       return <p>{contentNode.contentTypeName} not implemented</p>;

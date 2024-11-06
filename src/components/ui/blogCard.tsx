@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { LinkButton } from "./linkButton";
 import { Blog } from "@/gql/graphql";
+import Link from "next/link";
 
 interface BlogCardProps {
   blog: Blog;
@@ -8,7 +9,8 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
   return (
-    <div
+    <Link
+      href={`/blogpost/${blog.slug}`}
       key={blog.id}
       className="w-[clamp(150px, 50%, 300px)] relative overflow-hidden"
     >
@@ -44,7 +46,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
           </LinkButton>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

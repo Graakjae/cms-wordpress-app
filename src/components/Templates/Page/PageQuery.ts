@@ -107,6 +107,22 @@ export const PageQuery = gql`
             text
             title
           }
+          ... on FlexibleSectionsFlexContentUnderBlogContentSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            link {
+              title
+              url
+            }
+            text
+            title
+            image {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+          }
         }
       }
     }
@@ -129,6 +145,7 @@ export const PageQuery = gql`
             name
           }
         }
+        slug
       }
     }
   }

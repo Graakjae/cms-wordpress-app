@@ -22,5 +22,25 @@ export const PostQuery = gql`
         }
       }
     }
+    atMistePost(id: $id, idType: DATABASE_ID, asPreview: $preview) {
+      blogContent {
+        blogPostImage {
+          node {
+            altText
+            sourceUrl
+          }
+        }
+        fieldGroupName
+        postContent
+        subtitle
+        titel
+        author
+      }
+      categories {
+        nodes {
+          name
+        }
+      }
+    }
   }
 `;

@@ -18,10 +18,7 @@ export async function fetchGraphQL<T = any>(
 
     const body = JSON.stringify({
       query,
-      variables: {
-        preview,
-        ...variables,
-      },
+      variables: variables ? { ...variables, preview } : { preview },
     });
 
     const response = await fetch(
@@ -42,20 +39,20 @@ export async function fetchGraphQL<T = any>(
     );
 
     if (!response.ok) {
-      console.error("Response Status:", response);
-      throw new Error(response.statusText);
+      console.error("Response Status:", response.status, response.statusText);
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const data = await response.json();
 
     if (data.errors) {
-      console.error("GraphQL Errors:", data.errors);
-      throw new Error("Error executing GraphQL query");
+      console.error("GraphQL Errors:", JSON.stringify(data.errors, null, 2));
+      throw new Error(`GraphQL errors: ${JSON.stringify(data.errors)}`);
     }
 
     return data.data;
   } catch (error) {
-    console.error(error);
+    console.error("Error in fetchGraphQL:", error);
     throw error;
   }
 }
