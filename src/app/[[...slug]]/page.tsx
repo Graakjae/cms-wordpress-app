@@ -48,9 +48,7 @@ export function generateStaticParams() {
 
 export default async function Page({ params }: Props) {
   const slug = nextSlugToWpSlug(params.slug);
-  console.log("slug", slug);
   const isPreview = slug.includes("preview");
-  console.log("isPreview", isPreview);
 
   const { contentNode } = await fetchGraphQL<{ contentNode: ContentNode }>(
     print(ContentInfoQuery),
@@ -59,8 +57,6 @@ export default async function Page({ params }: Props) {
       idType: isPreview ? "DATABASE_ID" : "URI",
     }
   );
-
-  console.log("contentNode", contentNode);
 
   if (!contentNode) return notFound();
 

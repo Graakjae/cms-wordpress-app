@@ -58,8 +58,6 @@ const BlogPage: React.FC<BlogPageProps> = ({ sections, blogs }) => {
     scrollToTop();
   };
 
-  console.log("blogs", blogs);
-
   return (
     <div className="pt-[130px] bg-Beige relative pb-[200px]">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">

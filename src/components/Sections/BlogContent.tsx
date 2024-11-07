@@ -11,7 +11,6 @@ interface BlogContentProps {
 const BlogContent: React.FC<BlogContentProps> = ({ blog }) => {
   const blogContent = blog?.blogContent;
   const category = blog?.categories?.nodes[0]?.name;
-  console.log("category", category);
 
   const formattedContent = blogContent?.postContent
     // Remove <p> tags wrapping <img> tags

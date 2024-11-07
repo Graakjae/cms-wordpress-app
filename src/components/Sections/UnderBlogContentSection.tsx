@@ -15,7 +15,6 @@ const UnderBlogContentSection: React.FC<UnderBlogContentSectionProps> = ({
   const formattedText = section.text
     ? section.text.replace(/<p>/g, "<p class='text-[18px] mb-[20px]'>")
     : "";
-  console.log("section", section);
   return (
     <div className="bg-Beige relative">
       <div className="flex max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">

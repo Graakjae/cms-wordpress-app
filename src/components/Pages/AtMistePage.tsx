@@ -20,7 +20,6 @@ interface AtMistePageProps {
 }
 
 const AtMistePage: React.FC<AtMistePageProps> = ({ sections, blogs }) => {
-  console.log("blogs", sections);
   const blogTopSection = sections.find(
     (section) =>
       section.fieldGroupName ===

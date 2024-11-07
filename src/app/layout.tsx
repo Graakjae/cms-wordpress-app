@@ -7,15 +7,52 @@ import Navigation from "@/components/Globals/Navigation/Navigation";
 import { PreviewNotice } from "@/components/Globals/PreviewNotice/PreviewNotice";
 import OverNavigation from "@/components/Globals/Navigation/OverNavigation";
 import Footer from "@/components/Globals/Navigation/Footer";
+import { fetchGraphQL } from "@/utils/fetchGraphQL";
+import { print } from "graphql/language/printer";
+import gql from "graphql-tag";
+import { RootQueryToMenuItemConnection } from "@/gql/graphql";
 
 const source = Source_Sans_3({ subsets: ["latin"] });
 
-export default function RootLayout({
+async function getData() {
+  const menuQuery = gql`
+    query GetMenus {
+      primaryMenu: menuItems(where: { location: PRIMARY_MENU }) {
+        nodes {
+          uri
+          target
+          label
+        }
+      }
+      rightMenu: menuItems(where: { location: RIGHT_MENU }) {
+        nodes {
+          uri
+          target
+          label
+        }
+      }
+    }
+  `;
+
+  const { primaryMenu, rightMenu } = await fetchGraphQL<{
+    primaryMenu: RootQueryToMenuItemConnection;
+    rightMenu: RootQueryToMenuItemConnection;
+  }>(print(menuQuery));
+
+  if (primaryMenu === null || rightMenu === null) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return { primaryMenu: primaryMenu.nodes, rightMenu: rightMenu.nodes };
+}
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const { isEnabled } = draftMode();
+  const { primaryMenu, rightMenu } = await getData();
 
   return (
     <html lang="en">
@@ -23,7 +60,7 @@ export default function RootLayout({
         {isEnabled && <PreviewNotice />}
         <div className="fixed top-0 z-50 w-full">
           <OverNavigation />
-          <Navigation />
+          <Navigation primaryMenu={primaryMenu} rightMenu={rightMenu} />
         </div>
         {children}
         <Footer />

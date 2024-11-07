@@ -24,7 +24,6 @@ export default async function PostTemplate({ node }: TemplateProps) {
         section?.fieldGroupName ===
         "GlobalFlexibleSectionsSectionsUnderBlogContentLayout"
     );
-  console.log("section", underBlogContentSection);
 
   const readMoreBlogsSection = globalBro.globalFlexibleSections?.sections?.find(
     (section) =>

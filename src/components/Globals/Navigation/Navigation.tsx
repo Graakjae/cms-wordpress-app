@@ -1,66 +1,54 @@
+"use client";
 import Link from "next/link";
-import { print } from "graphql/language/printer";
-import { MenuItem, RootQueryToMenuItemConnection } from "@/gql/graphql";
-import { fetchGraphQL } from "@/utils/fetchGraphQL";
-import gql from "graphql-tag";
+import { MenuItem } from "@/gql/graphql";
 import Image from "next/image";
-import Logo from "@/public/green-logo.svg";
-import SearchIcon from "@/public/search-icon.svg";
-import ShoppingIcon from "@/public/shopping-bag.svg";
+import LogoGreen from "@/public/green-logo.svg";
+import LogoBeige from "@/public/beige-logo.svg";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import SearchIcon from "@/components/icons/SearchIcon";
+import ShoppingBagIcon from "@/components/icons/ShoppingBagIcon";
 
-async function getData() {
-  const menuQuery = gql`
-    query GetMenus {
-      primaryMenu: menuItems(where: { location: PRIMARY_MENU }) {
-        nodes {
-          uri
-          target
-          label
-        }
-      }
-      rightMenu: menuItems(where: { location: RIGHT_MENU }) {
-        nodes {
-          uri
-          target
-          label
-        }
-      }
-    }
-  `;
-
-  const { primaryMenu, rightMenu } = await fetchGraphQL<{
-    primaryMenu: RootQueryToMenuItemConnection;
-    rightMenu: RootQueryToMenuItemConnection;
-  }>(print(menuQuery));
-
-  if (primaryMenu === null || rightMenu === null) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return { primaryMenu, rightMenu };
+interface NavigationProps {
+  primaryMenu: MenuItem[];
+  rightMenu: MenuItem[];
 }
 
-export default async function Navigation() {
-  const { primaryMenu, rightMenu } = await getData();
+export default function Navigation({
+  primaryMenu,
+  rightMenu,
+}: NavigationProps) {
+  const pathName = usePathname();
 
   return (
     <nav
-      className="w-full h-[90px] bg-white text-black shadow-custom"
+      className={`w-full h-[90px] shadow-custom ${
+        pathName === "/at-miste/" ? "bg-PrimaryGreen" : "bg-white"
+      } `}
       role="navigation"
       itemScope
       itemType="http://schema.org/SiteNavigationElement"
     >
       <div className="flex justify-between items-center h-[90px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex gap-20 w-[400px] ">
-          {primaryMenu.nodes.map((item: MenuItem, index: number) => {
+          {primaryMenu.map((item: MenuItem, index: number) => {
             if (!item.uri) return null;
+            const isActive = pathName === item.uri;
             return (
               <Link
                 itemProp="url"
                 href={item.uri}
                 key={index}
                 target={item.target || "_self"}
-                className="text-[18px]"
+                className={`text-[18px] ${
+                  isActive
+                    ? pathName === "/at-miste/"
+                      ? "text-Beige border-b border-Beige"
+                      : "text-PrimaryGreen border-b border-PrimaryGreen"
+                    : pathName === "/at-miste/"
+                    ? "text-white border-b border-PrimaryGreen hover:text-Beige hover:border-Beige cursor-pointer"
+                    : "text-black border-b border-white hover:text-PrimaryGreen hover:border-PrimaryGreen cursor-pointer"
+                }`}
               >
                 <span itemProp="name">{item.label}</span>
               </Link>
@@ -68,37 +56,41 @@ export default async function Navigation() {
           })}
         </div>
         <Link href="/">
-          <Image src={Logo} alt="logo" width={125} height={52} className="" />
+          <Image
+            src={pathName === "/at-miste/" ? LogoBeige : LogoGreen}
+            alt="logo"
+            width={125}
+            height={52}
+            className=""
+          />
         </Link>
         <div className="flex justify-end gap-20 w-[400px]">
-          {rightMenu.nodes.map((item: MenuItem, index: number) => {
+          {rightMenu.map((item: MenuItem, index: number) => {
             if (!item.uri) return null;
+            const isActive = pathName === item.uri;
             return (
               <Link
                 itemProp="url"
                 href={item.uri}
                 key={index}
                 target={item.target || "_self"}
+                className={`text-[18px] ${
+                  isActive
+                    ? pathName === "/at-miste/"
+                      ? "text-Beige border-b border-Beige"
+                      : "text-PrimaryGreen border-b border-PrimaryGreen"
+                    : pathName === "/at-miste/"
+                    ? "text-white border-b border-PrimaryGreen hover:text-Beige hover:border-Beige cursor-pointer"
+                    : "text-black border-b border-white hover:text-PrimaryGreen hover:border-PrimaryGreen cursor-pointer"
+                }`}
               >
                 <span itemProp="name">{item.label}</span>
               </Link>
             );
           })}
           <div className="flex gap-[38px] items-center">
-            <Image
-              src={SearchIcon}
-              alt="search"
-              width={23}
-              height={23}
-              className=""
-            />
-            <Image
-              src={ShoppingIcon}
-              alt="shopping"
-              width={23}
-              height={23}
-              className=""
-            />
+            <SearchIcon pathName={pathName} />
+            <ShoppingBagIcon pathName={pathName} />
           </div>
         </div>
       </div>

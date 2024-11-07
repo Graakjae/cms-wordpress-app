@@ -21,7 +21,6 @@ export default async function PageTemplate({ node }: TemplateProps) {
   const { page } = await fetchGraphQL<{ page: Page }>(print(PageQuery), {
     id: node.databaseId,
   });
-  console.log("page", page);
   const sections = page?.flexibleSections?.flexContent?.map(
     (section) => section
   ) as FlexibleSectionsFlexContentLayout[];
@@ -32,8 +31,6 @@ export default async function PageTemplate({ node }: TemplateProps) {
       id: node.databaseId,
     }
   );
-
-  console.log("sections", sections);
 
   const PageToRender = () => {
     switch (node.uri) {

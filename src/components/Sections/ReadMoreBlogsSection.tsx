@@ -13,12 +13,6 @@ const ReadMoreBlogsSection: React.FC<ReadMoreBlogsSectionProps> = ({
   section,
   blogs,
 }) => {
-  const getRandomBlogs = (blogsArray: typeof blogs.nodes, count: number) => {
-    const shuffled = blogsArray.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-  };
-
-  const randomBlogs = getRandomBlogs(blogs.nodes, 3);
   return (
     <div className="relative py-[150px]">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
