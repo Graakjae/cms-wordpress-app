@@ -100,6 +100,14 @@ export const PageQuery = gql`
               }
             }
           }
+          ... on FlexibleSectionsFlexContentProductsPageTopSectionLayout {
+            acfeFlexibleLayoutTitle
+            buttonText
+            fieldGroupName
+            subtitle
+            text
+            title
+          }
           ... on FlexibleSectionsFlexContentBlogTopSectionLayout {
             acfeFlexibleLayoutTitle
             fieldGroupName
@@ -143,9 +151,26 @@ export const PageQuery = gql`
         categories {
           nodes {
             name
+            id
           }
         }
         slug
+        id
+      }
+    }
+    products {
+      nodes {
+        ... on SimpleProduct {
+          id
+          name
+          price
+          slug
+        }
+        description
+        image {
+          altText
+          sourceUrl
+        }
       }
     }
   }

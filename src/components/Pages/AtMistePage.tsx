@@ -35,7 +35,7 @@ const AtMistePage: React.FC<AtMistePageProps> = ({ sections, blogs }) => {
         </div>
         <div className="grid grid-cols-3 gap-[31px] relative">
           {blogs?.nodes.map((blog) => (
-            <BlogCard key={blog.id} blog={blog} />
+            <BlogCard blog={blog} />
           ))}
         </div>
       </div>

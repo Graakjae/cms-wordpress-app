@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import SearchIcon from "@/components/icons/SearchIcon";
 import ShoppingBagIcon from "@/components/icons/ShoppingBagIcon";
+import Cart from "../Cart/Cart";
 
 interface NavigationProps {
   primaryMenu: MenuItem[];
@@ -91,6 +92,7 @@ export default function Navigation({
           <div className="flex gap-[38px] items-center">
             <SearchIcon pathName={pathName} />
             <ShoppingBagIcon pathName={pathName} />
+            <Cart />
           </div>
         </div>
       </div>

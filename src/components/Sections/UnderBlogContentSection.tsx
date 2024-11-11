@@ -5,6 +5,7 @@ import {
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { LinkButton } from "../ui/linkButton";
+import { formatContent } from "@/utils/formatContent";
 interface UnderBlogContentSectionProps {
   section: GlobalFlexibleSectionsSectionsUnderBlogContentLayout;
 }
@@ -12,9 +13,6 @@ interface UnderBlogContentSectionProps {
 const UnderBlogContentSection: React.FC<UnderBlogContentSectionProps> = ({
   section,
 }) => {
-  const formattedText = section.text
-    ? section.text.replace(/<p>/g, "<p class='text-[18px] mb-[20px]'>")
-    : "";
   return (
     <div className="bg-Beige relative">
       <div className="flex max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
@@ -31,7 +29,11 @@ const UnderBlogContentSection: React.FC<UnderBlogContentSectionProps> = ({
             <h2 className="text-[45px] font-semibold mb-[15px]">
               {section?.title}
             </h2>
-            <p dangerouslySetInnerHTML={{ __html: formattedText || "" }} />
+            <p
+              dangerouslySetInnerHTML={{
+                __html: formatContent(section?.text) || "",
+              }}
+            />
             <LinkButton link={section?.link?.url || ""}>
               {section?.link?.title}
             </LinkButton>

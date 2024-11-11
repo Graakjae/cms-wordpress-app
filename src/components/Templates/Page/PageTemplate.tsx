@@ -1,10 +1,10 @@
 import { print } from "graphql/language/printer";
 import {
-  Blog,
   BlogConnection,
   ContentNode,
   FlexibleSectionsFlexContentLayout,
   Page,
+  ProductConnection,
 } from "@/gql/graphql";
 import { fetchGraphQL } from "@/utils/fetchGraphQL";
 import { PageQuery } from "./PageQuery";
@@ -32,12 +32,19 @@ export default async function PageTemplate({ node }: TemplateProps) {
     }
   );
 
+  const { products } = await fetchGraphQL<{ products: ProductConnection }>(
+    print(PageQuery),
+    {
+      id: node.databaseId,
+    }
+  );
+
   const PageToRender = () => {
     switch (node.uri) {
       case "/":
         return <HeroPage sections={sections} />;
       case "/produkter/":
-        return <ProductsPage sections={sections} />;
+        return <ProductsPage sections={sections} products={products} />;
       case "/blog/":
         return <BlogPage sections={sections} blogs={blogs} />;
       case "/at-miste/":

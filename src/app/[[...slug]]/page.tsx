@@ -11,6 +11,7 @@ import PageTemplate from "@/components/Templates/Page/PageTemplate";
 import { nextSlugToWpSlug } from "@/utils/nextSlugToWpSlug";
 import PostTemplate from "@/components/Templates/Post/PostTemplate";
 import { SeoQuery } from "@/queries/general/SeoQuery";
+import SingleProductPage from "@/components/Templates/Product/SingleProductPage";
 
 type Props = {
   params: { slug: string };
@@ -68,6 +69,9 @@ export default async function Page({ params }: Props) {
     case "blogpost":
     case "at-miste-post":
       return <PostTemplate node={contentNode} />;
+    case "product":
+      return <SingleProductPage node={contentNode} />;
+
     default:
       return <p>{contentNode.contentTypeName} not implemented</p>;
   }

@@ -11,6 +11,7 @@ import { fetchGraphQL } from "@/utils/fetchGraphQL";
 import { print } from "graphql/language/printer";
 import gql from "graphql-tag";
 import { RootQueryToMenuItemConnection } from "@/gql/graphql";
+import { CartProvider } from "@/components/Globals/Cart/context/CartContext";
 
 const source = Source_Sans_3({ subsets: ["latin"] });
 
@@ -57,13 +58,15 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={source.className}>
-        {isEnabled && <PreviewNotice />}
-        <div className="fixed top-0 z-50 w-full">
-          <OverNavigation />
-          <Navigation primaryMenu={primaryMenu} rightMenu={rightMenu} />
-        </div>
-        {children}
-        <Footer />
+        <CartProvider>
+          {isEnabled && <PreviewNotice />}
+          <div className="fixed top-0 z-50 w-full">
+            <OverNavigation />
+            <Navigation primaryMenu={primaryMenu} rightMenu={rightMenu} />
+          </div>
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

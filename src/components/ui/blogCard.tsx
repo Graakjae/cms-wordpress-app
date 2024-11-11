@@ -8,21 +8,16 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
+  const category = blog?.categories?.nodes[0]?.name || "Aftenstjerner";
   return (
-    <Link
-      href={`/blogpost/${blog.slug}`}
-      key={blog.id}
+    <div
+      // href={`/blogpost/${blog.slug}`}
       className="w-[clamp(150px, 50%, 300px)] relative overflow-hidden"
     >
       <div className="bg-Beige/75 absolute top-5 right-0 py-[8px] z-10">
-        {blog?.categories?.nodes?.map((category) => (
-          <span
-            key={category?.id}
-            className="italic font-light text-[18px] px-[30px] "
-          >
-            {category?.name}
-          </span>
-        ))}
+        <span className="italic font-light text-[18px] px-[30px] ">
+          {category}
+        </span>
       </div>
       <div className="w-[clamp(150px, 50%, 300px)]">
         <div className="relative w-full pt-[80%] overflow-hidden">
@@ -46,7 +41,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
           </LinkButton>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

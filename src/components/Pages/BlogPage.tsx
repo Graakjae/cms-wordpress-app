@@ -70,7 +70,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ sections, blogs }) => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[31px] relative"
         >
           {currentBlogs.map((blog) => (
-            <BlogCard key={blog.id} blog={blog} />
+            <BlogCard blog={blog} key={blog.id} />
           ))}
         </div>
 

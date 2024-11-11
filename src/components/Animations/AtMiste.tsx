@@ -53,7 +53,7 @@ const AtMisteAnimation = () => (
         transform="translate(1333.5 179.5)"
         fill="none"
         stroke="#e6dac7"
-        stroke-width="1"
+        strokeWidth="1"
         className="svg-elem-5"
       ></line>
       <line
@@ -64,7 +64,7 @@ const AtMisteAnimation = () => (
         transform="translate(1294.5 332.5)"
         fill="none"
         stroke="#e6dac7"
-        stroke-width="1"
+        strokeWidth="1"
         className="svg-elem-6"
       ></line>
       <line
@@ -75,7 +75,7 @@ const AtMisteAnimation = () => (
         transform="translate(1473.5 337.5)"
         fill="none"
         stroke="#e6dac7"
-        stroke-width="1"
+        strokeWidth="1"
         className="svg-elem-7"
       ></line>
       <line
@@ -86,7 +86,7 @@ const AtMisteAnimation = () => (
         transform="translate(1799.5 263.5)"
         fill="none"
         stroke="#e6dac7"
-        stroke-width="1"
+        strokeWidth="1"
         className="svg-elem-8"
       ></line>
     </g>
