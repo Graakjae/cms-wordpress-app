@@ -46,15 +46,19 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    addToCart(product?.id, product?.name || "", product?.price || "", quantity);
+    addToCart(
+      product?.id,
+      product?.name || "",
+      product?.price || "",
+      quantity,
+      product?.galleryImages?.nodes[0]?.sourceUrl || ""
+    );
   };
 
   const specificationsAccordion = sections.find(
     (section) =>
       section.fieldGroupName === "FlexibleSectionsFlexContentAccordionLayout"
   ) as FlexibleSectionsFlexContentAccordionLayout;
-
-  console.log("specificationsAccordion", specificationsAccordion);
 
   return (
     <div className="pt-[60px] pb-[150px] flex justify-between max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">

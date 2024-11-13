@@ -12,6 +12,7 @@ import ProductsPage from "@/components/Pages/Products";
 import HeroPage from "@/components/Pages/HeroPage";
 import BlogPage from "@/components/Pages/BlogPage";
 import AtMistePage from "@/components/Pages/AtMistePage";
+import Kurv from "@/components/Pages/Kurv";
 
 interface TemplateProps {
   node: ContentNode;
@@ -49,6 +50,8 @@ export default async function PageTemplate({ node }: TemplateProps) {
         return <BlogPage sections={sections} blogs={blogs} />;
       case "/at-miste/":
         return <AtMistePage sections={sections} blogs={blogs} />;
+      case "/kurv/":
+        return <Kurv />;
       default:
         return <p>Page not found</p>;
     }

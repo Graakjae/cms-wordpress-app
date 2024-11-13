@@ -18,7 +18,6 @@ const ProductSection: React.FC<ProductSectionProps> = ({
   section,
   products,
 }) => {
-  console.log("products", products);
   return (
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 flex gap-20 py-[150px]">
       <div className="w-[30%] flex items-center">

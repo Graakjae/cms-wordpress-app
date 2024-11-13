@@ -8,6 +8,7 @@ export interface CartItem {
   name: string;
   price: string;
   quantity: number;
+  image: string; // Add image property
 }
 
 interface CartContextType {
@@ -16,9 +17,12 @@ interface CartContextType {
     productId: string,
     productName: string,
     productPrice: string,
-    quantity: number
+    quantity: number,
+    productImage: string // Add image parameter
   ) => void;
   removeFromCart: (productId: string) => void;
+  clearCart: () => void;
+  setCart: React.Dispatch<React.SetStateAction<CartItem[]>>; // Add setCart to the context type
 }
 
 export const CartContext = createContext<CartContextType | undefined>(
@@ -39,6 +43,14 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     return [];
   });
 
+  // Function to clear the cart
+  const clearCart = () => {
+    setCart([]);
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("cart");
+    }
+  };
+
   // Function to save the cart in localStorage
   const saveCartToLocalStorage = (cart: CartItem[]) => {
     if (typeof window !== "undefined") {
@@ -51,7 +63,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     productId: string,
     productName: string,
     productPrice: string,
-    quantity: number
+    quantity: number,
+    productImage: string // Add image parameter
   ) => {
     setCart((prevCart) => {
       const itemIndex = prevCart.findIndex((item) => item.id === productId);
@@ -67,7 +80,13 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         // Add new item to cart
         updatedCart = [
           ...prevCart,
-          { id: productId, name: productName, price: productPrice, quantity },
+          {
+            id: productId,
+            name: productName,
+            price: productPrice,
+            quantity,
+            image: productImage, // Add image property
+          },
         ];
       }
 
@@ -101,7 +120,9 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   }, []);
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, clearCart, setCart }} // Provide setCart in the context
+    >
       {children}
     </CartContext.Provider>
   );

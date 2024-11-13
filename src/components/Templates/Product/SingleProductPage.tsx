@@ -27,8 +27,6 @@ export default async function SingleProductPage({ node }: PageProps) {
     (section) => section
   ) as FlexibleSectionsFlexContentLayout[];
 
-  console.log("product", product);
-  console.log("sections", sections);
   return (
     <div className="mt-[130px]">
       <SingleProductSection product={product} sections={sections} />
