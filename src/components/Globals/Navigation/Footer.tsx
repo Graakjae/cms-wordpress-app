@@ -36,46 +36,46 @@ export default async function Footer() {
       </div>
       <div className="flex flex-col gap-[10px] mt-6">
         <p className="font-bold mb-1">Shop</p>
-        <Link href="/produkter/barnets-bog">
+        <Link href="/vare/barnets-bog">
           <p>Barnets bog</p>
         </Link>
-        <Link href="/produkter/barnets-bog">
+        <Link href="/vare/barnets-bog">
           <p>Mindeæske</p>
         </Link>
-        <Link href="/produkter/barnets-bog">
+        <Link href="/vare/barnets-bog">
           <p>Bundle</p>
         </Link>
-        <Link href="/produkter/barnets-bog">
+        <Link href="/vare/barnets-bog">
           <p>2. sortering</p>
         </Link>
       </div>
       <div className="flex flex-col gap-[10px] mt-6">
         <p className="font-bold mb-1">Læs mere</p>
-        <Link href="/produkter/barnets-bog">
+        <Link href="/at-miste">
           <p>At miste</p>
         </Link>
-        <Link href="/produkter/barnets-bog">
+        <Link href="/blog">
           <p>Blog</p>
         </Link>
-        <Link href="/produkter/barnets-bog">
+        <Link href="/historien">
           <p>Historien bag</p>
         </Link>
-        <Link href="/produkter/barnets-bog">
+        <Link href="/kontakt">
           <p>Offentlige/erhverv --pil</p>
         </Link>
       </div>
       <div className="flex flex-col gap-[10px] mt-6">
         <p className="font-bold mb-1">Information</p>
-        <Link href="/produkter/barnets-bog">
+        <Link href="/">
           <p>Handelsbetingelser</p>
         </Link>
-        <Link href="/produkter/barnets-bog">
+        <Link href="/">
           <p>Levering og retur</p>
         </Link>
-        <Link href="/produkter/barnets-bog">
+        <Link href="/">
           <p>Forlaget fortæl</p>
         </Link>
-        <Link href="/produkter/barnets-bog">
+        <Link href="/faq">
           <p>Ofte stillede spørgsmål</p>
         </Link>
       </div>

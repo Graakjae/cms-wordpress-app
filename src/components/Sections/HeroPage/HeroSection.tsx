@@ -2,6 +2,7 @@ import { FlexibleSectionsFlexContentHeroSectionLayout } from "@/gql/graphql";
 import { Button } from "../../ui/button";
 import Image from "next/image";
 import StarBeige from "../../../public/star-beige.svg";
+import Link from "next/link";
 interface HeroSectionProps {
   section: FlexibleSectionsFlexContentHeroSectionLayout;
 }
@@ -24,7 +25,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
           </h3>
           <p className="text-[18px] font-light">{section?.text1}</p>
           <p className="text-[18px] mt-[20px]">{section?.text2}</p>
-          <Button className="mt-[50px]">{section?.buttonText}</Button>
+          <Link href="/vare/barnets-bog">
+            <Button className="mt-[50px]">{section?.buttonText}</Button>
+          </Link>
         </div>
       </div>
       <Image

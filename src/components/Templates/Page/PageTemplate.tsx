@@ -59,6 +59,10 @@ export default async function PageTemplate({ node }: TemplateProps) {
         return <AtMistePage sections={sections} blogs={blogs} />;
       case "/kurv/":
         return <Kurv />;
+      case "/kontakt/":
+        return <>CONTACT PAGE</>;
+      case "/historien/":
+        return <>HISTORY</>;
       default:
         return <p>Page not found</p>;
     }
