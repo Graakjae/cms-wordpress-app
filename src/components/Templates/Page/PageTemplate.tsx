@@ -1,3 +1,4 @@
+// Pages.tsx
 import { print } from "graphql/language/printer";
 import {
   BlogConnection,
@@ -22,23 +23,29 @@ export default async function PageTemplate({ node }: TemplateProps) {
   const { page } = await fetchGraphQL<{ page: Page }>(print(PageQuery), {
     id: node.databaseId,
   });
-  const sections = page?.flexibleSections?.flexContent?.map(
-    (section) => section
-  ) as FlexibleSectionsFlexContentLayout[];
 
-  const { blogs } = await fetchGraphQL<{ blogs: BlogConnection }>(
-    print(PageQuery),
-    {
-      id: node.databaseId,
-    }
-  );
+  const sections = page?.flexibleSections
+    ?.flexContent as FlexibleSectionsFlexContentLayout[];
+  let blogs: BlogConnection;
+  let products: ProductConnection;
 
-  const { products } = await fetchGraphQL<{ products: ProductConnection }>(
-    print(PageQuery),
-    {
-      id: node.databaseId,
-    }
-  );
+  if (node.uri === "/blog/") {
+    ({ blogs } = await fetchGraphQL<{ blogs: BlogConnection }>(
+      print(PageQuery),
+      {
+        id: node.databaseId,
+      }
+    ));
+  }
+
+  if (node.uri === "/produkter/") {
+    ({ products } = await fetchGraphQL<{ products: ProductConnection }>(
+      print(PageQuery),
+      {
+        id: node.databaseId,
+      }
+    ));
+  }
 
   const PageToRender = () => {
     switch (node.uri) {
@@ -61,35 +68,29 @@ export default async function PageTemplate({ node }: TemplateProps) {
 }
 
 export async function getStaticPaths() {
-  // Fetch all pages or slugs
   const response = await fetchGraphQL<{ pages: Array<{ slug: string }> }>(
     print(PageQuery)
   );
-  const pages = response?.pages; // Accessing `data` property safely
+  const pages = response?.pages || [];
 
-  // Create paths array
-  const paths =
-    pages?.map((page) => ({
-      params: { slug: page.slug },
-    })) || [];
+  const paths = pages.map((page) => ({
+    params: { slug: page.slug },
+  }));
 
   return {
     paths,
-    fallback: false, // fallback can be true or false depending on your strategy
+    fallback: false,
   };
 }
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
-  // Fetch the page data dynamically using the slug
   const response = await fetchGraphQL<{ page: Page }>(print(PageQuery), {
-    id: params.slug, // assuming you're fetching by slug
+    id: params.slug,
   });
-
-  const page = response?.page; // Accessing `data` safely
 
   return {
     props: {
-      page,
+      page: response?.page || null,
     },
   };
 }
