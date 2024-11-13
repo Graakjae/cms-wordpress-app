@@ -7,8 +7,8 @@ import arrowRight from "@/public/arrow-right-black.svg";
 export default function OverNavigation() {
   const links = [
     { href: "/", text: "Til minde for vores små aftenstjerner" },
-    { href: "/about", text: "Til forældre der har mistet et spædbarn" },
-    { href: "/contact", text: "Gratis fragt på alle varer på aftenstjerner" },
+    { href: "/", text: "Til forældre der har mistet et spædbarn" },
+    { href: "/", text: "Gratis fragt på alle varer på aftenstjerner" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
