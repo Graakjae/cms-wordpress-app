@@ -40,7 +40,6 @@ export default function Navigation({
                 itemProp="url"
                 href={item.uri}
                 key={index}
-                target={item.target || "_self"}
                 className={`text-[18px] ${
                   isActive
                     ? pathName === "/at-miste/"
@@ -63,6 +62,7 @@ export default function Navigation({
             width={125}
             height={52}
             className=""
+            priority
           />
         </Link>
         <div className="flex justify-end gap-20 w-[400px]">
@@ -74,7 +74,6 @@ export default function Navigation({
                 itemProp="url"
                 href={item.uri}
                 key={index}
-                target={item.target || "_self"}
                 className={`text-[18px] ${
                   isActive
                     ? pathName === "/at-miste/"
@@ -91,8 +90,7 @@ export default function Navigation({
           })}
           <div className="flex gap-[38px] items-center">
             <SearchIcon pathName={pathName} />
-            <ShoppingBagIcon pathName={pathName} />
-            <Cart />
+            <Cart pathName={pathName} />
           </div>
         </div>
       </div>

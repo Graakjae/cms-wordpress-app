@@ -1,11 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useCart } from "./useCart";
+import ShoppingBagIcon from "@/components/icons/ShoppingBagIcon";
+import CrossIcon from "@/components/icons/Cross";
+import Link from "next/link";
 
-const Cart = () => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const { cart } = useCart();
-  const { removeFromCart } = useCart();
+interface CartProps {
+  pathName: string;
+}
+
+const Cart: React.FC<CartProps> = ({ pathName }) => {
+  const { cart, removeFromCart } = useCart();
   const [totalQuantity, setTotalQuantity] = useState(0);
 
   useEffect(() => {
@@ -13,32 +18,16 @@ const Cart = () => {
     const total = cart.reduce((total, item) => total + item.quantity, 0);
     setTotalQuantity(total);
   }, [cart]);
-  const handleRemoveFromCart = (productId: string) => {
-    removeFromCart(productId);
-  };
 
   return (
-    <div className="relative" onClick={() => setIsCartOpen(!isCartOpen)}>
-      <h2 className="cursor-pointer">{totalQuantity}</h2>
-      {isCartOpen && (
-        <div className="absolute bg-white p-4 shadow-lg mx-auto left-1/2 transform -translate-x-1/2">
-          {cart.map((item) => (
-            <div key={item.id} className="flex justify-between gap-[20px]">
-              <h3>{item.name}</h3>
-              <p>{item.price}</p>
-              <p>{item.quantity}</p>
-              <p
-                className="cursor-pointer"
-                onClick={() => handleRemoveFromCart(item.id)}
-              >
-                X
-              </p>
-            </div>
-          ))}
-          <p>Gå til betaling</p>
+    <Link href="/kurv" className="relative pr-[7px] pt-[7px] mt-[-7px]">
+      <ShoppingBagIcon pathName={pathName} />
+      <div className="absolute right-0 top-0">
+        <div className="bg-Beige w-[19px] h-[19px] rounded-full flex justify-center items-center">
+          <h2 className="cursor-pointer">{totalQuantity}</h2>
         </div>
-      )}
-    </div>
+      </div>
+    </Link>
   );
 };
 

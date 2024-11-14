@@ -47,6 +47,8 @@ export default async function PageTemplate({ node }: TemplateProps) {
     ));
   }
 
+  console.log("sections44", sections);
+
   const PageToRender = () => {
     switch (node.uri) {
       case "/":

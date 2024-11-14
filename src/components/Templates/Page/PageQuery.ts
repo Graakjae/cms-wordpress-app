@@ -20,17 +20,7 @@ export const PageQuery = gql`
               }
             }
           }
-          ... on FlexibleSectionsFlexContentProductSectionLayout {
-            acfeFlexibleLayoutTitle
-            fieldGroupName
-            productHeader
-            productImage {
-              node {
-                sourceUrl
-                altText
-              }
-            }
-          }
+
           ... on FlexibleSectionsFlexContentInfiniteSliderSectionLayout {
             acfeFlexibleLayoutTitle
             fieldGroupName
@@ -108,6 +98,23 @@ export const PageQuery = gql`
             text
             title
           }
+          ... on FlexibleSectionsFlexContentProductsPageSection2Layout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            image {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+          }
+          ... on FlexibleSectionsFlexContentProductsSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            subtitle
+            text
+            title
+          }
           ... on FlexibleSectionsFlexContentBlogTopSectionLayout {
             acfeFlexibleLayoutTitle
             fieldGroupName
@@ -165,7 +172,24 @@ export const PageQuery = gql`
           name
           price
           slug
+          galleryImages {
+            nodes {
+              altText
+              sourceUrl
+            }
+          }
+          flexibleSections {
+            flexContent {
+              ... on FlexibleSectionsFlexContentProductImageHoverLayout {
+                acfeFlexibleLayoutTitle
+                fieldGroupName
+                hoverText
+              }
+            }
+            fieldGroupName
+          }
         }
+
         description
         image {
           altText
