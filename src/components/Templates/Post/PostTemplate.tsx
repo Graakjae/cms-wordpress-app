@@ -1,5 +1,10 @@
 import { print } from "graphql/language/printer";
-import { Blog, BlogConnection, ContentNode, GlobalBro } from "@/gql/graphql";
+import {
+  Blog,
+  BlogConnection,
+  ContentNode,
+  GlobalSections,
+} from "@/gql/graphql";
 import { fetchGraphQL } from "@/utils/fetchGraphQL";
 import { PostQuery } from "./PostQuery";
 import BlogContent from "@/components/Sections/BlogContent";
@@ -13,22 +18,23 @@ interface TemplateProps {
 }
 
 export default async function PostTemplate({ node }: TemplateProps) {
-  const { globalBro } = await fetchGraphQL<{ globalBro: GlobalBro }>(
-    print(GlobalQuery)
-  );
+  const { globalSections } = await fetchGraphQL<{
+    globalSections: GlobalSections;
+  }>(print(GlobalQuery));
 
   const underBlogContentSection =
-    globalBro.globalFlexibleSections?.sections?.find(
+    globalSections.globalFlexibleSections?.sections?.find(
       (section) =>
         section?.fieldGroupName ===
         "GlobalFlexibleSectionsSectionsUnderBlogContentLayout"
     );
 
-  const readMoreBlogsSection = globalBro.globalFlexibleSections?.sections?.find(
-    (section) =>
-      section?.fieldGroupName ===
-      "GlobalFlexibleSectionsSectionsReadMoreBlogsLayout"
-  );
+  const readMoreBlogsSection =
+    globalSections.globalFlexibleSections?.sections?.find(
+      (section) =>
+        section?.fieldGroupName ===
+        "GlobalFlexibleSectionsSectionsReadMoreBlogsLayout"
+    );
 
   const { blog } = await fetchGraphQL<{ blog: Blog }>(print(PostQuery), {
     id: node.databaseId,

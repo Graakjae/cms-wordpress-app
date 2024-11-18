@@ -1,10 +1,10 @@
 "use client";
-import { FlexibleSectionsFlexContentInfiniteSliderSectionLayout } from "@/gql/graphql";
+import { GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout } from "@/gql/graphql";
 import Image from "next/image";
 import { useEffect } from "react";
 
 interface SliderSectionProps {
-  section: FlexibleSectionsFlexContentInfiniteSliderSectionLayout;
+  section: GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout;
 }
 
 const SliderSection: React.FC<SliderSectionProps> = ({ section }) => {

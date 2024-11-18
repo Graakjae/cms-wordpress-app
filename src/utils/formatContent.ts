@@ -1,10 +1,27 @@
+import DOMPurify from "dompurify";
+
+let DOMPurifyInstance: typeof DOMPurify;
+
+if (typeof window === "undefined") {
+  // Server-side usage
+  const { JSDOM } = require("jsdom");
+  const window = new JSDOM("").window;
+  DOMPurifyInstance = DOMPurify(window);
+} else {
+  // Client-side usage
+  DOMPurifyInstance = DOMPurify;
+}
+
 export function formatContent(
   content: string | undefined | null
 ): string | undefined | null {
   if (!content) return content;
 
+  // Sanitize the content
+  const sanitizedContent = DOMPurifyInstance.sanitize(content);
+
   return (
-    content
+    sanitizedContent
       // Remove <p> tags wrapping <img> tags
       .replace(/<p>(\s*<img [^>]+>\s*)<\/p>/g, "$1")
       // Ensure every <img> tag has the py-[50px] class, merging with existing classes if present

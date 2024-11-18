@@ -27,6 +27,76 @@ export const ProductQuery = gql`
               specificationText
             }
           }
+          ... on FlexibleSectionsFlexContentInformationSectionLayout {
+            acfeFlexibleLayoutTitle
+            buttonText
+            fieldGroupName
+            rightBigText
+            text
+            title
+          }
+          ... on FlexibleSectionsFlexContentUnderProductSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            image {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+            subsection1Text
+            subsection1Title
+            subsection2Text
+            subsection2Title
+            subtitle
+            title
+          }
+          ... on FlexibleSectionsFlexContentBigPictureSectionLayout {
+            acfeFlexibleLayoutTitle
+            background
+            image {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+            fieldGroupName
+          }
+          ... on FlexibleSectionsFlexContentStarAnimationLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            text
+            text2
+          }
+          ... on FlexibleSectionsFlexContentMoreAboutTheProductSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            subsection1Text
+            subsection1Title
+            subsection2Text
+            subsection2Title
+            subsection3Text
+            subsection3Title
+            title
+          }
+          ... on FlexibleSectionsFlexContentCtaSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            linkButtonText {
+              title
+              url
+              target
+            }
+            image {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+            subtitle
+            text
+            title
+          }
         }
       }
     }

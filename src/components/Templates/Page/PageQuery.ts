@@ -66,13 +66,12 @@ export const PageQuery = gql`
               }
             }
           }
-          ... on FlexibleSectionsFlexContentHeroPageSection4Layout {
+          ... on FlexibleSectionsFlexContentInformationSectionLayout {
             acfeFlexibleLayoutTitle
             buttonText
             fieldGroupName
             rightBigText
             text
-            text2
             title
           }
           ... on FlexibleSectionsFlexContentHeroPageSection5Layout {
@@ -114,6 +113,12 @@ export const PageQuery = gql`
             subtitle
             text
             title
+          }
+          ... on FlexibleSectionsFlexContentStarAnimationLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            text
+            text2
           }
           ... on FlexibleSectionsFlexContentBlogTopSectionLayout {
             acfeFlexibleLayoutTitle

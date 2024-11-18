@@ -4,6 +4,7 @@ import {
   BlogConnection,
   ContentNode,
   FlexibleSectionsFlexContentLayout,
+  GlobalSections,
   Page,
   ProductConnection,
 } from "@/gql/graphql";
@@ -14,6 +15,7 @@ import HeroPage from "@/components/Pages/HeroPage";
 import BlogPage from "@/components/Pages/BlogPage";
 import AtMistePage from "@/components/Pages/AtMistePage";
 import Kurv from "@/components/Pages/Kurv";
+import { GlobalQuery } from "./GlobalQuery";
 
 interface TemplateProps {
   node: ContentNode;
@@ -23,6 +25,10 @@ export default async function PageTemplate({ node }: TemplateProps) {
   const { page } = await fetchGraphQL<{ page: Page }>(print(PageQuery), {
     id: node.databaseId,
   });
+
+  const { globalSections } = await fetchGraphQL<{
+    globalSections: GlobalSections;
+  }>(print(GlobalQuery));
 
   const sections = page?.flexibleSections
     ?.flexContent as FlexibleSectionsFlexContentLayout[];
@@ -47,12 +53,10 @@ export default async function PageTemplate({ node }: TemplateProps) {
     ));
   }
 
-  console.log("sections44", sections);
-
   const PageToRender = () => {
     switch (node.uri) {
       case "/":
-        return <HeroPage sections={sections} />;
+        return <HeroPage sections={sections} globalSections={globalSections} />;
       case "/produkter/":
         return <ProductsPage sections={sections} products={products} />;
       case "/blog/":

@@ -26,7 +26,6 @@ const ProductTopSection: React.FC<ProductTopSectionProps> = ({
     (product) => product.id === "cHJvZHVjdDoxMDg1"
   ) as SimpleProduct;
 
-  console.log("barnetsBog", products);
   return (
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 flex gap-20 py-[150px]">
       <div className="w-[30%] flex items-center">

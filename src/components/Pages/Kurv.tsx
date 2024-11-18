@@ -38,8 +38,6 @@ export default function Kurv() {
     });
   };
 
-  console.log("cartkurv", cart);
-
   const handleCheckout = async () => {
     const cartItems = cart.map((item) => ({
       product_id: item.id,

@@ -5,17 +5,18 @@ import {
   FlexibleSectionsFlexContentProductsPageSection2Layout,
   FlexibleSectionsFlexContentProductsPageTopSectionLayout,
   FlexibleSectionsFlexContentProductsSectionLayout,
+  FlexibleSectionsFlexContentStarAnimationLayout,
   ProductConnection,
 } from "@/gql/graphql";
 import Section2ProductsPage from "../Sections/ProductsPage/Section2";
 import ProductSection from "../Sections/Products";
+import StarAnimationSection from "../Sections/StarAnimationSection";
 
 interface ProductsPageProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
   products: ProductConnection;
 }
 const ProductsPage: React.FC<ProductsPageProps> = ({ sections, products }) => {
-  console.log("sections222", sections);
   const productsTopSection = sections.find(
     (section) =>
       section.fieldGroupName ===
@@ -34,12 +35,18 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ sections, products }) => {
       "FlexibleSectionsFlexContentProductsSectionLayout"
   ) as FlexibleSectionsFlexContentProductsSectionLayout;
 
-  console.log("section23", section2);
+  const starAnimation = sections.find(
+    (section) =>
+      section.fieldGroupName ===
+      "FlexibleSectionsFlexContentStarAnimationLayout"
+  ) as FlexibleSectionsFlexContentStarAnimationLayout;
+
   return (
     <div className="mt-[130px]">
       <ProductsTopSection section={productsTopSection} products={products} />
       <Section2ProductsPage section={section2} products={products} />
       <ProductSection section={productsSection} products={products} />
+      <StarAnimationSection section={starAnimation} />
     </div>
   );
 };

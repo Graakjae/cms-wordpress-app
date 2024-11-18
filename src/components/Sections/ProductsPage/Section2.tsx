@@ -21,7 +21,6 @@ const Section2ProductsPage: React.FC<Section2ProductsPageProps> = ({
   const product = products?.nodes?.find(
     (product) => product.id === "cHJvZHVjdDoxMTA3"
   ) as SimpleProduct;
-  console.log("sec222", section);
   return (
     <div className="bg-PrimaryGreen relative">
       <div className="flex">

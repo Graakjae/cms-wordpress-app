@@ -13,7 +13,6 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  console.log("product", product);
   const [isHovered, setIsHovered] = useState(false);
 
   const firstImage: MediaItem | undefined = product?.galleryImages?.nodes[0];

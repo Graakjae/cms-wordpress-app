@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 export const GlobalQuery = gql`
   query GlobalQuery {
-    globalBro {
+    globalSections {
       globalFlexibleSections {
         fieldGroupName
         sections {
@@ -27,6 +27,18 @@ export const GlobalQuery = gql`
             link {
               title
               url
+            }
+          }
+          ... on GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout {
+            fieldGroupName
+            mentionedIn {
+              fieldGroupName
+              logo {
+                node {
+                  altText
+                  sourceUrl
+                }
+              }
             }
           }
         }

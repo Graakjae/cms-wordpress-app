@@ -19,8 +19,6 @@ import {
 import { useCart } from "../Globals/Cart/useCart";
 import PlusIcon from "../icons/Plus";
 import MinusIcon from "../icons/Minus";
-import Goldstar from "@/public/small-goldstar.svg";
-import InstagramIcon from "../icons/Instagram";
 import SmallGoldStarIcon from "../icons/SmallGoldStar";
 
 interface SingleProductSectionProps {
@@ -55,7 +53,7 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
     );
   };
 
-  const specificationsAccordion = sections.find(
+  const specificationsAccordion = sections?.find(
     (section) =>
       section.fieldGroupName === "FlexibleSectionsFlexContentAccordionLayout"
   ) as FlexibleSectionsFlexContentAccordionLayout;
