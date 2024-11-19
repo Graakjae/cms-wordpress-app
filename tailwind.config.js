@@ -24,6 +24,9 @@ module.exports = {
         SecondaryGreen: "#83C4AE",
         SecondaryGreenHover: "#6CAD97",
       },
+      fontFamily: {
+        greatVibes: ["Great Vibes", "cursive"],
+      },
       keyframes: {
         dropIn: {
           "0%": {

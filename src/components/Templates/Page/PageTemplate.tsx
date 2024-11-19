@@ -1,6 +1,7 @@
 // Pages.tsx
 import { print } from "graphql/language/printer";
 import {
+  ArticleConnection,
   BlogConnection,
   ContentNode,
   FlexibleSectionsFlexContentLayout,
@@ -16,6 +17,8 @@ import BlogPage from "@/components/Pages/BlogPage";
 import AtMistePage from "@/components/Pages/AtMistePage";
 import Kurv from "@/components/Pages/Kurv";
 import { GlobalQuery } from "./GlobalQuery";
+import ContactPage from "@/components/Pages/Kontakt";
+import HistoryPage from "@/components/Pages/Historien";
 
 interface TemplateProps {
   node: ContentNode;
@@ -34,9 +37,19 @@ export default async function PageTemplate({ node }: TemplateProps) {
     ?.flexContent as FlexibleSectionsFlexContentLayout[];
   let blogs: BlogConnection;
   let products: ProductConnection;
+  let articles: ArticleConnection;
 
-  if (node.uri === "/blog/") {
+  if (node.uri === "/blog/" || "/historien/" || "/at-miste/") {
     ({ blogs } = await fetchGraphQL<{ blogs: BlogConnection }>(
+      print(PageQuery),
+      {
+        id: node.databaseId,
+      }
+    ));
+  }
+
+  if (node.uri === "/blog/" || "/historien/" || "/at-miste/") {
+    ({ articles } = await fetchGraphQL<{ articles: ArticleConnection }>(
       print(PageQuery),
       {
         id: node.databaseId,
@@ -66,9 +79,16 @@ export default async function PageTemplate({ node }: TemplateProps) {
       case "/kurv/":
         return <Kurv />;
       case "/kontakt/":
-        return <>CONTACT PAGE</>;
+        return <ContactPage sections={sections} />;
       case "/historien/":
-        return <>HISTORY</>;
+        return (
+          <HistoryPage
+            sections={sections}
+            blogs={blogs}
+            articles={articles}
+            globalSections={globalSections}
+          />
+        );
       default:
         return <p>Page not found</p>;
     }

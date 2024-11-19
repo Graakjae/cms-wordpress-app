@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { FlexibleSectionsFlexContentHeroPageSection5Layout } from "@/gql/graphql";
 import Image from "next/image";
+import QuoteIcon from "@/components/icons/QuoteIcon";
 
 interface Section5Props {
   section: FlexibleSectionsFlexContentHeroPageSection5Layout;
@@ -37,11 +38,19 @@ const Section5: React.FC<Section5Props> = ({ section }) => {
           <div className="w-[530px]">
             <div className=" text-white">
               {testimonials.length > 0 && (
-                <div key={currentIndex}>
-                  <p className="text-[35px] text-center">
-                    {testimonials[currentIndex]?.testimonialText}
-                  </p>
-                  <p className="text-[18px] font-extralight mt-[40px] text-center">
+                <div key={currentIndex} className="">
+                  <div className="relative py-[40px]">
+                    <div className="absolute top-0 left-0">
+                      <QuoteIcon />
+                    </div>
+                    <p className="text-[35px] text-center">
+                      {testimonials[currentIndex]?.testimonialText}
+                    </p>
+                    <div className="absolute bottom-0 right-0">
+                      <QuoteIcon />
+                    </div>
+                  </div>
+                  <p className="text-[18px] font-extralight text-center">
                     - {testimonials[currentIndex]?.testimonialBy}
                   </p>
                 </div>

@@ -6,7 +6,7 @@ import {
 import React from "react";
 import { formatContent } from "@/utils/formatContent";
 import ProductCard from "../ui/productCard";
-import ConnectingStars from "../icons/Instagram copy";
+import ConnectingStars from "../icons/ConnectingStars";
 
 interface ProductSectionProps {
   section: FlexibleSectionsFlexContentProductsSectionLayout;

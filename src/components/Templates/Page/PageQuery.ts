@@ -10,7 +10,10 @@ export const PageQuery = gql`
             fieldGroupName
             title
             subtitle
-            buttonText
+            buttonText {
+              title
+              url
+            }
             text1
             text2
             image {
@@ -36,7 +39,10 @@ export const PageQuery = gql`
           }
           ... on FlexibleSectionsFlexContentHeroPageSection2Layout {
             acfeFlexibleLayoutTitle
-            buttonText
+            buttonText {
+              title
+              url
+            }
             fieldGroupName
             leftImage {
               node {
@@ -53,7 +59,10 @@ export const PageQuery = gql`
           }
           ... on FlexibleSectionsFlexContentHeroPageSection3Layout {
             acfeFlexibleLayoutTitle
-            buttonText
+            buttonText {
+              title
+              url
+            }
             subtitle
             text
             text2
@@ -68,7 +77,10 @@ export const PageQuery = gql`
           }
           ... on FlexibleSectionsFlexContentInformationSectionLayout {
             acfeFlexibleLayoutTitle
-            buttonText
+            buttonText {
+              title
+              url
+            }
             fieldGroupName
             rightBigText
             text
@@ -91,7 +103,10 @@ export const PageQuery = gql`
           }
           ... on FlexibleSectionsFlexContentProductsPageTopSectionLayout {
             acfeFlexibleLayoutTitle
-            buttonText
+            buttonText {
+              title
+              url
+            }
             fieldGroupName
             subtitle
             text
@@ -112,6 +127,43 @@ export const PageQuery = gql`
             fieldGroupName
             subtitle
             text
+            title
+          }
+          ... on FlexibleSectionsFlexContentContactTopSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            mail
+            text
+            title
+            image {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+          }
+          ... on FlexibleSectionsFlexContentHistoryTopSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            buttonText {
+              title
+              url
+            }
+            image {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+            text
+            title
+          }
+          ... on FlexibleSectionsFlexContentMyHistorySectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            subtitle
+            text1
+            text2
             title
           }
           ... on FlexibleSectionsFlexContentStarAnimationLayout {
@@ -143,6 +195,24 @@ export const PageQuery = gql`
               }
             }
           }
+          ... on FlexibleSectionsFlexContentMoreBlogsSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            title
+            link {
+              title
+              url
+            }
+          }
+          ... on FlexibleSectionsFlexContentArticlesSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            link {
+              title
+              url
+            }
+            title
+          }
         }
       }
     }
@@ -168,6 +238,30 @@ export const PageQuery = gql`
         }
         slug
         id
+      }
+    }
+    articles {
+      nodes {
+        articleContent {
+          fieldGroupName
+          image {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+          linkToArticle {
+            title
+            url
+          }
+          logo {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+          shortText
+        }
       }
     }
     products {

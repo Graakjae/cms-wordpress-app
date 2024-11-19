@@ -34,7 +34,7 @@ const UnderBlogContentSection: React.FC<UnderBlogContentSectionProps> = ({
                 __html: formatContent(section?.text) || "",
               }}
             />
-            <LinkButton link={section?.link?.url || ""}>
+            <LinkButton color="black" link={section?.link?.url || ""}>
               {section?.link?.title}
             </LinkButton>
           </div>

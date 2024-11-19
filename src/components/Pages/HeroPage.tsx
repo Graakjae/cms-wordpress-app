@@ -16,6 +16,7 @@ import Section2 from "../Sections/HeroPage/Section2";
 import Section3 from "../Sections/HeroPage/Section3";
 import InformationSection from "../Sections/InformationSection";
 import Section5 from "../Sections/HeroPage/Section5";
+import Divider from "../ui/divider";
 
 interface HeroPageProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
@@ -61,9 +62,7 @@ const HeroPage: React.FC<HeroPageProps> = ({ sections, globalSections }) => {
     <div className="">
       <HeroSection section={heroSection} />
       <SliderSection section={infiniteSliderSection} />
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
-        <div className="border-b border-[#C6C6C6]"></div>
-      </div>
+      <Divider />
       <Section2 section={section2} />
       <Section3 section={section3} />
       <InformationSection section={informationSection} />

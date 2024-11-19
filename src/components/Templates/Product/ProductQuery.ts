@@ -29,7 +29,10 @@ export const ProductQuery = gql`
           }
           ... on FlexibleSectionsFlexContentInformationSectionLayout {
             acfeFlexibleLayoutTitle
-            buttonText
+            buttonText {
+              title
+              url
+            }
             fieldGroupName
             rightBigText
             text
@@ -82,10 +85,9 @@ export const ProductQuery = gql`
           ... on FlexibleSectionsFlexContentCtaSectionLayout {
             acfeFlexibleLayoutTitle
             fieldGroupName
-            linkButtonText {
+            buttonText {
               title
               url
-              target
             }
             image {
               node {

@@ -55,7 +55,7 @@ export default async function PostTemplate({ node }: TemplateProps) {
       />
       <UnderBlogContentSection section={underBlogContentSection || ""} />
       <ReadMoreBlogsSection
-        section={readMoreBlogsSection || ""}
+        globalSection={readMoreBlogsSection || ""}
         blogs={blogs}
       />
     </div>

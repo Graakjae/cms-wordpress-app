@@ -35,9 +35,9 @@ const CTASection: React.FC<CTASectionProps> = ({ section }) => {
               }}
               className="mb-[40px] text-[16px]"
             />
-            <Link href={section?.linkButtonText?.url || ""}>
+            <Link href={`${section?.buttonText?.url}`}>
               <Button variant={"lightGreen"}>
-                {section?.linkButtonText?.title}
+                {section?.buttonText?.title}
               </Button>
             </Link>
           </div>

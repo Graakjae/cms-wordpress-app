@@ -25,8 +25,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
           </h3>
           <p className="text-[18px] font-light">{section?.text1}</p>
           <p className="text-[18px] mt-[20px]">{section?.text2}</p>
-          <Link href="/vare/barnets-bog">
-            <Button className="mt-[50px]">{section?.buttonText}</Button>
+          <Link href={`${section?.buttonText?.url}`}>
+            <Button className="mt-[50px]">{section?.buttonText?.title}</Button>
           </Link>
         </div>
       </div>

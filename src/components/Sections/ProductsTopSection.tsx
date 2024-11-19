@@ -9,6 +9,7 @@ import { ButtonWithIcon } from "../ui/buttonWithIcon";
 import Image from "next/image";
 import { formatContent } from "@/utils/formatContent";
 import ProductCard from "../ui/productCard";
+import Link from "next/link";
 
 interface ProductTopSectionProps {
   section: FlexibleSectionsFlexContentProductsPageTopSectionLayout;
@@ -19,6 +20,7 @@ const ProductTopSection: React.FC<ProductTopSectionProps> = ({
   section,
   products,
 }) => {
+  console.log("productsproducts", products);
   const barnetsBog = products?.nodes?.find(
     (product) => product.id === "cHJvZHVjdDoxMTA3"
   ) as SimpleProduct;
@@ -38,9 +40,10 @@ const ProductTopSection: React.FC<ProductTopSectionProps> = ({
             dangerouslySetInnerHTML={{
               __html: formatContent(section?.text) || "",
             }}
-            className="mb-[30px]"
           />
-          <ButtonWithIcon>{section?.buttonText}</ButtonWithIcon>
+          <Link href={`${section?.buttonText?.url}`} className="mt-[10px]">
+            <ButtonWithIcon>{section?.buttonText?.title}</ButtonWithIcon>
+          </Link>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-[31px] relative w-[70%]">

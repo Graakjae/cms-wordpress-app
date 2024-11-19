@@ -27,6 +27,7 @@ import SimilarProductsSection from "@/components/Sections/SimilarProducts";
 import { PageQuery } from "../Page/PageQuery";
 import { GlobalQuery } from "../Page/GlobalQuery";
 import SliderSection from "@/components/Sections/SliderSection";
+import Divider from "@/components/ui/divider";
 
 interface PageProps {
   node: ContentNode;
@@ -112,6 +113,7 @@ export default async function SingleProductPage({ node }: PageProps) {
       )}
       {ctaSection && <CTASection section={ctaSection} />}
       <SimilarProductsSection product={product} products={products} />
+      <Divider />
       <SliderSection section={infiniteSliderSection} />
     </div>
   );
