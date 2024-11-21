@@ -18,7 +18,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ section }) => {
           <h1 className="text-[45px] font-medium mb-[15px]">
             {section?.title}
           </h1>
-          <p
+          <div
             dangerouslySetInnerHTML={{
               __html: formatContent(section?.text) || "",
             }}

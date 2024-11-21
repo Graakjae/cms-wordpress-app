@@ -28,10 +28,11 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
               src={article?.articleContent?.logo?.node?.sourceUrl || ""}
               alt={article?.articleContent?.logo?.node?.altText || ""}
               width={200}
-              height={34}
+              height={35}
+              className="max-w-[200px] max-h-[35px] object-contain object-left mt-[15px] mb-[5px]"
             />
             <p className="text-[18px] mb-[14px] line-clamp-2">
-              {article?.articleContent?.shortText || "Default Subtitle"}
+              {article?.articleContent?.shortText || ""}
             </p>
             <Button
               variant={"link"}

@@ -25,7 +25,7 @@ const UnderProductSection: React.FC<UnderProductSectionProps> = ({
             <div>
               <div className="flex justify-between border-t border-[#707070] pt-4">
                 <p className="font-semibold">{section.subsection1Title}</p>
-                <p
+                <div
                   dangerouslySetInnerHTML={{
                     __html: formatContent(section?.subsection1Text) || "",
                   }}
@@ -34,7 +34,7 @@ const UnderProductSection: React.FC<UnderProductSectionProps> = ({
               </div>
               <div className="flex justify-between border-t border-[#707070] pt-4 mt-[30px]">
                 <p className="font-semibold">{section.subsection2Title}</p>
-                <p
+                <div
                   dangerouslySetInnerHTML={{
                     __html: formatContent(section?.subsection2Text) || "",
                   }}

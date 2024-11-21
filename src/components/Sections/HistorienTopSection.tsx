@@ -26,7 +26,7 @@ const HistorienTopSection: React.FC<HistorienTopSectionProps> = ({
           <h1 className="text-[45px] font-medium mb-[15px] text-white">
             {section?.title}
           </h1>
-          <p
+          <div
             dangerouslySetInnerHTML={{
               __html: formatContent(section?.text) || "",
             }}

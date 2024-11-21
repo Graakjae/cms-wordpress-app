@@ -1,9 +1,10 @@
-const ConnectingStars = () => (
+const ConnectingStars = ({ className }: { className: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="361.542"
     height="196.066"
     viewBox="0 0 361.542 196.066"
+    className={className}
   >
     <g
       id="Group_11788"
@@ -53,7 +54,7 @@ const ConnectingStars = () => (
         transform="translate(1323.576 329.5)"
         fill="none"
         stroke="#e6b14f"
-        stroke-width="1"
+        strokeWidth="1"
       />
       <line
         id="Line_318"
@@ -63,7 +64,7 @@ const ConnectingStars = () => (
         transform="translate(1392.576 264.5)"
         fill="none"
         stroke="#e6b14f"
-        stroke-width="1"
+        strokeWidth="1"
       />
       <line
         id="Line_319"
@@ -73,7 +74,7 @@ const ConnectingStars = () => (
         transform="translate(1440.576 329.5)"
         fill="none"
         stroke="#e6b14f"
-        stroke-width="1"
+        strokeWidth="1"
       />
       <line
         id="Line_320"
@@ -83,7 +84,7 @@ const ConnectingStars = () => (
         transform="translate(1573.576 358.5)"
         fill="none"
         stroke="#e6b14f"
-        stroke-width="1"
+        strokeWidth="1"
       />
     </g>
   </svg>

@@ -5,7 +5,7 @@ import VideoComponent from "../ui/videoComponent";
 import { LinkButton } from "../ui/linkButton";
 import { formatContent } from "@/utils/formatContent";
 import BackgroundImageOrange from "@/public/orange-background-image.png";
-import BackgroundImageGreen from "@/public/big-picture-green.jpg";
+import BackgroundImageGreen from "@/public/green-background.svg";
 
 interface BigPictureSectionProps {
   section: FlexibleSectionsFlexContentBigPictureSectionLayout;
@@ -19,7 +19,7 @@ const BigPictureSection: React.FC<BigPictureSectionProps> = ({ section }) => {
         src={
           section.background === "orange"
             ? BackgroundImageOrange
-            : "/big-picture-green.jpg"
+            : BackgroundImageGreen
         }
         alt="big-picture"
         width={1400}

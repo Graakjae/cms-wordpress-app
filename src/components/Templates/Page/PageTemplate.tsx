@@ -38,6 +38,7 @@ export default async function PageTemplate({ node }: TemplateProps) {
   let blogs: BlogConnection;
   let products: ProductConnection;
   let articles: ArticleConnection;
+  let atMistePosts: BlogConnection;
 
   if (node.uri === "/blog/" || "/historien/" || "/at-miste/") {
     ({ blogs } = await fetchGraphQL<{ blogs: BlogConnection }>(
@@ -46,6 +47,14 @@ export default async function PageTemplate({ node }: TemplateProps) {
         id: node.databaseId,
       }
     ));
+  }
+
+  if (node.uri === "/") {
+    ({ atMistePosts } = await fetchGraphQL<{
+      atMistePosts: BlogConnection;
+    }>(print(PageQuery), {
+      id: node.databaseId,
+    }));
   }
 
   if (node.uri === "/blog/" || "/historien/" || "/at-miste/") {
@@ -69,11 +78,25 @@ export default async function PageTemplate({ node }: TemplateProps) {
   const PageToRender = () => {
     switch (node.uri) {
       case "/":
-        return <HeroPage sections={sections} globalSections={globalSections} />;
+        return (
+          <HeroPage
+            sections={sections}
+            globalSections={globalSections}
+            atMistePosts={atMistePosts}
+          />
+        );
       case "/produkter/":
-        return <ProductsPage sections={sections} products={products} />;
+        return (
+          <ProductsPage
+            sections={sections}
+            products={products}
+            globalSections={globalSections}
+          />
+        );
       case "/blog/":
-        return <BlogPage sections={sections} blogs={blogs} />;
+        return (
+          <BlogPage sections={sections} blogs={blogs} articles={articles} />
+        );
       case "/at-miste/":
         return <AtMistePage sections={sections} blogs={blogs} />;
       case "/kurv/":

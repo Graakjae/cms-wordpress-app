@@ -6,17 +6,26 @@ import {
   FlexibleSectionsFlexContentProductsPageTopSectionLayout,
   FlexibleSectionsFlexContentProductsSectionLayout,
   FlexibleSectionsFlexContentStarAnimationLayout,
+  GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout,
+  GlobalSections,
   ProductConnection,
 } from "@/gql/graphql";
 import Section2ProductsPage from "../Sections/ProductsPage/Section2";
 import ProductSection from "../Sections/Products";
 import StarAnimationSection from "../Sections/StarAnimationSection";
+import Divider from "../ui/divider";
+import SliderSection from "../Sections/SliderSection";
 
 interface ProductsPageProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
   products: ProductConnection;
+  globalSections: GlobalSections;
 }
-const ProductsPage: React.FC<ProductsPageProps> = ({ sections, products }) => {
+const ProductsPage: React.FC<ProductsPageProps> = ({
+  sections,
+  products,
+  globalSections,
+}) => {
   const productsTopSection = sections.find(
     (section) =>
       section.fieldGroupName ===
@@ -41,12 +50,21 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ sections, products }) => {
       "FlexibleSectionsFlexContentStarAnimationLayout"
   ) as FlexibleSectionsFlexContentStarAnimationLayout;
 
+  const infiniteSliderSection =
+    globalSections.globalFlexibleSections?.sections?.find(
+      (section) =>
+        section?.fieldGroupName ===
+        "GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout"
+    ) as GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout;
+
   return (
     <div className="mt-[130px]">
       <ProductsTopSection section={productsTopSection} products={products} />
       <Section2ProductsPage section={section2} products={products} />
       <ProductSection section={productsSection} products={products} />
       <StarAnimationSection section={starAnimation} />
+      <Divider />
+      <SliderSection section={infiniteSliderSection} />
     </div>
   );
 };

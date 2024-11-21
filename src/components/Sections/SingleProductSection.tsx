@@ -87,10 +87,10 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
         </div>
       </div>
       <div className="relative w-[50%] flex justify-center">
-        <div className="max-w-[480px]">
+        <div className="max-w-[480px] relative">
           <h1 className="font-semibold text-[45px]">{product?.name}</h1>
           <p className="font-semibold mb-[35px]">Aftenstjerner</p>
-          <p
+          <div
             className="mb-[40px]"
             dangerouslySetInnerHTML={{
               __html: formatContent(product?.description) || "",
@@ -135,7 +135,9 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
           <Accordion
             type="single"
             collapsible
-            className="border-b-[0.5px] border-t-[0.5px] border-[#707070] py-[20px]"
+            className={` ${
+              isAccordionOpen ? "" : "border-b-[0.5px]"
+            } border-t-[0.5px] border-[#707070] py-[20px] relative`}
           >
             <AccordionItem value="item-1">
               <AccordionTrigger
@@ -147,7 +149,7 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
                   {isAccordionOpen ? <MinusIcon /> : <PlusIcon />}
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="mt-[20px]">
+              <AccordionContent className="mt-[20px] absolute max-h-[150px] overflow-y-auto border-b-[0.5px] border-[#707070]">
                 {specificationsAccordion?.specifications?.map((spec, index) => (
                   <div
                     key={index}

@@ -9,6 +9,9 @@ import {
   FlexibleSectionsFlexContentLayout,
   GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout,
   GlobalSections,
+  FlexibleSectionsFlexContentMoreBlogsSectionLayout,
+  AtMistePostConnection,
+  BlogConnection,
 } from "@/gql/graphql";
 import HeroSection from "../Sections/HeroPage/HeroSection";
 import SliderSection from "../Sections/SliderSection";
@@ -17,12 +20,18 @@ import Section3 from "../Sections/HeroPage/Section3";
 import InformationSection from "../Sections/InformationSection";
 import Section5 from "../Sections/HeroPage/Section5";
 import Divider from "../ui/divider";
+import ReadMoreBlogsSection from "../Sections/ReadMoreBlogsSection";
 
 interface HeroPageProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
   globalSections: GlobalSections;
+  atMistePosts: BlogConnection;
 }
-const HeroPage: React.FC<HeroPageProps> = ({ sections, globalSections }) => {
+const HeroPage: React.FC<HeroPageProps> = ({
+  sections,
+  globalSections,
+  atMistePosts,
+}) => {
   const heroSection = sections.find(
     (section) =>
       section.fieldGroupName === "FlexibleSectionsFlexContentHeroSectionLayout"
@@ -58,6 +67,13 @@ const HeroPage: React.FC<HeroPageProps> = ({ sections, globalSections }) => {
       section.fieldGroupName ===
       "FlexibleSectionsFlexContentHeroPageSection5Layout"
   ) as FlexibleSectionsFlexContentHeroPageSection5Layout;
+
+  const readBlogs = sections?.find(
+    (section) =>
+      section.fieldGroupName ===
+      "FlexibleSectionsFlexContentMoreBlogsSectionLayout"
+  ) as FlexibleSectionsFlexContentMoreBlogsSectionLayout;
+
   return (
     <div className="">
       <HeroSection section={heroSection} />
@@ -67,6 +83,9 @@ const HeroPage: React.FC<HeroPageProps> = ({ sections, globalSections }) => {
       <Section3 section={section3} />
       <InformationSection section={informationSection} />
       <Section5 section={section5} />
+      <ReadMoreBlogsSection section={readBlogs} atMistePosts={atMistePosts} />
+      <Divider />
+      <SliderSection section={infiniteSliderSection} />
     </div>
   );
 };

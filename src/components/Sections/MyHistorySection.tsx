@@ -13,7 +13,7 @@ const MyHistorySection: React.FC<MyHistorySectionProps> = ({ section }) => {
         <p className="text-[18px] font-medium mb-[15px]">{section?.subtitle}</p>
         <div className="flex justify-between gap-20">
           <div className="w-1/2">
-            <p
+            <div
               dangerouslySetInnerHTML={{
                 __html: formatContent(section?.text1) || "",
               }}
@@ -21,7 +21,7 @@ const MyHistorySection: React.FC<MyHistorySectionProps> = ({ section }) => {
             />
           </div>
           <div className="w-1/2">
-            <p
+            <div
               dangerouslySetInnerHTML={{
                 __html: formatContent(section?.text2) || "",
               }}

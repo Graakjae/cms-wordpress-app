@@ -29,7 +29,7 @@ const CTASection: React.FC<CTASectionProps> = ({ section }) => {
             <p className="text-[18px] mt-[5px] mb-[35px] font-semibold">
               {section?.subtitle}
             </p>
-            <p
+            <div
               dangerouslySetInnerHTML={{
                 __html: formatContent(section?.text) || "",
               }}

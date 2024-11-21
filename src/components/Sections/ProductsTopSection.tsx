@@ -20,9 +20,8 @@ const ProductTopSection: React.FC<ProductTopSectionProps> = ({
   section,
   products,
 }) => {
-  console.log("productsproducts", products);
   const barnetsBog = products?.nodes?.find(
-    (product) => product.id === "cHJvZHVjdDoxMTA3"
+    (product) => product.id === "cHJvZHVjdDoxMDc5"
   ) as SimpleProduct;
   const mindeAeske = products?.nodes?.find(
     (product) => product.id === "cHJvZHVjdDoxMDg1"
@@ -36,7 +35,7 @@ const ProductTopSection: React.FC<ProductTopSectionProps> = ({
           <p className="font-semibold mt-[5px] mb-[26px]">
             {section?.subtitle}
           </p>
-          <p
+          <div
             dangerouslySetInnerHTML={{
               __html: formatContent(section?.text) || "",
             }}

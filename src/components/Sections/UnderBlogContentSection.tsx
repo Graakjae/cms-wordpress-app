@@ -29,7 +29,7 @@ const UnderBlogContentSection: React.FC<UnderBlogContentSectionProps> = ({
             <h2 className="text-[45px] font-semibold mb-[15px]">
               {section?.title}
             </h2>
-            <p
+            <div
               dangerouslySetInnerHTML={{
                 __html: formatContent(section?.text) || "",
               }}

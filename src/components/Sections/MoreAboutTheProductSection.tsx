@@ -20,7 +20,7 @@ const MoreAboutTheProductSection: React.FC<MoreAboutTheProductSectionProps> = ({
             <p className="font-semibold mb-[15px]">
               {section.subsection1Title}
             </p>
-            <p
+            <div
               dangerouslySetInnerHTML={{
                 __html: formatContent(section?.subsection1Text) || "",
               }}
@@ -31,7 +31,7 @@ const MoreAboutTheProductSection: React.FC<MoreAboutTheProductSectionProps> = ({
             <p className="font-semibold mb-[15px]">
               {section.subsection2Title}
             </p>
-            <p
+            <div
               dangerouslySetInnerHTML={{
                 __html: formatContent(section?.subsection2Text) || "",
               }}
@@ -42,7 +42,7 @@ const MoreAboutTheProductSection: React.FC<MoreAboutTheProductSectionProps> = ({
             <p className="font-semibold mb-[15px]">
               {section.subsection3Title}
             </p>
-            <p
+            <div
               dangerouslySetInnerHTML={{
                 __html: formatContent(section?.subsection3Text) || "",
               }}

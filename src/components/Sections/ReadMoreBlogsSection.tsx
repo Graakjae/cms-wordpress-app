@@ -3,16 +3,20 @@ import {
   GlobalFlexibleSectionsSectionsReadMoreBlogsLayout,
   FlexibleSectionsFlexContentMoreBlogsSectionLayout,
   ArticleConnection,
+  AtMistePostConnection,
+  Blog,
 } from "@/gql/graphql";
 import { LinkButton } from "../ui/linkButton";
 import BlogCard from "../ui/blogCard";
 import ArticleCard from "../ui/articleCard";
+
 interface ReadMoreBlogsSectionProps {
   section?: FlexibleSectionsFlexContentMoreBlogsSectionLayout;
   globalSection?: GlobalFlexibleSectionsSectionsReadMoreBlogsLayout;
   blogs?: BlogConnection;
   color?: string;
   articles?: ArticleConnection;
+  atMistePosts?: BlogConnection;
 }
 
 const ReadMoreBlogsSection: React.FC<ReadMoreBlogsSectionProps> = ({
@@ -21,11 +25,13 @@ const ReadMoreBlogsSection: React.FC<ReadMoreBlogsSectionProps> = ({
   blogs,
   articles,
   color,
+  atMistePosts,
 }) => {
+  console.log("blogs", atMistePosts);
   return (
     <div className={`relative py-[150px] ${color ? `bg-${color}` : ""}`}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
-        <div className="w-full flex justify-between">
+        <div className="w-full flex justify-between items-center">
           <h2 className="text-[35px] font-semibold mb-[15px]">
             {globalSection ? globalSection?.title : section?.title}
           </h2>
@@ -52,6 +58,13 @@ const ReadMoreBlogsSection: React.FC<ReadMoreBlogsSectionProps> = ({
               .slice(0, 3)
               .map((article) => (
                 <ArticleCard key={article.id} article={article} />
+              ))}
+
+          {atMistePosts &&
+            atMistePosts?.nodes
+              .slice(0, 3)
+              .map((atMistePost) => (
+                <BlogCard key={atMistePost.id} blog={atMistePost} />
               ))}
         </div>
       </div>

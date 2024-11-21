@@ -240,6 +240,31 @@ export const PageQuery = gql`
         id
       }
     }
+    atMistePosts {
+      nodes {
+        blogContent {
+          fieldGroupName
+          postContent
+          subtitle
+          titel
+          author
+          blogPostImage {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+        }
+        categories {
+          nodes {
+            name
+            id
+          }
+        }
+        slug
+        id
+      }
+    }
     articles {
       nodes {
         articleContent {

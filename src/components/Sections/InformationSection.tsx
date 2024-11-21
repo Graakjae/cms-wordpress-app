@@ -13,11 +13,10 @@ const InformationSection: React.FC<InformationSectionProps> = ({ section }) => {
     <div className="flex justify-between relative py-[150px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
       <div className="w-[35%]">
         <p className="text-[18px] font-medium mb-[30px]">{section?.title}</p>
-        <p
+        <div
           dangerouslySetInnerHTML={{
             __html: formatContent(section?.text) || "",
           }}
-          className="text-[18px] mt-[15px] mb-[20px]"
         />
         <LinkButton color="PrimaryGreen" link={`${section?.buttonText?.url}`}>
           {section?.buttonText?.title}
