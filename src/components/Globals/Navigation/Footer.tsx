@@ -7,7 +7,7 @@ import FacebookIcon from "@/components/icons/Facebook";
 
 export default async function Footer() {
   return (
-    <footer className="relative flex justify-around w-full bg-Beige text-black text-[16px] shadow-custom py-[120px]">
+    <footer className="relative px-4 sm:px-6 md:px-8 flex flex-col items-center md:flex-row md:justify-around md:items-start w-full bg-Beige text-black text-[16px] shadow-custom py-[70px] md:py-[120px] text-center md:text-start">
       <Image
         src={StarBeige}
         alt="Star beige"
@@ -15,7 +15,7 @@ export default async function Footer() {
         height={75}
         className="absolute top-[-37px] left-0 right-0 mx-auto "
       />
-      <div className="pr-[50px]">
+      <div className="md:pr-[50px]">
         <Image
           className="mb-[70px]"
           src={Logo}

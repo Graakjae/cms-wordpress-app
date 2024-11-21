@@ -16,6 +16,7 @@ export const ProductQuery = gql`
           }
         }
         price
+        regularPrice
       }
       flexibleSections {
         flexContent {

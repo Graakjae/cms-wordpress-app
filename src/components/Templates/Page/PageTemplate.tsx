@@ -95,7 +95,12 @@ export default async function PageTemplate({ node }: TemplateProps) {
         );
       case "/blog/":
         return (
-          <BlogPage sections={sections} blogs={blogs} articles={articles} />
+          <BlogPage
+            sections={sections}
+            blogs={blogs}
+            articles={articles}
+            globalSections={globalSections}
+          />
         );
       case "/at-miste/":
         return <AtMistePage sections={sections} blogs={blogs} />;

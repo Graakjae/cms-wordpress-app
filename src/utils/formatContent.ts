@@ -30,7 +30,7 @@ export function formatContent(
         "<img$1$2 my-[50px]$3"
       )
       .replace(/<img(?![^>]*class=)([^>]*)>/g, "<img class='my-[50px]' $1>")
-      .replace(/<p>/g, "<p class='text-[18px] mb-[20px]'>")
+      .replace(/<p>/g, "<p class='text-[16px] md:text-[18px] mb-[20px]'>")
       .replace(/<h2>/g, "<h2 class='text-2xl font-bold'>")
       .replace(/<h3>/g, "<h3 class='text-[35px] font-semibold mt-[50px]'>")
       .replace(/<h4>/g, "<h4 class='text-[24px] font-semibold'>")

@@ -37,12 +37,14 @@ const SliderSection: React.FC<SliderSectionProps> = ({ section }) => {
   }, []);
 
   return (
-    <div className="flex items-center justify-between gap-5 mb-[65px] mt-[35px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
-      <div className="h-[40px]">
-        <p className="w-[200px] text-[24px] font-semibold ">Nævnt i:</p>
+    <div className="flex items-center justify-between gap-5 mb-[25px] mt-[35px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
+      <div className="">
+        <p className="w-[80px] md:w-[200px] md:text-[24px]  font-semibold ">
+          Nævnt i:
+        </p>
       </div>
       <div className="scroller" data-speed="fast">
-        <ul className="tag-list scroller__inner flex flex-wrap gap-[140px]">
+        <ul className="tag-list scroller__inner flex flex-wrap gap-[20px] md:gap-[140px]">
           {section?.mentionedIn?.map((item, i) => (
             <li className="tag flex justify-center items-center p-4" key={i}>
               <Image

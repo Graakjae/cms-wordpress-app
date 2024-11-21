@@ -14,8 +14,7 @@ export const PageQuery = gql`
               title
               url
             }
-            text1
-            text2
+            text
             image {
               node {
                 sourceUrl
@@ -65,7 +64,6 @@ export const PageQuery = gql`
             }
             subtitle
             text
-            text2
             title
             fieldGroupName
             image {
@@ -295,6 +293,7 @@ export const PageQuery = gql`
           id
           name
           price
+          regularPrice
           slug
           galleryImages {
             nodes {

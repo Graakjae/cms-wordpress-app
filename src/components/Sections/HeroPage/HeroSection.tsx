@@ -3,31 +3,43 @@ import { Button } from "../../ui/button";
 import Image from "next/image";
 import StarBeige from "../../../public/star-beige.svg";
 import Link from "next/link";
+import { formatContent } from "@/utils/formatContent";
+
 interface HeroSectionProps {
   section: FlexibleSectionsFlexContentHeroSectionLayout;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
   return (
-    <div className="flex relative pb-[37px] mt-[130px] w-full">
+    <div className="flex flex-col md:flex-row relative pb-[37px] mt-[100px] md:mt-[130px] w-full">
       <Image
         src={section?.image?.node?.sourceUrl || ""}
         alt={section?.image?.node?.altText || ""}
-        className="w-1/2 h-[80vh] object-cover"
+        className="w-full md:w-1/2 h-[50vh] md:h-[80vh] object-cover"
         width={960}
         height={790}
         priority
       />
-      <div className="h-[80vh] w-1/2 flex items-center bg-Beige">
-        <div className="w-[600px] pl-20">
-          <h2 className="text-[45px] font-medium">{section?.title}</h2>
-          <h3 className="text-[18px] font-medium mb-[35px]">
+      <div className=" md:h-[80vh] w-full md:w-1/2 flex items-center bg-Beige pt-[40px] pb-[40px] md:pt-[0px] md:pb-[0px]">
+        <div className="w-full md:w-[600px] p-4 md:pl-20">
+          <h2 className="text-[30px] md:text-[45px] font-medium">
+            {section?.title}
+          </h2>
+          <h3 className="text-[16px] md:text-[18px] font-medium mb-[20px] md:mb-[35px]">
             {section?.subtitle}
           </h3>
-          <p className="text-[18px] font-light">{section?.text1}</p>
-          <p className="text-[18px] mt-[20px]">{section?.text2}</p>
-          <Link href={`${section?.buttonText?.url}`}>
-            <Button className="mt-[50px]">{section?.buttonText?.title}</Button>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: formatContent(section?.text) || "",
+            }}
+          />
+          <Link
+            className="flex justify-center md:justify-start"
+            href={`${section?.buttonText?.url}`}
+          >
+            <Button className="mt-[10px] md:mt-[30px]">
+              {section?.buttonText?.title}
+            </Button>
           </Link>
         </div>
       </div>

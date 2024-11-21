@@ -37,10 +37,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       className="w-[clamp(350px, 50%, 500px)] relative overflow-hidden"
     >
       <div className="w-[clamp(350px, 50%, 500px)]">
-        <div className="relative w-full pt-[120%] overflow-hidden">
+        <div
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="relative w-full pt-[120%] overflow-hidden"
+        >
           <Image
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
             src={isHovered && secondImage ? secondImageUrl : firstImageUrl}
             alt={isHovered && secondImage ? secondImageAlt : firstImageAlt}
             width={510}
@@ -58,7 +60,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <p className="text-center text-[22px] mt-[15px] mb-[5px]">
           {product?.name}
         </p>
-        <p className="text-center text-[18px] mt-[5px]">{product?.price}</p>
+        <div className="text-center text-[18px] mt-[5px]">
+          {product?.regularPrice && product?.regularPrice !== product?.price ? (
+            <>
+              <span className="line-through mr-2 opacity-60">
+                {product?.regularPrice}
+              </span>
+              <span>{product?.price}</span>
+            </>
+          ) : (
+            <span>{product?.price}</span>
+          )}
+        </div>
       </div>
     </Link>
   );

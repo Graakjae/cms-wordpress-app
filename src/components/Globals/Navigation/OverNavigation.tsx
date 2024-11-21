@@ -30,7 +30,7 @@ export default function OverNavigation() {
   }, []);
 
   return (
-    <div className="bg-Beige h-[40px] w-full flex justify-center items-center overflow-hidden">
+    <div className="bg-Beige h-[40px] w-full flex justify-start pl-[20px] md:pl-[0px] md:justify-center items-center overflow-hidden">
       <Link
         className={`flex gap-[10px] text-[14px] transition-all duration-500 ${
           animationState === "exit" ? "animate-dropOut" : "animate-dropIn"

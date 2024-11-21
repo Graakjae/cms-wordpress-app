@@ -20,10 +20,9 @@ export default function Navigation({
   rightMenu,
 }: NavigationProps) {
   const pathName = usePathname();
-
   return (
     <nav
-      className={`w-full h-[90px] shadow-custom ${
+      className={`w-full h-[90px] shadow-custom hidden md:block ${
         pathName === "/at-miste/" ? "bg-PrimaryGreen" : "bg-white"
       } `}
       role="navigation"

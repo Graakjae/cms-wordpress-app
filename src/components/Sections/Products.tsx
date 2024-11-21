@@ -17,10 +17,21 @@ const ProductSection: React.FC<ProductSectionProps> = ({
   section,
   products,
 }) => {
+  const excludedProductIds = [
+    "cHJvZHVjdDoxMDc5",
+    "cHJvZHVjdDoxMDg1",
+    "cHJvZHVjdDoxMTA3",
+  ];
+
+  // Filter out the products with the specified IDs
+  const filteredProducts = products.nodes.filter(
+    (product: Product) => !excludedProductIds.includes(product.id)
+  );
+
   return (
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 flex gap-20 py-[150px]">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] relative w-full">
-        {products.nodes.reverse().map((product: Product) => (
+        {filteredProducts.reverse().map((product: Product) => (
           <ProductCard key={product.id} product={product} />
         ))}
         <div className="w-[clamp(350px, 50%, 500px)] relative overflow-hidden ">
@@ -34,7 +45,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({
                 {/* <p className="font-semibold mt-[5px] mb-[26px]">
                   {section?.subtitle}
                 </p> */}
-                <p
+                <div
                   dangerouslySetInnerHTML={{
                     __html: formatContent(section?.text) || "",
                   }}

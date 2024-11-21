@@ -12,6 +12,7 @@ import { print } from "graphql/language/printer";
 import gql from "graphql-tag";
 import { RootQueryToMenuItemConnection } from "@/gql/graphql";
 import { CartProvider } from "@/components/Globals/Cart/context/CartContext";
+import BurgerMenu from "@/components/Globals/Navigation/BurgerMenu";
 
 const source = Source_Sans_3({ subsets: ["latin"] });
 
@@ -32,19 +33,31 @@ async function getData() {
           label
         }
       }
+      mobileMenu: menuItems(where: { location: MOBILE_MENU }) {
+        nodes {
+          uri
+          target
+          label
+        }
+      }
     }
   `;
 
-  const { primaryMenu, rightMenu } = await fetchGraphQL<{
+  const { primaryMenu, rightMenu, mobileMenu } = await fetchGraphQL<{
     primaryMenu: RootQueryToMenuItemConnection;
     rightMenu: RootQueryToMenuItemConnection;
+    mobileMenu: RootQueryToMenuItemConnection;
   }>(print(menuQuery));
 
-  if (primaryMenu === null || rightMenu === null) {
+  if (primaryMenu === null || rightMenu === null || mobileMenu === null) {
     throw new Error("Failed to fetch data");
   }
 
-  return { primaryMenu: primaryMenu.nodes, rightMenu: rightMenu.nodes };
+  return {
+    primaryMenu: primaryMenu.nodes,
+    rightMenu: rightMenu.nodes,
+    mobileMenu: mobileMenu.nodes,
+  };
 }
 
 export default async function RootLayout({
@@ -53,7 +66,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const { isEnabled } = draftMode();
-  const { primaryMenu, rightMenu } = await getData();
+  const { primaryMenu, rightMenu, mobileMenu } = await getData();
+  console.log("primaryMenu", mobileMenu);
 
   return (
     <html lang="en">
@@ -63,6 +77,7 @@ export default async function RootLayout({
           <div className="fixed top-0 z-50 w-full">
             <OverNavigation />
             <Navigation primaryMenu={primaryMenu} rightMenu={rightMenu} />
+            <BurgerMenu mobileMenu={mobileMenu} />
           </div>
           {children}
           <Footer />
