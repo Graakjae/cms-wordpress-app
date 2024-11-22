@@ -5,9 +5,7 @@ import Image from "next/image";
 import LogoGreen from "@/public/green-logo.svg";
 import LogoBeige from "@/public/beige-logo.svg";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import SearchIcon from "@/components/icons/SearchIcon";
-import ShoppingBagIcon from "@/components/icons/ShoppingBagIcon";
 import Cart from "../Cart/Cart";
 
 interface NavigationProps {

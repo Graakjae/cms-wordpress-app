@@ -8,7 +8,7 @@ import { MenuItem } from "@/gql/graphql";
 import FacebookIcon from "@/components/icons/Facebook";
 import InstagramIcon from "@/components/icons/Instagram";
 import Image from "next/image";
-import Divider from "@/components/ui/divider";
+import LogoGreen from "@/public/green-logo.svg";
 
 interface BurgerMenuProps {
   mobileMenu: MenuItem[];
@@ -49,19 +49,22 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
                     {mobileMenu &&
                       mobileMenu.map(({ label, uri }, i) => (
                         <div className="">
-                          <Link
-                            href={uri || "/"}
+                          <m.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{
                               duration: 0.25,
                               delay: i / 10,
                             }}
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="my-[15px] relative block text-[20px] text-black transition-colors duration-200 w-fit after:content-[''] after:absolute after:w-[0] after:bottom-0 after:left-0 after:h-[4px] after:mt-2 after:transition-all after:duration-500 after:ease-in-out hover:after:w-full "
                           >
-                            {label}
-                          </Link>
+                            <Link
+                              href={uri || "/"}
+                              onClick={() => setIsOpen(!isOpen)}
+                              className="my-[15px] relative block text-[20px] text-black transition-colors duration-200 w-fit after:content-[''] after:absolute after:w-[0] after:bottom-0 after:left-0 after:h-[4px] after:mt-2 after:transition-all after:duration-500 after:ease-in-out hover:after:w-full "
+                            >
+                              {label}
+                            </Link>
+                          </m.div>
                           <div className="w-full">
                             <div className="border-b border-[#C6C6C6]"></div>
                           </div>
@@ -115,16 +118,16 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
             </m.button>
           </AnimatePresence>
         </div>
-        {/* <Link href="/">
+        <Link href="/">
           <Image
-            src={pathName === "/at-miste/" ? LogoBeige : LogoGreen}
+            src={LogoGreen}
             alt="logo"
             width={80}
             height={30}
             className=""
             priority
           />
-        </Link> */}
+        </Link>
       </div>
     </RemoveScroll>
   );
