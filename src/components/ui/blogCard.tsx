@@ -15,7 +15,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
     <Link href={`/blogpost/${blog.slug}`} passHref>
       <div className="w-[clamp(150px, 50%, 300px)] relative overflow-hidden">
         <div className="bg-Beige/75 absolute top-5 right-0 py-[8px] z-10">
-          <span className="italic font-light text-[18px] px-[30px]">
+          <span className="italic font-light text-[16px] md:text-[18px] px-[30px]">
             {category}
           </span>
         </div>
@@ -30,16 +30,16 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
             />
           </div>
           <div className="">
-            <p className="text-[22px] font-semibold mt-[14px]">
+            <p className="text-[18px] md:text-[22px] font-semibold mt-[14px] mb-[10px] lg:mb-[5px]">
               {blog?.blogContent?.titel || "Default Title"}
             </p>
-            <p className="text-[18px] mb-[14px] line-clamp-2">
+            <p className="text-[15px] md:text-[18px] mb-[14px] line-clamp-2">
               {blog?.blogContent?.subtitle || "Default Subtitle"}
             </p>
             <Button
               variant={"link"}
               size="link"
-              className={`group overflow-visible relative text-[${"black"}]`}
+              className={`group overflow-visible relative text-[${"black"}] text-[16px] md:text-[18px] font-semibold`}
             >
               Læs mere
               <svg

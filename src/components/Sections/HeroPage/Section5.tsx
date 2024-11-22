@@ -26,31 +26,31 @@ const Section5: React.FC<Section5Props> = ({ section }) => {
 
   return (
     <div className="bg-PrimaryGreen relative">
-      <div className="flex">
+      <div className="flex flex-col lg:flex-row">
         <Image
           src={section?.image?.node?.sourceUrl || ""}
           alt={section?.image?.node?.altText || ""}
-          className="w-1/2 h-[100vh] object-cover object-middle"
+          className="w-full lg:w-1/2 h-[350px] lg:h-[100vh] object-cover object-middle"
           width={960}
           height={913}
         />
-        <div className="h-[100vh] w-1/2 flex items-center justify-center relative">
-          <div className="w-[530px]">
+        <div className="pt-[80px] lg:pt-0 lg:h-[100vh] lg:w-1/2 flex items-center justify-center relative">
+          <div className="h-[460px] lg:w-[530px] lg:px-[30px]">
             <div className=" text-white">
               {testimonials.length > 0 && (
                 <div key={currentIndex} className="">
-                  <div className="relative py-[40px]">
+                  <div className="max-w-[300px] lg:max-w-[530px] relative py-[40px]">
                     <div className="absolute top-0 left-0">
                       <QuoteIcon />
                     </div>
-                    <p className="text-[35px] text-center">
+                    <p className="text-[20px] lg:text-[35px] text-center">
                       {testimonials[currentIndex]?.testimonialText}
                     </p>
                     <div className="absolute bottom-0 right-0">
                       <QuoteIcon />
                     </div>
                   </div>
-                  <p className="text-[18px] font-extralight text-center">
+                  <p className="text-[16px] lg:text-[18px] font-extralight text-center">
                     - {testimonials[currentIndex]?.testimonialBy}
                   </p>
                 </div>

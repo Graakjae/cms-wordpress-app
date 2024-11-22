@@ -87,7 +87,7 @@ const BlogPage: React.FC<BlogPageProps> = ({
     ) as GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout;
 
   return (
-    <div className="pt-[130px]">
+    <div className="pt-[100px] lg:pt-[130px]">
       <div className="bg-Beige relative pb-[200px]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
           <div className="flex justify-between">

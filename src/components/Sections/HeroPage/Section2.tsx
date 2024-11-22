@@ -35,7 +35,7 @@ const Section2: React.FC<Section2Props> = ({ section }) => {
       </div>
 
       <div className="w-full md:w-[45%]">
-        <div className="flex justify-end">
+        <div className="w-full flex justify-center md:justify-end">
           <VideoComponent videoSrc={section?.video?.url || ""} />
         </div>
         <div className="hidden md:flex justify-center mt-[60px] max-w-full">

@@ -12,7 +12,7 @@ const Section3: React.FC<Section3Props> = ({ section }) => {
   return (
     <div className="bg-Beige relative">
       <div className="md:flex max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
-        <div className="h-[80vh] w-full md:w-1/2 flex items-center">
+        <div className="md:h-[80vh] py-[60px] md:py-0 w-full md:w-1/2 flex items-center">
           <div className="max-w-[530px]">
             <h2 className="text-[24px] md:text-[35px] font-medium leading-tight">
               {section?.title}
@@ -38,18 +38,25 @@ const Section3: React.FC<Section3Props> = ({ section }) => {
           <Image
             src={StarBeige}
             alt="Star beige"
-            width={75}
-            height={75}
-            className="absolute top-0 left-0 right-0 m-auto"
-          />
-          <Image
-            src={section?.image?.node?.sourceUrl || ""}
-            alt={section?.image?.node?.altText || ""}
-            className="absolute right-0 top-0 w-full md:w-1/2 h-[380px] md:h-[80vh] object-cover object-top"
-            width={960}
-            height={913}
+            width={62}
+            height={62}
+            className="absolute top-[-31px] left-0 right-0 m-auto z-10 md:hidden"
           />
         </div>
+        <Image
+          src={StarBeige}
+          alt="Star beige"
+          width={75}
+          height={75}
+          className="absolute hidden md:block top-0 bottom-0 left-0 right-0 m-auto z-10"
+        />
+        <Image
+          src={section?.image?.node?.sourceUrl || ""}
+          alt={section?.image?.node?.altText || ""}
+          className="absolute right-0  bottom-0 md:top-0 w-full md:w-1/2 h-[380px] md:h-[80vh] object-cover object-top"
+          width={960}
+          height={913}
+        />
         <div></div>
       </div>
     </div>

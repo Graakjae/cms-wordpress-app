@@ -34,7 +34,7 @@ export default function VideoComponent({ videoSrc }: { videoSrc?: string }) {
   }, []);
 
   return (
-    <div className="w-full max-w-[620px] flex items-center justify-center bg-black">
+    <div className="w-full md:max-w-[620px] flex items-center justify-center bg-black">
       <video
         ref={videoRef}
         className="w-full h-full object-cover object-center"

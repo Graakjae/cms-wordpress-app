@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
   return (
-    <div className="flex flex-col md:flex-row relative pb-[37px] mt-[100px] md:mt-[130px] w-full">
+    <div className="flex flex-col md:flex-row relative pb-[31px] md:pb-[37px] mt-[100px] lg:mt-[130px] w-full">
       <Image
         src={section?.image?.node?.sourceUrl || ""}
         alt={section?.image?.node?.altText || ""}
@@ -22,10 +22,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
       />
       <div className=" md:h-[80vh] w-full md:w-1/2 flex items-center bg-Beige pt-[40px] pb-[40px] md:pt-[0px] md:pb-[0px]">
         <div className="w-full md:w-[600px] p-4 md:pl-20">
-          <h2 className="text-[30px] md:text-[45px] font-medium">
+          <h2 className="text-[30px] lg:text-[45px] font-medium">
             {section?.title}
           </h2>
-          <h3 className="text-[16px] md:text-[18px] font-medium mb-[20px] md:mb-[35px]">
+          <h3 className="text-[16px] lg:text-[18px] font-medium mb-[20px] md:mb-[35px]">
             {section?.subtitle}
           </h3>
           <div
@@ -48,7 +48,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
         alt="Star beige"
         width={75}
         height={75}
-        className="absolute bottom-0 left-0 right-0 mx-auto"
+        className="absolute bottom-0 left-0 right-0 mx-auto w-[62px] h-[62px] md:w-[75px] md:h-[75px] z-10"
       />
     </div>
   );

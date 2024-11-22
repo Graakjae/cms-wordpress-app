@@ -20,7 +20,7 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
   return (
     <RemoveScroll
       enabled={isOpen}
-      className="md:hidden block relative bg-white h-[65px] px-4 shadow-lg"
+      className="lg:hidden block relative bg-white h-[65px] px-4 shadow-lg"
     >
       <div className="flex justify-between items-center z-10 relative">
         <div>
@@ -30,7 +30,7 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
                 <m.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  exit={{ duration: 0.2, opacity: 0 }}
+                  exit={{ opacity: 0, transition: { duration: 0.2 } }}
                   className="bg-black/50 inset-0 fixed w-[100svw] "
                   onClick={() => setIsOpen(false)}
                 />

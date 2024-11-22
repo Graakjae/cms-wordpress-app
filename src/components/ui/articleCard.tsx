@@ -31,13 +31,13 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
               height={35}
               className="max-w-[200px] max-h-[35px] object-contain object-left mt-[15px] mb-[5px]"
             />
-            <p className="text-[18px] mb-[14px] line-clamp-2">
+            <p className="text-[15px] md:text-[18px] mb-[14px] line-clamp-2">
               {article?.articleContent?.shortText || ""}
             </p>
             <Button
               variant={"link"}
               size="link"
-              className={`group overflow-visible relative text-[${"black"}]`}
+              className={`group overflow-visible relative text-[${"black"}] text-[16px] md:text-[18px] font-semibold`}
             >
               Læs artikel
               <svg

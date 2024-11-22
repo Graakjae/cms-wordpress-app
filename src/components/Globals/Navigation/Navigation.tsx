@@ -22,7 +22,7 @@ export default function Navigation({
   const pathName = usePathname();
   return (
     <nav
-      className={`w-full h-[90px] shadow-custom hidden md:block ${
+      className={`w-full h-[90px] shadow-custom hidden lg:block ${
         pathName === "/at-miste/" ? "bg-PrimaryGreen" : "bg-white"
       } `}
       role="navigation"
