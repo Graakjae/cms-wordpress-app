@@ -6,7 +6,7 @@ const AtMisteAnimation = () => (
     width="671.47802734375"
     height="261.97198486328125"
     viewBox="0 0 671.478 261.972"
-    className="absolute top-[30px] right-0"
+    className="absolute top-[50px] lg:top-[100px] right-0 w-full md:w-[671px] z-0"
   >
     <g
       id="Group_11748"

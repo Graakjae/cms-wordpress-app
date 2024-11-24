@@ -10,7 +10,7 @@ interface Section3Props {
 
 const Section3: React.FC<Section3Props> = ({ section }) => {
   return (
-    <div className="bg-Beige relative">
+    <div className="bg-PrimaryBeige relative">
       <div className="md:flex max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="md:h-[80vh] py-[60px] md:py-0 w-full md:w-1/2 flex items-center">
           <div className="max-w-[530px]">

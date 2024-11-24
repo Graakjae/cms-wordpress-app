@@ -98,7 +98,7 @@ export default async function SingleProductPage({ node }: PageProps) {
   ) as FlexibleSectionsFlexContentCtaSectionLayout;
 
   return (
-    <div className="mt-[130px]">
+    <div className="mt-[100px] lg:mt-[130px]">
       <SingleProductSection product={product} sections={sections} />
       {underProductSection && (
         <UnderProductSection section={underProductSection} />

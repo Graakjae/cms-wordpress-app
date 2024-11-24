@@ -59,7 +59,7 @@ const ProductsPage: React.FC<ProductsPageProps> = ({
 
   console.log("products22", products);
   return (
-    <div className="mt-[130px]">
+    <div className="mt-[100px] lg:mt-[130px]">
       <ProductsTopSection section={productsTopSection} products={products} />
       <Section2ProductsPage section={section2} products={products} />
       <ProductSection section={productsSection} products={products} />

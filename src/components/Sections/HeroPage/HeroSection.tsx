@@ -20,7 +20,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
         height={790}
         priority
       />
-      <div className=" md:h-[80vh] w-full md:w-1/2 flex items-center bg-Beige pt-[40px] pb-[40px] md:pt-[0px] md:pb-[0px]">
+      <div className=" md:h-[80vh] w-full md:w-1/2 flex items-center bg-PrimaryBeige/60 pt-[40px] pb-[40px] md:pt-[0px] md:pb-[0px]">
         <div className="w-full md:w-[600px] p-4 md:pl-20">
           <h2 className="text-[30px] lg:text-[45px] font-medium">
             {section?.title}

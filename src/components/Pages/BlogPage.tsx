@@ -12,8 +12,6 @@ import {
 import BlogTopSection from "../Sections/BlogTopSection";
 import BlogCard from "../ui/blogCard";
 import BlogPageAnimation from "../Animations/BlogPage";
-import Image from "next/image";
-import ArrowRight from "@/public/Icon-feather-arrow-up-right.svg";
 import ReadMoreBlogsSection from "../Sections/ReadMoreBlogsSection";
 import Divider from "../ui/divider";
 import SliderSection from "../Sections/SliderSection";
@@ -88,7 +86,7 @@ const BlogPage: React.FC<BlogPageProps> = ({
 
   return (
     <div className="pt-[100px] lg:pt-[130px]">
-      <div className="bg-Beige relative pb-[200px]">
+      <div className="bg-SecondaryBeige relative pb-[200px]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
           <div className="flex justify-between">
             <BlogTopSection section={blogTopSection} />
@@ -104,6 +102,7 @@ const BlogPage: React.FC<BlogPageProps> = ({
           </div>
 
           <PaginationControls
+            className="bg-PrimaryGold text-white stroke-white"
             totalPages={totalPages}
             currentPage={currentPage}
             goToNextPage={goToNextPage}

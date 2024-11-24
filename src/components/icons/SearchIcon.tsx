@@ -1,7 +1,7 @@
 import React from "react";
 
 interface SearchIconProps {
-  pathName: string;
+  pathName?: string;
 }
 
 const SearchIcon: React.FC<SearchIconProps> = ({ pathName }) => (

@@ -59,9 +59,9 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
   ) as FlexibleSectionsFlexContentAccordionLayout;
 
   return (
-    <div className="pt-[60px] pb-[150px] flex justify-between max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
-      <div className="flex gap-[25px] w-[50%] max-h-[800px]">
-        <div className="flex flex-col gap-[25px] overflow-y-auto h-full">
+    <div className="pt-[30px] md:pt-[60px] pb-[150px] flex flex-col tablet:flex-row justify-between gap-[40px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
+      <div className="flex flex-col-reverse xsm:flex-row tablet:flex-col-reverse xl:flex-row xsm:gap-x-[25px] w-full tablet:w-[50%] max-h-full xsm:max-h-[600px] tablet:max-h-full  xl:max-h-[800px]">
+        <div className="flex flex-row xsm:flex-col tablet:flex-row xl:flex-col gap-[25px] overflow-auto max-h-[160px] xsm:max-h-full tablet:max-h-[160px] xl:max-h-full">
           {product?.galleryImages?.nodes.map((image: MediaItem) => (
             <Image
               key={image?.sourceUrl}
@@ -69,25 +69,25 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
               alt={image?.altText || ""}
               width={135}
               height={160}
-              className="cursor-pointer object-cover"
+              className="cursor-pointer object-cover w-[80px] h-[95px] tablet:w-[135px] tablet:h-[160px] xl:w-[135px] xl:h-[160px]"
               onClick={() => handleImageClick(image)}
             />
           ))}
         </div>
-        <div className="mb-4 h-full">
+        <div className="mb-[25px] h-full xsm:h-[600px] tablet:h-full w-full">
           {selectedImage && (
             <Image
               src={selectedImage.sourceUrl || ""}
               alt={selectedImage.altText || ""}
               width={640}
               height={800}
-              className="object-cover h-full"
+              className="object-cover h-full w-full"
             />
           )}
         </div>
       </div>
-      <div className="relative w-[50%] flex justify-center">
-        <div className="max-w-[480px] relative">
+      <div className="relative w-full tablet:w-[50%] flex justify-center">
+        <div className="tablet:max-w-[480px] relative">
           <h1 className="font-semibold text-[45px]">{product?.name}</h1>
           <p className="font-semibold mb-[35px]">Aftenstjerner</p>
           <div
@@ -128,7 +128,7 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
               Læg i kurv
             </Button>
           </div>
-          <p className="text-[16px] mb-[77px] italic">
+          <p className="text-[16px] mb-[40px] tablet:mb-[77px] italic">
             *Du får <span className="underline">gratis fragt</span> på alle
             varer på aftenstjerner.dk
           </p>

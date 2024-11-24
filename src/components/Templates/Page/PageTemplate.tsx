@@ -40,7 +40,7 @@ export default async function PageTemplate({ node }: TemplateProps) {
   let articles: ArticleConnection;
   let atMistePosts: BlogConnection;
 
-  if (node.uri === "/blog/" || "/historien/" || "/at-miste/") {
+  if (node.uri === "/blog/" || "/historien/") {
     ({ blogs } = await fetchGraphQL<{ blogs: BlogConnection }>(
       print(PageQuery),
       {
@@ -49,7 +49,7 @@ export default async function PageTemplate({ node }: TemplateProps) {
     ));
   }
 
-  if (node.uri === "/") {
+  if (node.uri === "/" || "/at-miste/") {
     ({ atMistePosts } = await fetchGraphQL<{
       atMistePosts: BlogConnection;
     }>(print(PageQuery), {
@@ -103,7 +103,14 @@ export default async function PageTemplate({ node }: TemplateProps) {
           />
         );
       case "/at-miste/":
-        return <AtMistePage sections={sections} blogs={blogs} />;
+        return (
+          <AtMistePage
+            sections={sections}
+            blogs={atMistePosts}
+            articles={articles}
+            globalSections={globalSections}
+          />
+        );
       case "/kurv/":
         return <Kurv />;
       case "/kontakt/":

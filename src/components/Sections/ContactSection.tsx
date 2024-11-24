@@ -13,7 +13,7 @@ interface ContactSectionProps {
 const ContactSection: React.FC<ContactSectionProps> = ({ section }) => {
   return (
     <div className="flex relative pb-[37px] mt-[130px] w-full">
-      <div className="h-[80vh] w-[60%] flex items-center justify-center bg-Beige">
+      <div className="h-[80vh] w-[60%] flex items-center justify-center bg-PrimaryBeige/60">
         <div className="w-[600px]">
           <h1 className="text-[45px] font-medium mb-[15px]">
             {section?.title}

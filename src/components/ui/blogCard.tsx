@@ -14,8 +14,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
   return (
     <Link href={`/blogpost/${blog.slug}`} passHref>
       <div className="w-[clamp(150px, 50%, 300px)] relative overflow-hidden">
-        <div className="bg-Beige/75 absolute top-5 right-0 py-[8px] z-10">
-          <span className="italic font-light text-[16px] md:text-[18px] px-[30px]">
+        <div className="bg-PrimaryBeige/75 absolute top-5 right-0 py-[8px] z-10">
+          <span className="text-black italic font-light text-[16px] md:text-[18px] px-[30px]">
             {category}
           </span>
         </div>
@@ -51,7 +51,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
                 <path
                   className="transition-all duration-300 group-hover:translate-x-[32%] group-hover:transform-origin-left"
                   d="M11.9854 13.5355L18.0209 7.5L11.9854 1.46448"
-                  stroke={"black"}
+                  stroke={"currentColor"}
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -59,7 +59,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
                 <path
                   className="transition-all duration-300 group-hover:scale-x-[1.3] group-hover:transform-origin-left"
                   d="M17.6304 7.44983L0.999935 7.44983"
-                  stroke={"black"}
+                  stroke={"currentColor"}
                   strokeWidth="1.5"
                   strokeLinecap="round"
                 />

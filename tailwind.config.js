@@ -6,6 +6,14 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      xsm: "600px",
+      sm: "640px",
+      md: "768px",
+      tablet: "900px",
+      lg: "1024px",
+      xl: "1280px",
+    },
     extend: {
       borderRadius: {
         lg: "var(--radius)",
@@ -16,8 +24,8 @@ module.exports = {
         custom: "0px 3px 6px rgba(0, 0, 0, 0.16)",
       },
       colors: {
-        Beige: "#ECE2D5",
-        BackgroundBeige: "#E6DAC7",
+        PrimaryBeige: "#E6DAC7",
+        SecondaryBeige: "#EEE6D9",
         PrimaryGreen: "#005E61",
         PrimaryGreenHover: "#004C4E",
         PrimaryGold: "#E6B14F",

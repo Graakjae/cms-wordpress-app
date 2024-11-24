@@ -50,17 +50,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             className="absolute inset-0 w-full h-full object-cover"
           />
           {isHovered && hoverSection && (
-            <div className="absolute bottom-0 w-full bg-Beige bg-opacity-75">
+            <div className="hidden md:block absolute bottom-0 w-full bg-PrimaryBeige bg-opacity-75">
               <p className="text-center my-[30px] italic">
                 {hoverSection?.hoverText || ""}
               </p>
             </div>
           )}
         </div>
-        <p className="text-center text-[22px] mt-[15px] mb-[5px]">
+        <p className="text-center text-[18px] lg:text-[22px] mt-[15px] mb-[5px]">
           {product?.name}
         </p>
-        <div className="text-center text-[18px] mt-[5px]">
+        <div className="text-center text-[15px] lg:text-[18px] mt-[5px]">
           {product?.regularPrice && product?.regularPrice !== product?.price ? (
             <>
               <span className="line-through mr-2 opacity-60">

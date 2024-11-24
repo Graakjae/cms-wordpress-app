@@ -24,7 +24,7 @@ const BigPictureSection: React.FC<BigPictureSectionProps> = ({ section }) => {
         alt="big-picture"
         width={1400}
         height={470}
-        className="w-full object-cover h-[470px] absolute"
+        className="w-full object-cover h-[270px] md:h-[470px] absolute"
       />
       <div className="flex justify-between relative pt-[50px] pb-[90px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
         <Image
@@ -32,7 +32,7 @@ const BigPictureSection: React.FC<BigPictureSectionProps> = ({ section }) => {
           alt={section.image?.node?.altText || ""}
           width={1400}
           height={700}
-          className="max-w-[1400px] max-h-[700px] object-cover object-top"
+          className="w-full max-w-[1400px] h-[300px] md:h-[400px] lg:h-[500px] object-cover object-top"
         />
       </div>
     </div>

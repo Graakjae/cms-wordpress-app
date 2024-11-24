@@ -28,10 +28,12 @@ const ProductTopSection: React.FC<ProductTopSectionProps> = ({
   ) as SimpleProduct;
 
   return (
-    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 flex gap-20 py-[150px]">
-      <div className="w-[30%] flex items-center">
+    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 flex flex-col lg:flex-row gap-20 py-[70px] lg:py-[150px]">
+      <div className="w-full lg:w-[30%] flex flex-col lg:flex-row  items-center">
         <div>
-          <h1 className="text-[35px] font-semibold">{section?.title}</h1>
+          <h1 className="text-[25px] xl:text-[35px] font-semibold">
+            {section?.title}
+          </h1>
           <p className="font-semibold mt-[5px] mb-[26px]">
             {section?.subtitle}
           </p>
@@ -45,7 +47,7 @@ const ProductTopSection: React.FC<ProductTopSectionProps> = ({
           </Link>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-[31px] relative w-[70%]">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-[31px] relative w-full lg:w-[70%]">
         <ProductCard product={barnetsBog} />
         <ProductCard product={mindeAeske} />
       </div>

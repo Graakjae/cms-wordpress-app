@@ -15,7 +15,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ blog }) => {
 
   return (
     <div>
-      <div className="bg-Beige absolute h-[450px] w-full z-[-1]"></div>
+      <div className="bg-SecondaryBeige absolute h-[450px] w-full z-[-1]"></div>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 pt-[115px]">
         <div className="flex gap-20 justify-between items-center">
           <div>

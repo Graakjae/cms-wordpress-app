@@ -9,7 +9,8 @@ import FacebookIcon from "@/components/icons/Facebook";
 import InstagramIcon from "@/components/icons/Instagram";
 import Image from "next/image";
 import LogoGreen from "@/public/green-logo.svg";
-
+import SearchIcon from "@/components/icons/SearchIcon";
+import Cart from "../Cart/Cart";
 interface BurgerMenuProps {
   mobileMenu: MenuItem[];
 }
@@ -128,6 +129,10 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
             priority
           />
         </Link>
+        <div className="flex gap-[19px] items-center">
+          <SearchIcon />
+          <Cart />
+        </div>
       </div>
     </RemoveScroll>
   );

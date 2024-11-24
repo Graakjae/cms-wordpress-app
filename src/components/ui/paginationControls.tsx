@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ArrowRight from "@/public/Icon-feather-arrow-up-right.svg";
+import PaginationArrowIcon from "../icons/PaginationArrow";
 
 interface PaginationControlsProps {
   totalPages: number;
@@ -7,6 +8,7 @@ interface PaginationControlsProps {
   goToPage: (page: number) => void;
   goToNextPage: () => void;
   goToPreviousPage: () => void;
+  className?: string;
 }
 
 const PaginationControls: React.FC<PaginationControlsProps> = ({
@@ -15,19 +17,21 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
   goToPage,
   goToNextPage,
   goToPreviousPage,
+  className,
 }) => {
   return (
-    <div className="absolute mx-auto right-0 left-0 bottom-[0px] flex items-center justify-center mt-6 space-x-4 pb-[150px]">
-      <Image
+    <div
+      className={`absolute mx-auto right-0 left-0 bottom-[0px] flex items-center justify-center mt-6 space-x-4 pb-[80px] md:pb-[150px]`}
+    >
+      <div
         onClick={goToPreviousPage}
-        src={ArrowRight}
-        alt="Arrow Right"
-        width={15}
-        height={15}
-        className={`transform rotate-180 ${
+        className={`transform rotate-180  ${
           currentPage === 1 ? "opacity-25" : "cursor-pointer"
         }`}
-      />
+      >
+        <PaginationArrowIcon />
+      </div>
+
       <div className="flex space-x-2">
         {Array.from({ length: totalPages }, (_, index) => (
           <button
@@ -35,7 +39,7 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
             onClick={() => goToPage(index + 1)}
             className={`px-3 py-1 ${
               currentPage === index + 1
-                ? "bg-PrimaryGold text-white rounded-full w-[32px] h-[32px]"
+                ? `${className} rounded-full w-[32px] h-[32px]`
                 : ""
             }`}
           >
@@ -43,16 +47,14 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
           </button>
         ))}
       </div>
-      <Image
+      <div
         onClick={goToNextPage}
-        src={ArrowRight}
-        alt="Arrow Right"
-        width={15}
-        height={15}
-        className={`${
+        className={` ${
           currentPage === totalPages ? "opacity-25" : "cursor-pointer"
         }`}
-      />
+      >
+        <PaginationArrowIcon />
+      </div>
     </div>
   );
 };

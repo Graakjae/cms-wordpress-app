@@ -14,7 +14,7 @@ const UnderBlogContentSection: React.FC<UnderBlogContentSectionProps> = ({
   section,
 }) => {
   return (
-    <div className="bg-Beige relative">
+    <div className="bg-PrimaryBeige relative">
       <div className="flex max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="w-1/2 h-[70vh]"></div>
         <Image
