@@ -16,22 +16,26 @@ const BlogContent: React.FC<BlogContentProps> = ({ blog }) => {
   return (
     <div>
       <div className="bg-SecondaryBeige absolute h-[450px] w-full z-[-1]"></div>
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 pt-[115px]">
-        <div className="flex gap-20 justify-between items-center">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-[50px] lg:pt-[115px]">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-20 justify-between items-center">
           <div>
-            <p className="text-[18px] font-semibold">{category}</p>
-            <h1 className="text-[45px] font-semibold">{blogContent?.titel}</h1>
+            <p className="text-[16px] lg:text-[18px] font-semibold">
+              {category}
+            </p>
+            <h1 className="text-[30px] lg:text-[45px] font-semibold">
+              {blogContent?.titel}
+            </h1>
           </div>
-          <p className="text-[18px]">{blogContent?.subtitle}</p>
+          <p className="text-[16px] lg:text-[18px]">{blogContent?.subtitle}</p>
         </div>
         <Image
           src={blogContent?.blogPostImage?.node.sourceUrl || ""}
           alt={blogContent?.blogPostImage?.node.altText || ""}
           width={1400}
           height={580}
-          className="w-full object-cover mt-[50px] h-[580px]"
+          className="w-full object-cover mt-[30px] lg:mt-[50px] h-[250px] lg:h-[580px]"
         />
-        <div className="max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8 mt-[60px]">
+        <div className="max-w-[1000px] mx-auto sm:px-6 lg:px-8 mt-[60px]">
           <div className="flex justify-between">
             <div className="flex justify-between w-full">
               <div>
@@ -43,20 +47,22 @@ const BlogContent: React.FC<BlogContentProps> = ({ blog }) => {
                 <p className="text-[16px] mt-[10px]">{category}</p>
               </div>
             </div>
-            <div className="w-full flex justify-end items-center gap-4">
-              <p className="text-[16px] font-light">Del:</p>
-              <Link
-                href="https://www.facebook.com/Aftenstjerner"
-                target="_blank"
-              >
-                <FacebookIcon />
-              </Link>
-              <Link
-                href="https://www.instagram.com/aftenstjerner/"
-                target="_blank"
-              >
-                <InstagramIcon />
-              </Link>
+            <div className=" lg:w-full pl-[25px] flex flex-col lg:flex-row justify-end items-center gap-2">
+              <p className="text-[16px] text-center font-light">Del:</p>
+              <div className="flex justify-end items-center gap-4">
+                <Link
+                  href="https://www.facebook.com/Aftenstjerner"
+                  target="_blank"
+                >
+                  <FacebookIcon />
+                </Link>
+                <Link
+                  href="https://www.instagram.com/aftenstjerner/"
+                  target="_blank"
+                >
+                  <InstagramIcon />
+                </Link>
+              </div>
             </div>
           </div>
           <div className="border-b border-[#C6C6C6] my-[45px]"></div>

@@ -25,8 +25,12 @@ export default async function Footer() {
         />
         <p className="font-light text-[16px] mb-4">Find os på:</p>
         <div className="flex gap-[15px]">
-          <FacebookIcon />
-          <InstagramIcon />
+          <Link href="https://www.facebook.com/aftenstjerner">
+            <FacebookIcon />
+          </Link>
+          <Link href="https://www.instagram.com/aftenstjerner/">
+            <InstagramIcon />
+          </Link>
         </div>
       </div>
       <div className="mt-6">

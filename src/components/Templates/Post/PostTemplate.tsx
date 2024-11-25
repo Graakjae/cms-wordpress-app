@@ -49,7 +49,7 @@ export default async function PostTemplate({ node }: TemplateProps) {
   );
 
   return (
-    <div className="mt-[130px]">
+    <div className="mt-[100px] lg:mt-[130px]">
       <BlogContent
         blog={node.contentTypeName === "blogpost" ? blog : atMistePost}
       />

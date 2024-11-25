@@ -12,10 +12,10 @@ interface ContactSectionProps {
 
 const ContactSection: React.FC<ContactSectionProps> = ({ section }) => {
   return (
-    <div className="flex relative pb-[37px] mt-[130px] w-full">
-      <div className="h-[80vh] w-[60%] flex items-center justify-center bg-PrimaryBeige/60">
-        <div className="w-[600px]">
-          <h1 className="text-[45px] font-medium mb-[15px]">
+    <div className="flex flex-col-reverse tablet:flex-row relative pb-[37px] mt-[100px] tablet:mt-[130px] w-full bg-PrimaryBeige/60">
+      <div className="py-[30px] lg:py-0 tablet:h-[80vh] w-full flex flex-col-reverse tablet:flex-row items-center justify-start  max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 relative">
+        <div className="w-full tablet:w-[400px] lg:w-[600px]">
+          <h1 className="text-[30px] md:text-[45px] font-medium mb-[15px]">
             {section?.title}
           </h1>
           <div
@@ -27,7 +27,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ section }) => {
           <p className="font-greatVibes text-[28px] mt-[45px]">Stine Rathcke</p>
           <p className="mt-[20px]">Stine Rathcke Vestergård / Forfatter</p>
           <p className="mt-[50px]">E-mail: {section?.mail}</p>
-          <div className="mt-[115px]">
+          <div className="mt-[20px] md:mt-[115px]">
             <p className="font-light text-[16px] mb-4">Find os på:</p>
             <div className="flex gap-[15px]">
               <FacebookIcon />
@@ -35,14 +35,15 @@ const ContactSection: React.FC<ContactSectionProps> = ({ section }) => {
             </div>
           </div>
         </div>
+        <Image
+          src={section?.image?.node?.sourceUrl || ""}
+          alt={section?.image?.node?.altText || ""}
+          className="absolute top-0 tablet:right-0 w-full tablet:w-[40%] h-[400px] xsm:h-[55vh] md:h-[70vh] tablet:h-[80vh] object-cover object-top"
+          width={960}
+          height={790}
+        />
+        <div className="w-full tablet:w-[40%] h-[400px] xsm:h-[55vh] md:h-[70vh] tablet:h-[80vh]"></div>
       </div>
-      <Image
-        src={section?.image?.node?.sourceUrl || ""}
-        alt={section?.image?.node?.altText || ""}
-        className="w-[40%] h-[80vh] object-cover"
-        width={960}
-        height={790}
-      />
     </div>
   );
 };

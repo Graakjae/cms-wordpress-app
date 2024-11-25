@@ -88,7 +88,9 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
       </div>
       <div className="relative w-full tablet:w-[50%] flex justify-center">
         <div className="tablet:max-w-[480px] relative">
-          <h1 className="font-semibold text-[45px]">{product?.name}</h1>
+          <h1 className="font-semibold text-[30px] md:text-[45px]">
+            {product?.name}
+          </h1>
           <p className="font-semibold mb-[35px]">Aftenstjerner</p>
           <div
             className="mb-[40px]"
