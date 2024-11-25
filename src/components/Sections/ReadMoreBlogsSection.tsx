@@ -27,7 +27,6 @@ const ReadMoreBlogsSection: React.FC<ReadMoreBlogsSectionProps> = ({
   color,
   atMistePosts,
 }) => {
-  console.log("blogs", atMistePosts);
   return (
     <div
       className={`relative py-[70px] lg:py-[150px] ${

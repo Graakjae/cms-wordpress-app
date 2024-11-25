@@ -20,7 +20,7 @@ const InformationSection: React.FC<InformationSectionProps> = ({ section }) => {
             __html: formatContent(section?.text) || "",
           }}
         />
-        <LinkButton color="PrimaryGreen" link={`${section?.buttonText?.url}`}>
+        <LinkButton link={`${section?.buttonText?.url}`}>
           {section?.buttonText?.title}
         </LinkButton>
       </div>

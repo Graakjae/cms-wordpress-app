@@ -12,7 +12,6 @@ interface BigPictureSectionProps {
 }
 
 const BigPictureSection: React.FC<BigPictureSectionProps> = ({ section }) => {
-  console.log("picturesection", section);
   return (
     <div className="relative">
       <Image

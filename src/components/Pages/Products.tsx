@@ -57,7 +57,6 @@ const ProductsPage: React.FC<ProductsPageProps> = ({
         "GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout"
     ) as GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout;
 
-  console.log("products22", products);
   return (
     <div className="mt-[100px] lg:mt-[130px]">
       <ProductsTopSection section={productsTopSection} products={products} />

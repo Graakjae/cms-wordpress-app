@@ -7,25 +7,25 @@ interface MyHistorySectionProps {
 
 const MyHistorySection: React.FC<MyHistorySectionProps> = ({ section }) => {
   return (
-    <div className="flex justify-between relative py-[150px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
+    <div className="flex justify-between relative py-[70px] lg:py-[150px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
       <div>
-        <p className="text-[35px] font-semibold mb-[5px]">{section?.title}</p>
-        <p className="text-[18px] font-medium mb-[15px]">{section?.subtitle}</p>
-        <div className="flex justify-between gap-20">
-          <div className="w-1/2">
+        <p className="text-[24px] lg:text-[35px] font-semibold mb-[5px]">
+          {section?.title}
+        </p>
+        <p className="font-medium mb-[15px]">{section?.subtitle}</p>
+        <div className="flex flex-col tablet:flex-row justify-between tablet:gap-20">
+          <div className="w-full tablet:w-1/2">
             <div
               dangerouslySetInnerHTML={{
                 __html: formatContent(section?.text1) || "",
               }}
-              className="text-[18px] "
             />
           </div>
-          <div className="w-1/2">
+          <div className="w-full tablet:w-1/2">
             <div
               dangerouslySetInnerHTML={{
                 __html: formatContent(section?.text2) || "",
               }}
-              className="text-[18px] "
             />
           </div>
         </div>

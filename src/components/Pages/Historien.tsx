@@ -75,14 +75,14 @@ const HistoryPage: React.FC<HistoryPageProps> = ({
     ) as GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout;
 
   return (
-    <div className="mt-[130px]">
+    <div className="mt-[100px] lg:mt-[130px]">
       {historyTopSection && <HistorienTopSection section={historyTopSection} />}
       {historySection && <MyHistorySection section={historySection} />}
       {bigPictureSection && <BigPictureSection section={bigPictureSection} />}
       {starAnimation && <StarAnimationSection section={starAnimation} />}
       {moreBlogs && (
         <ReadMoreBlogsSection
-          color="BackgroundBeige"
+          color="PrimaryBeige"
           section={moreBlogs}
           blogs={blogs}
         />

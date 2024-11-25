@@ -67,7 +67,6 @@ export default async function RootLayout({
 }) {
   const { isEnabled } = draftMode();
   const { primaryMenu, rightMenu, mobileMenu } = await getData();
-  console.log("primaryMenu", mobileMenu);
 
   return (
     <html lang="en">

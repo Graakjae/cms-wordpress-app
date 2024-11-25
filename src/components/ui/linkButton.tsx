@@ -15,9 +15,7 @@ export function LinkButton({
       <Button
         variant={"link"}
         size="link"
-        className={`group overflow-visible relative ${
-          color ? `text-${color}` : "text-PrimaryGreen"
-        }`}
+        className={`group overflow-visible relative`}
       >
         {children}
         <svg
