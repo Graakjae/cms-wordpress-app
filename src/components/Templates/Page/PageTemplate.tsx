@@ -75,6 +75,8 @@ export default async function PageTemplate({ node }: TemplateProps) {
     ));
   }
 
+  console.log("sections22", sections);
+
   const PageToRender = () => {
     switch (node.uri) {
       case "/":
@@ -103,14 +105,7 @@ export default async function PageTemplate({ node }: TemplateProps) {
           />
         );
       case "/at-miste/":
-        return (
-          <AtMistePage
-            sections={sections}
-            blogs={atMistePosts}
-            articles={articles}
-            globalSections={globalSections}
-          />
-        );
+        return <AtMistePage sections={sections} blogs={atMistePosts} />;
       case "/kurv/":
         return <Kurv />;
       case "/kontakt/":

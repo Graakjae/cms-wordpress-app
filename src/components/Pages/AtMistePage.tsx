@@ -1,37 +1,37 @@
 "use client";
 import { useState } from "react";
 import {
-  ArticleConnection,
   BlogConnection,
   FlexibleSectionsFlexContentBlogTopSectionLayout,
   FlexibleSectionsFlexContentLayout,
-  FlexibleSectionsFlexContentMoreBlogsSectionLayout,
-  GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout,
-  GlobalSections,
+  FlexibleSectionsFlexContentShareYourStoryFormLayout,
 } from "@/gql/graphql";
 import BlogTopSection from "../Sections/BlogTopSection";
 import BlogCard from "../ui/blogCard";
 import PaginationControls from "../ui/paginationControls";
 import AtMisteAnimation from "../Animations/AtMiste";
+import ShareYourStoryForm from "../Sections/ShareYourStoryForm";
 
 interface AtMisteProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
   blogs: BlogConnection;
-  articles: ArticleConnection;
-  globalSections: GlobalSections;
 }
 
-const AtMistePage: React.FC<AtMisteProps> = ({
-  sections,
-  blogs,
-  articles,
-  globalSections,
-}) => {
+const AtMistePage: React.FC<AtMisteProps> = ({ sections, blogs }) => {
   const blogTopSection = sections.find(
     (section) =>
       section.fieldGroupName ===
       "FlexibleSectionsFlexContentBlogTopSectionLayout"
   ) as FlexibleSectionsFlexContentBlogTopSectionLayout;
+
+  const shareYourStoryForm = sections.find(
+    (section) =>
+      section.fieldGroupName ===
+      "FlexibleSectionsFlexContentShareYourStoryFormLayout"
+  ) as FlexibleSectionsFlexContentShareYourStoryFormLayout;
+
+  console.log("shareYourStoryForm", shareYourStoryForm);
+  console.log("sections", sections);
 
   const blogsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
@@ -68,19 +68,6 @@ const AtMistePage: React.FC<AtMisteProps> = ({
     scrollToTop();
   };
 
-  const articlesSection = sections?.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentArticlesSectionLayout"
-  ) as FlexibleSectionsFlexContentMoreBlogsSectionLayout;
-
-  const infiniteSliderSection =
-    globalSections?.globalFlexibleSections?.sections?.find(
-      (section) =>
-        section?.fieldGroupName ===
-        "GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout"
-    ) as GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout;
-
   return (
     <div className="pt-[100px] lg:pt-[130px]">
       <div className="bg-PrimaryGreen relative pb-[200px] text-white">
@@ -94,7 +81,7 @@ const AtMistePage: React.FC<AtMisteProps> = ({
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[31px] relative stroke-white"
           >
             {currentBlogs.map((blog) => (
-              <BlogCard blog={blog} key={blog.id} />
+              <BlogCard blog={blog} key={blog.id} slug="/at-miste-post/" />
             ))}
           </div>
 
@@ -108,7 +95,7 @@ const AtMistePage: React.FC<AtMisteProps> = ({
           />
         </div>
       </div>
-      Section
+      <ShareYourStoryForm section={shareYourStoryForm} />
     </div>
   );
 };

@@ -40,7 +40,7 @@ export default function Navigation({
                 className={`text-[18px] ${
                   isActive
                     ? pathName === "/at-miste/"
-                      ? "text-Beige border-b border-Beige"
+                      ? "text-PrimaryBeige border-b border-PrimaryBeige"
                       : "text-PrimaryGreen border-b border-PrimaryGreen"
                     : pathName === "/at-miste/"
                     ? "text-white border-b border-PrimaryGreen hover:text-Beige hover:border-Beige cursor-pointer"
@@ -74,10 +74,10 @@ export default function Navigation({
                 className={`text-[18px] ${
                   isActive
                     ? pathName === "/at-miste/"
-                      ? "text-Beige border-b border-Beige"
+                      ? "text-Beige border-b border-PrimaryBeige"
                       : "text-PrimaryGreen border-b border-PrimaryGreen"
                     : pathName === "/at-miste/"
-                    ? "text-white border-b border-PrimaryGreen hover:text-Beige hover:border-Beige cursor-pointer"
+                    ? "text-white border-b border-PrimaryGreen hover:text-PrimaryBeige hover:border-PrimaryBeige cursor-pointer"
                     : "text-black border-b border-white hover:text-PrimaryGreen hover:border-PrimaryGreen cursor-pointer"
                 }`}
               >

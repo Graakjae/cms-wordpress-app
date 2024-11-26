@@ -211,6 +211,13 @@ export const PageQuery = gql`
             }
             title
           }
+          ... on FlexibleSectionsFlexContentShareYourStoryFormLayout {
+            acfeFlexibleLayoutTitle
+            buttonText1
+            fieldGroupName
+            text
+            title
+          }
         }
       }
     }

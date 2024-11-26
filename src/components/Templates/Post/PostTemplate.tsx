@@ -52,6 +52,7 @@ export default async function PostTemplate({ node }: TemplateProps) {
     <div className="mt-[100px] lg:mt-[130px]">
       <BlogContent
         blog={node.contentTypeName === "blogpost" ? blog : atMistePost}
+        contentType={node.contentTypeName}
       />
       <UnderBlogContentSection section={underBlogContentSection || ""} />
       <ReadMoreBlogsSection

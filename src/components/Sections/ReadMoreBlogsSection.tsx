@@ -54,7 +54,9 @@ const ReadMoreBlogsSection: React.FC<ReadMoreBlogsSectionProps> = ({
           {blogs &&
             blogs?.nodes
               .slice(0, 3)
-              .map((blog) => <BlogCard key={blog.id} blog={blog} />)}
+              .map((blog) => (
+                <BlogCard key={blog.id} blog={blog} slug="/blogpost/" />
+              ))}
 
           {articles &&
             articles?.nodes
@@ -67,7 +69,11 @@ const ReadMoreBlogsSection: React.FC<ReadMoreBlogsSectionProps> = ({
             atMistePosts?.nodes
               .slice(0, 3)
               .map((atMistePost) => (
-                <BlogCard key={atMistePost.id} blog={atMistePost} />
+                <BlogCard
+                  key={atMistePost.id}
+                  blog={atMistePost}
+                  slug="/at-miste-post/"
+                />
               ))}
         </div>
       </div>

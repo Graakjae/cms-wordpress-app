@@ -7,17 +7,25 @@ import { formatContent } from "@/utils/formatContent";
 
 interface BlogContentProps {
   blog: Blog;
+  contentType: string;
 }
 
-const BlogContent: React.FC<BlogContentProps> = ({ blog }) => {
+const BlogContent: React.FC<BlogContentProps> = ({ blog, contentType }) => {
   const blogContent = blog?.blogContent;
   const category = blog?.categories?.nodes[0]?.name;
-
   return (
     <div>
-      <div className="bg-SecondaryBeige absolute h-[450px] w-full z-[-1]"></div>
+      <div
+        className={`${
+          contentType === "blogpost" ? "bg-SecondaryBeige" : "bg-PrimaryGreen"
+        } absolute h-[450px] w-full z-[-1]`}
+      ></div>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-[50px] lg:pt-[115px]">
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-20 justify-between items-center">
+        <div
+          className={`${
+            contentType === "blogpost" ? "text-black" : "text-white"
+          } flex flex-col lg:flex-row gap-4 lg:gap-20 justify-between items-center`}
+        >
           <div>
             <p className="text-[16px] lg:text-[18px] font-semibold">
               {category}
