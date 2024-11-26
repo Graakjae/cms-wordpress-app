@@ -73,7 +73,7 @@ export default function Kurv() {
   };
 
   return (
-    <div className="mt-[200px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 min-h-[100vh]">
+    <div className="mt-[120px] xl:mt-[200px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 min-h-[100vh]">
       <Link
         className="group flex gap-2 items-center text-[16px] hover:text-PrimaryGreen"
         href="/produkter"
@@ -82,24 +82,32 @@ export default function Kurv() {
         Tilbage til produkter
       </Link>
       <div className="flex items-center gap-4 mb-[30px] mt-[40px]">
-        <h1 className="text-[32px] font-semibold">Din kurv</h1>
+        <h1 className="text-[24px] xl:text-[32px] font-semibold">Din kurv</h1>
         <p className="text-[20px] font-light">( {clientCart?.length} varer )</p>
       </div>
-      <div className="flex justify-between gap-10">
-        <div className="w-[60%] ">
+      <div className="flex flex-col xl:flex-row justify-between gap-10">
+        <div className="w-full xl:w-[60%] ">
           <div className="flex justify-between border-t border-b border-[#C7C7C7] py-[25px]">
-            <div className="w-[165px]"></div>
-            <p className="w-[250px] text-[14px] font-semibold">Produkter</p>
-            <p className="w-[100px] text-[14px] font-semibold">Pris</p>
-            <p className="w-[100px] text-[14px] font-semibold">Antal</p>
-            <p className="w-[100px] text-[14px] font-semibold">Subtotal</p>
+            <div className="w-[35px] xl:w-[165px]"></div>
+            <p className="w-[110px] xl:w-[250px] text-[14px] font-semibold">
+              Produkter
+            </p>
+            <p className="w-[60px] xl:w-[100px] text-[14px] font-semibold">
+              Pris
+            </p>
+            <p className="w-[60px] xl:w-[100px] text-[14px] font-semibold">
+              Antal
+            </p>
+            <p className="w-[60px] xl:w-[100px] text-[14px] font-semibold">
+              Subtotal
+            </p>
           </div>
           {clientCart.map((item) => (
             <div
               key={item.id}
               className="flex justify-between items-center border-b border-[#C7C7C7] py-[30px]"
             >
-              <div className="w-[165px] flex gap-[30px] items-center">
+              <div className="w-[35px] xl:w-[165px] flex gap-[30px] items-center">
                 <div
                   className="cursor-pointer"
                   onClick={() => handleRemoveFromCart(item.id)}
@@ -111,12 +119,23 @@ export default function Kurv() {
                   alt={item.name}
                   width={130}
                   height={130}
-                  className="object-cover w-[130px] h-[130px]"
+                  className="hidden xl:block object-cover w-[130px] h-[130px]"
                 />
               </div>
-              <p className="w-[250px] text-[16px] font-semibold">{item.name}</p>
-              <p className="w-[100px] text-[14px]">{item.price}</p>
-              <div className="w-[100px]">
+              <div className="flex flex-col justify-center">
+                <p className="w-[110px] xl:w-[250px] text-[16px] font-semibold">
+                  {item.name}
+                </p>
+                <Image
+                  src={item?.image}
+                  alt={item.name}
+                  width={100}
+                  height={100}
+                  className="xl:hidden object-cover w-[100px] h-[100px]"
+                />
+              </div>
+              <p className="w-[60px] xl:w-[100px] text-[14px]">{item.price}</p>
+              <div className="w-[60px] xl:w-[100px]">
                 <input
                   type="number"
                   value={item.quantity}
@@ -126,7 +145,7 @@ export default function Kurv() {
                   className="w-[57px] h-[36px] text-[14px] border border-[#C7C7C7] text-center"
                 />
               </div>
-              <p className="w-[100px] text-[14px] font-semibold">
+              <p className="w-[60px] xl:w-[100px] text-[14px] font-semibold">
                 {isNaN(item.quantity * parseFloat(item.price))
                   ? 0
                   : item.quantity * parseFloat(item.price) + " DKK"}
@@ -134,32 +153,34 @@ export default function Kurv() {
             </div>
           ))}
         </div>
-        <div className="w-[40%] bg-gray-100 px-[37px] py-[25px]">
+        <div className="w-full xl:w-[40%] bg-gray-100 px-[37px] py-[25px]">
           <p className="text-[24px] font-semibold mb-[35px]">Samlet beløb</p>
           <div className="flex justify-between border-b border-[#C7C7C7] pb-[15px]">
             <p>Subtotal</p>
             <p>*Total pris*</p>
           </div>
           <p className="mt-[15px]">Forsendelse</p>
-          <div className="flex justify-between mb-[20px]">
-            <p className="text-[#767676] w-[40%]">
+          <div className="flex flex-col md:flex-row justify-between mb-[20px]">
+            <p className="text-[#767676] md:w-[40%] mb-[20px] md:mb-0">
               Forsendelse vil blive opdateret i kassen
             </p>
             <div>
-              <div className="flex items-center justify-end">
+              <div className="flex items-center justify-between md:justify-end">
                 <p>GLS - privat adresse</p>
                 <input
                   type="radio"
+                  name="shipping"
                   placeholder="Forsendelse"
-                  className="w-[20px] h-[20px] border-[#C7C7C7] ml-4"
+                  className="w-[18px] h-[18px] border-[#C7C7C7] ml-4 checked:bg-black"
                 />
               </div>
-              <div className="flex items-center justify-end">
+              <div className="flex items-center justify-between md:justify-end">
                 <p>GLS - udleveringssted</p>
                 <input
                   type="radio"
+                  name="shipping"
                   placeholder="Forsendelse"
-                  className="w-[20px] h-[20px] border-[#C7C7C7] ml-4"
+                  className="w-[18px] h-[18px] border-[#C7C7C7] ml-4 checked:bg-black"
                 />
               </div>
             </div>

@@ -12,6 +12,10 @@ p {
   font-weight: 350;
 }
 
+input[type="radio"]:checked {
+  accent-color: black; /* Replace with your desired color */
+}
+
 * {
   scroll-behavior: smooth;
 }
