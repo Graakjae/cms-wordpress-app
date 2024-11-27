@@ -19,6 +19,7 @@ import Kurv from "@/components/Pages/Kurv";
 import { GlobalQuery } from "./GlobalQuery";
 import ContactPage from "@/components/Pages/Kontakt";
 import HistoryPage from "@/components/Pages/Historien";
+import Kassen from "@/components/Pages/Kassen";
 
 interface TemplateProps {
   node: ContentNode;
@@ -108,6 +109,8 @@ export default async function PageTemplate({ node }: TemplateProps) {
         return <AtMistePage sections={sections} blogs={atMistePosts} />;
       case "/kurv/":
         return <Kurv />;
+      case "/kassen/":
+        return <Kassen />;
       case "/kontakt/":
         return <ContactPage sections={sections} />;
       case "/historien/":
