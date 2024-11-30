@@ -7,6 +7,8 @@ import { fetchGraphQL } from "@/utils/fetchGraphQL";
 import { ContentNode, Page } from "@/gql/graphql";
 import { PageQuery } from "@/components/Templates/Page/PageQuery";
 import { SeoQuery } from "@/queries/general/SeoQuery";
+import Link from "next/link";
+import { LinkButton } from "@/components/ui/linkButton";
 
 const notFoundPageWordPressId = 824;
 
@@ -32,8 +34,17 @@ export default async function NotFound() {
   });
 
   return (
-    <div
-      dangerouslySetInnerHTML={{ __html: page.content || "pagenot found " }}
-    />
+    <div className=" h-[90vh] flex flex-col justify-center items-center">
+      <h1 className="text-[30px] md:text-[45px] text-center">
+        Hov! Den side findes ikke.
+      </h1>
+      <p className="text-[20px] text-center mb-[30px]">
+        Siden du prøver at finde, findes ikke længere eller er blevet flyttet
+        til en ny webadresse.
+      </p>
+      <div className="text-PrimaryGreen">
+        <LinkButton link="/"> Gå til forsiden</LinkButton>
+      </div>
+    </div>
   );
 }

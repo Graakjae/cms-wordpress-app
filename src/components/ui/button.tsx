@@ -20,6 +20,7 @@ const buttonVariants = cva(
         link: "text-[16px]",
         lightGreen:
           "bg-SecondaryGreen text-white text-[16px] shadow hover:bg-SecondaryGreenHover ",
+        disabled: "bg-neutral-200 text-neutral-500 cursor-not-allowed",
       },
       size: {
         default: "h-[48px] min-w-[196px] px-[45px]",

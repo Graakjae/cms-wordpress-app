@@ -20,6 +20,7 @@ import { GlobalQuery } from "./GlobalQuery";
 import ContactPage from "@/components/Pages/Kontakt";
 import HistoryPage from "@/components/Pages/Historien";
 import Kassen from "@/components/Pages/Kassen";
+import ThankYou from "@/components/Pages/ThankYou";
 
 interface TemplateProps {
   node: ContentNode;
@@ -76,8 +77,6 @@ export default async function PageTemplate({ node }: TemplateProps) {
     ));
   }
 
-  console.log("sections22", sections);
-
   const PageToRender = () => {
     switch (node.uri) {
       case "/":
@@ -122,6 +121,8 @@ export default async function PageTemplate({ node }: TemplateProps) {
             globalSections={globalSections}
           />
         );
+      case "/thank-you/":
+        return <ThankYou />;
       default:
         return <p>Page not found</p>;
     }

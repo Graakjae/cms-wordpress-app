@@ -42,10 +42,11 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
   };
 
   const { addToCart } = useCart();
-
+  console.log("product", product);
   const handleAddToCart = () => {
     addToCart(
       product?.id,
+      product?.productId.toString(),
       product?.name || "",
       product?.price || "",
       quantity,

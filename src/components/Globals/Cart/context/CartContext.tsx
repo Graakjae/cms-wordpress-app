@@ -5,6 +5,7 @@ import { createContext, useState, useEffect, ReactNode } from "react";
 
 export interface CartItem {
   id: string;
+  product_id: string; // Change product_id to id
   name: string;
   price: string;
   quantity: number;
@@ -14,6 +15,7 @@ export interface CartItem {
 interface CartContextType {
   cart: CartItem[];
   addToCart: (
+    id: string, // Change product_id to id
     productId: string,
     productName: string,
     productPrice: string,
@@ -60,6 +62,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
   // Function to add items to the cart
   const addToCart = (
+    id: string, // Change product_id to id
     productId: string,
     productName: string,
     productPrice: string,
@@ -81,7 +84,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         updatedCart = [
           ...prevCart,
           {
-            id: productId,
+            id: id,
+            product_id: productId, // Change product_id to id
             name: productName,
             price: productPrice,
             quantity,
