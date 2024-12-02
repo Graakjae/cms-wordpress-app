@@ -38,40 +38,6 @@ export default function Kurv() {
     });
   };
 
-  const handleCheckout = async () => {
-    const cartItems = cart.map((item) => ({
-      product_id: item.id,
-      quantity: item.quantity,
-    }));
-
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/wp-json/custom-api/v1/checkout`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ items: cartItems }),
-        }
-      );
-
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log("Order created successfully:", data);
-        clearCart(); // Clears the cart after successful checkout
-        // Optionally navigate to a success page, e.g., router.push('/success')
-      } else {
-        console.log("Failed to create order:", data);
-        console.error("Failed to create order:", data);
-      }
-    } catch (error) {
-      console.log("Error during checkout:", error);
-      console.error("Error during checkout:", error);
-    }
-  };
-
   return (
     <div className="mt-[120px] xl:mt-[200px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 min-h-[100vh]">
       <Link
@@ -189,10 +155,11 @@ export default function Kurv() {
             <p>Total</p>
             <p>*Total pris*</p>
           </div>
-          <Button size="lg">Videre til kassen</Button>
+          <Link href="/kassen">
+            <Button size="lg">Videre til kassen</Button>
+          </Link>
         </div>
       </div>
-      {/* <button onClick={handleCheckout}>Place Order</button> */}
     </div>
   );
 }

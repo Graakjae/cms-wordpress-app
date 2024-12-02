@@ -44,7 +44,7 @@ export default function Kassen() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  console.log("clientCart222", cart);
+  console.log("cart lenght", cart.length);
 
   async function handleCheckout() {
     const customerData = {
@@ -221,9 +221,10 @@ export default function Kassen() {
             <p>*Total pris*</p>
           </div>
           <Button
-            variant={cart.length === 0 ? "disabled" : "default"}
+            variant={clientCart.length === 0 ? "disabled" : "default"}
             size="lg"
             onClick={handleCheckout}
+            disabled={clientCart.length === 0}
           >
             Gå til betaling
           </Button>
