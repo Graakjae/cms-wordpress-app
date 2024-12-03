@@ -60,36 +60,33 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     }
   };
 
-  // Function to add items to the cart
   const addToCart = (
-    id: string, // Change product_id to id
+    id: string,
     productId: string,
     productName: string,
     productPrice: string,
     quantity: number,
-    productImage: string // Add image parameter
+    productImage: string
   ) => {
     setCart((prevCart) => {
-      const itemIndex = prevCart.findIndex((item) => item.id === productId);
+      const itemIndex = prevCart.findIndex((item) => item.id === id);
       let updatedCart;
       if (itemIndex !== -1) {
-        // Update quantity if item exists in cart
         updatedCart = [...prevCart];
         updatedCart[itemIndex] = {
           ...updatedCart[itemIndex],
           quantity: updatedCart[itemIndex].quantity + quantity,
         };
       } else {
-        // Add new item to cart
         updatedCart = [
           ...prevCart,
           {
             id: id,
-            product_id: productId, // Change product_id to id
+            product_id: productId,
             name: productName,
             price: productPrice,
             quantity,
-            image: productImage, // Add image property
+            image: productImage,
           },
         ];
       }

@@ -30,9 +30,6 @@ const AtMistePage: React.FC<AtMisteProps> = ({ sections, blogs }) => {
       "FlexibleSectionsFlexContentShareYourStoryFormLayout"
   ) as FlexibleSectionsFlexContentShareYourStoryFormLayout;
 
-  console.log("shareYourStoryForm", shareYourStoryForm);
-  console.log("sections", sections);
-
   const blogsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
 

@@ -19,7 +19,6 @@ interface ShareYourStoryFormProps {
 }
 
 const ShareYourStoryForm: React.FC<ShareYourStoryFormProps> = ({ section }) => {
-  console.log("sotrysection", section);
   return (
     <div className="flex flex-col tablet:flex-row">
       <div>

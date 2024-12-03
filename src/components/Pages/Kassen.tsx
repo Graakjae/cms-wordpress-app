@@ -29,6 +29,7 @@ export default function Kassen() {
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [errorProcessingOrder, setErrorProcessingOrder] = useState("");
 
   useEffect(() => {
     setClientCart(cart);
@@ -45,8 +46,6 @@ export default function Kassen() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
-  console.log("cart lenght", cart.length);
 
   const validateEmail = (email: string) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -109,18 +108,20 @@ export default function Kassen() {
       const result = await response.json();
 
       if (response.ok) {
-        console.log("Order processed successfully:", result);
         cartContext?.clearCart();
-        // Redirect using window.location
         window.location.href = `/thank-you?orderId=${result.order_id}`;
         sessionStorage.setItem("orderCompleted", "true");
       } else {
         console.error("Error processing order:", result.message);
-        alert("Failed to process the order: " + result.message);
+        setErrorProcessingOrder(
+          "Failed to process the order: " + result.message
+        );
       }
     } catch (error) {
       console.error("Order submission failed:", error);
-      alert("An unexpected error occurred. Please try again.");
+      setErrorProcessingOrder(
+        "An unexpected error occurred. Please try again."
+      );
     }
   }
 
@@ -267,6 +268,9 @@ export default function Kassen() {
           >
             Gå til betaling
           </Button>
+          {errorProcessingOrder && (
+            <p className="text-red-500">{errorProcessingOrder}</p>
+          )}
         </div>
       </div>
     </div>
