@@ -5,12 +5,10 @@ import {
   FlexibleSectionsFlexContentInformationSectionLayout,
   FlexibleSectionsFlexContentHeroPageSection5Layout,
   FlexibleSectionsFlexContentHeroSectionLayout,
-  FlexibleSectionsFlexContentInfiniteSliderSectionLayout,
   FlexibleSectionsFlexContentLayout,
   GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout,
   GlobalSections,
   FlexibleSectionsFlexContentMoreBlogsSectionLayout,
-  AtMistePostConnection,
   BlogConnection,
 } from "@/gql/graphql";
 import HeroSection from "../Sections/HeroPage/HeroSection";
@@ -21,6 +19,7 @@ import InformationSection from "../Sections/InformationSection";
 import Section5 from "../Sections/HeroPage/Section5";
 import Divider from "../ui/divider";
 import ReadMoreBlogsSection from "../Sections/ReadMoreBlogsSection";
+import { renderSections } from "@/utils/renderSections";
 
 interface HeroPageProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
@@ -32,10 +31,11 @@ const HeroPage: React.FC<HeroPageProps> = ({
   globalSections,
   atMistePosts,
 }) => {
-  const heroSection = sections.find(
-    (section) =>
-      section.fieldGroupName === "FlexibleSectionsFlexContentHeroSectionLayout"
-  ) as FlexibleSectionsFlexContentHeroSectionLayout;
+  console.log("sections", sections);
+  // const heroSection = sections.find(
+  //   (section) =>
+  //     section.fieldGroupName === "FlexibleSectionsFlexContentHeroSectionLayout"
+  // ) as FlexibleSectionsFlexContentHeroSectionLayout;
 
   const infiniteSliderSection =
     globalSections.globalFlexibleSections?.sections?.find(
@@ -44,46 +44,39 @@ const HeroPage: React.FC<HeroPageProps> = ({
         "GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout"
     ) as GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout;
 
-  const section2 = sections.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentHeroPageSection2Layout"
-  ) as FlexibleSectionsFlexContentHeroPageSection2Layout;
+  // const section2 = sections.find(
+  //   (section) =>
+  //     section.fieldGroupName ===
+  //     "FlexibleSectionsFlexContentHeroPageSection2Layout"
+  // ) as FlexibleSectionsFlexContentHeroPageSection2Layout;
 
-  const section3 = sections.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentHeroPageSection3Layout"
-  ) as FlexibleSectionsFlexContentHeroPageSection3Layout;
+  // const section3 = sections.find(
+  //   (section) =>
+  //     section.fieldGroupName ===
+  //     "FlexibleSectionsFlexContentHeroPageSection3Layout"
+  // ) as FlexibleSectionsFlexContentHeroPageSection3Layout;
 
-  const informationSection = sections.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentInformationSectionLayout"
-  ) as FlexibleSectionsFlexContentInformationSectionLayout;
+  // const informationSection = sections.find(
+  //   (section) =>
+  //     section.fieldGroupName ===
+  //     "FlexibleSectionsFlexContentInformationSectionLayout"
+  // ) as FlexibleSectionsFlexContentInformationSectionLayout;
 
-  const section5 = sections.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentHeroPageSection5Layout"
-  ) as FlexibleSectionsFlexContentHeroPageSection5Layout;
+  // const section5 = sections.find(
+  //   (section) =>
+  //     section.fieldGroupName ===
+  //     "FlexibleSectionsFlexContentHeroPageSection5Layout"
+  // ) as FlexibleSectionsFlexContentHeroPageSection5Layout;
 
-  const readBlogs = sections?.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentMoreBlogsSectionLayout"
-  ) as FlexibleSectionsFlexContentMoreBlogsSectionLayout;
+  // const readBlogs = sections?.find(
+  //   (section) =>
+  //     section.fieldGroupName ===
+  //     "FlexibleSectionsFlexContentMoreBlogsSectionLayout"
+  // ) as FlexibleSectionsFlexContentMoreBlogsSectionLayout;
 
   return (
     <div className="">
-      <HeroSection section={heroSection} />
-      <SliderSection section={infiniteSliderSection} />
-      <Divider />
-      <Section2 section={section2} />
-      <Section3 section={section3} />
-      <InformationSection section={informationSection} />
-      <Section5 section={section5} />
-      <ReadMoreBlogsSection section={readBlogs} atMistePosts={atMistePosts} />
+      {renderSections(sections, { atMistePosts })}
       <Divider />
       <SliderSection section={infiniteSliderSection} />
     </div>
