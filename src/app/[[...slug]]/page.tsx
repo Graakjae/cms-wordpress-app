@@ -7,9 +7,9 @@ import { setSeoData } from "@/utils/seoData";
 import { fetchGraphQL } from "@/utils/fetchGraphQL";
 import { ContentInfoQuery } from "@/queries/general/ContentInfoQuery";
 import { ContentNode } from "@/gql/graphql";
-import PageTemplate from "@/components/Templates/Page/PageTemplate";
+import DisplayPage from "@/components/Templates/Page/DisplayPage";
 import { nextSlugToWpSlug } from "@/utils/nextSlugToWpSlug";
-import PostTemplate from "@/components/Templates/Post/PostTemplate";
+import DisplayPost from "@/components/Templates/Post/DisplayPost";
 import { SeoQuery } from "@/queries/general/SeoQuery";
 import SingleProductPage from "@/components/Templates/Product/SingleProductPage";
 
@@ -63,12 +63,10 @@ export default async function Page({ params }: Props) {
 
   switch (contentNode.contentTypeName) {
     case "page":
-      return <PageTemplate node={contentNode} />;
-    // case "blog":
-    //   return <PostTemplate node={contentNode} />;
+      return <DisplayPage node={contentNode} />;
     case "blogpost":
     case "at-miste-post":
-      return <PostTemplate node={contentNode} />;
+      return <DisplayPost node={contentNode} />;
     case "product":
       return <SingleProductPage node={contentNode} />;
 

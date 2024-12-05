@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { useCart } from "./useCart";
 import ShoppingBagIcon from "@/components/icons/ShoppingBagIcon";
-import CrossIcon from "@/components/icons/Cross";
 import Link from "next/link";
 
 interface CartProps {
@@ -10,7 +9,7 @@ interface CartProps {
 }
 
 const Cart: React.FC<CartProps> = ({ pathName }) => {
-  const { cart, removeFromCart } = useCart();
+  const { cart } = useCart();
   const [totalQuantity, setTotalQuantity] = useState(0);
 
   useEffect(() => {
@@ -24,7 +23,7 @@ const Cart: React.FC<CartProps> = ({ pathName }) => {
       <ShoppingBagIcon pathName={pathName || ""} />
       <div className="absolute right-0 top-0">
         <div className="bg-PrimaryBeige w-[19px] h-[19px] rounded-full flex justify-center items-center">
-          <h2 className="cursor-pointer">{totalQuantity}</h2>
+          <p className="cursor-pointer">{totalQuantity}</p>
         </div>
       </div>
     </Link>

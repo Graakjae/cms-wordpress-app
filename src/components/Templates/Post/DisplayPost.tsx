@@ -17,7 +17,7 @@ interface TemplateProps {
   node: ContentNode;
 }
 
-export default async function PostTemplate({ node }: TemplateProps) {
+export default async function DisplayPost({ node }: TemplateProps) {
   const { globalSections } = await fetchGraphQL<{
     globalSections: GlobalSections;
   }>(print(GlobalQuery));

@@ -1,4 +1,3 @@
-// Pages.tsx
 import { print } from "graphql/language/printer";
 import {
   ArticleConnection,
@@ -26,10 +25,12 @@ interface TemplateProps {
   node: ContentNode;
 }
 
-export default async function PageTemplate({ node }: TemplateProps) {
+export default async function DisplayPage({ node }: TemplateProps) {
   const { page } = await fetchGraphQL<{ page: Page }>(print(PageQuery), {
     id: node.databaseId,
   });
+
+  console.log("page", page);
 
   const { globalSections } = await fetchGraphQL<{
     globalSections: GlobalSections;
@@ -42,6 +43,7 @@ export default async function PageTemplate({ node }: TemplateProps) {
   let articles: ArticleConnection;
   let atMistePosts: BlogConnection;
 
+  console.log("datsbase", node.databaseId);
   if (node.uri === "/blog/" || "/historien/") {
     ({ blogs } = await fetchGraphQL<{ blogs: BlogConnection }>(
       print(PageQuery),

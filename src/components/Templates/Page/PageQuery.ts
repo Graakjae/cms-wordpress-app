@@ -22,20 +22,6 @@ export const PageQuery = gql`
               }
             }
           }
-
-          ... on FlexibleSectionsFlexContentInfiniteSliderSectionLayout {
-            acfeFlexibleLayoutTitle
-            fieldGroupName
-            mentionedIn {
-              fieldGroupName
-              logo {
-                node {
-                  altText
-                  sourceUrl
-                }
-              }
-            }
-          }
           ... on FlexibleSectionsFlexContentHeroPageSection2Layout {
             acfeFlexibleLayoutTitle
             buttonText {

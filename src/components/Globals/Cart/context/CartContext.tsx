@@ -1,30 +1,29 @@
 "use client";
-// src/context/CartContext.tsx
 
 import { createContext, useState, useEffect, ReactNode } from "react";
 
 export interface CartItem {
   id: string;
-  product_id: string; // Change product_id to id
+  product_id: string;
   name: string;
   price: string;
   quantity: number;
-  image: string; // Add image property
+  image: string;
 }
 
 interface CartContextType {
   cart: CartItem[];
   addToCart: (
-    id: string, // Change product_id to id
+    id: string,
     productId: string,
     productName: string,
     productPrice: string,
     quantity: number,
-    productImage: string // Add image parameter
+    productImage: string
   ) => void;
   removeFromCart: (productId: string) => void;
   clearCart: () => void;
-  setCart: React.Dispatch<React.SetStateAction<CartItem[]>>; // Add setCart to the context type
+  setCart: React.Dispatch<React.SetStateAction<CartItem[]>>;
 }
 
 export const CartContext = createContext<CartContextType | undefined>(
@@ -122,7 +121,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart, setCart }} // Provide setCart in the context
+      value={{ cart, addToCart, removeFromCart, clearCart, setCart }}
     >
       {children}
     </CartContext.Provider>

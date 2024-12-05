@@ -11,6 +11,7 @@ import BlogCard from "../ui/blogCard";
 import PaginationControls from "../ui/paginationControls";
 import AtMisteAnimation from "../Animations/AtMiste";
 import ShareYourStoryForm from "../Sections/ShareYourStoryForm";
+import { renderSections } from "@/utils/renderSections";
 
 interface AtMisteProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
@@ -18,17 +19,17 @@ interface AtMisteProps {
 }
 
 const AtMistePage: React.FC<AtMisteProps> = ({ sections, blogs }) => {
-  const blogTopSection = sections.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentBlogTopSectionLayout"
-  ) as FlexibleSectionsFlexContentBlogTopSectionLayout;
+  // const blogTopSection = sections.find(
+  //   (section) =>
+  //     section.fieldGroupName ===
+  //     "FlexibleSectionsFlexContentBlogTopSectionLayout"
+  // ) as FlexibleSectionsFlexContentBlogTopSectionLayout;
 
-  const shareYourStoryForm = sections.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentShareYourStoryFormLayout"
-  ) as FlexibleSectionsFlexContentShareYourStoryFormLayout;
+  // const shareYourStoryForm = sections.find(
+  //   (section) =>
+  //     section.fieldGroupName ===
+  //     "FlexibleSectionsFlexContentShareYourStoryFormLayout"
+  // ) as FlexibleSectionsFlexContentShareYourStoryFormLayout;
 
   const blogsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
@@ -70,7 +71,6 @@ const AtMistePage: React.FC<AtMisteProps> = ({ sections, blogs }) => {
       <div className="bg-PrimaryGreen relative pb-[200px] text-white">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
           <div className="flex justify-between">
-            <BlogTopSection section={blogTopSection} />
             <AtMisteAnimation />
           </div>
           <div
@@ -92,7 +92,7 @@ const AtMistePage: React.FC<AtMisteProps> = ({ sections, blogs }) => {
           />
         </div>
       </div>
-      <ShareYourStoryForm section={shareYourStoryForm} />
+      {renderSections(sections)}
     </div>
   );
 };

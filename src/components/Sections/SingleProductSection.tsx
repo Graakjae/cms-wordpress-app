@@ -57,11 +57,11 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
     (section) =>
       section.fieldGroupName === "FlexibleSectionsFlexContentAccordionLayout"
   ) as FlexibleSectionsFlexContentAccordionLayout;
-
+  console.log("product", product);
   return (
-    <div className="pt-[30px] md:pt-[60px] pb-[150px] flex flex-col tablet:flex-row justify-between gap-[40px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
+    <div className=" pt-[30px] md:pt-[60px] pb-[150px] flex flex-col tablet:flex-row justify-between gap-[40px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
       <div className="flex flex-col-reverse xsm:flex-row tablet:flex-col-reverse xl:flex-row xsm:gap-x-[25px] w-full tablet:w-[50%] max-h-full xsm:max-h-[600px] tablet:max-h-full  xl:max-h-[800px]">
-        <div className="flex flex-row xsm:flex-col tablet:flex-row xl:flex-col gap-[25px] overflow-auto max-h-[160px] xsm:max-h-full tablet:max-h-[160px] xl:max-h-full">
+        <div className="flex flex-row xsm:flex-col tablet:flex-row xl:flex-col gap-[25px] overflow-y-auto tablet:overflow-x-auto tablet:overflow-clip xl:overflow-y-auto max-h-[160px] xsm:max-h-full  xl:max-h-full">
           {product?.galleryImages?.nodes.map((image: MediaItem) => (
             <Image
               key={image?.sourceUrl}
@@ -86,7 +86,7 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
           )}
         </div>
       </div>
-      <div className="relative w-full tablet:w-[50%] flex justify-center">
+      <div className="max-h-[800px] overflow-y-auto relative w-full tablet:w-[50%] flex justify-center">
         <div className="tablet:max-w-[480px] relative">
           <h1 className="font-semibold text-[30px] md:text-[45px]">
             {product?.name}
@@ -106,9 +106,14 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
           </p>
           <div className="flex justify-between items-end mb-[20px]">
             <p className="text-[35px] h-[44px]">{product.price}</p>
-            <Link href="/" className="text-[16px] underline-offset-0">
-              Køb produkt som 2. sortering
-            </Link>
+            {product?.id === "cHJvZHVjdDoxMDc5" && (
+              <Link
+                href="/vare/barnets-bog-smaa-skoenhedsfejl"
+                className="text-[16px] underline-offset-0"
+              >
+                Køb produkt som 2. sortering
+              </Link>
+            )}
           </div>
           <div className="flex justify-between gap-[15px]">
             <div className="w-[30%] h-[60px] flex justify-around items-center mb-[20px] border-[0.5px] border-[#797979]">

@@ -10,7 +10,6 @@ import {
   FlexibleSectionsFlexContentUnderProductSectionLayout,
   GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout,
   GlobalSections,
-  Product,
   ProductConnection,
   SimpleProduct,
 } from "@/gql/graphql";
