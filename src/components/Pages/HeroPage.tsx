@@ -20,7 +20,7 @@ const HeroPage: React.FC<HeroPageProps> = ({
   atMistePosts,
 }) => {
   const infiniteSliderSection =
-    globalSections.globalFlexibleSections?.sections?.find(
+    globalSections?.globalFlexibleSections?.sections?.find(
       (section) =>
         section?.fieldGroupName ===
         "GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout"
@@ -30,7 +30,9 @@ const HeroPage: React.FC<HeroPageProps> = ({
     <div>
       {renderSections(sections, { atMistePosts })}
       <Divider />
-      <SliderSection section={infiniteSliderSection} />
+      {infiniteSliderSection && (
+        <SliderSection section={infiniteSliderSection} />
+      )}
     </div>
   );
 };
