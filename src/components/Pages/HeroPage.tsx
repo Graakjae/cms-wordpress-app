@@ -29,10 +29,10 @@ const HeroPage: React.FC<HeroPageProps> = ({
   return (
     <div>
       {renderSections(sections, { atMistePosts })}
-      <Divider />
+      {/* <Divider />
       {infiniteSliderSection && (
         <SliderSection section={infiniteSliderSection} />
-      )}
+      )} */}
     </div>
   );
 };
