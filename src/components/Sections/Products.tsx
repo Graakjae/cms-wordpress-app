@@ -24,16 +24,19 @@ const ProductSection: React.FC<ProductSectionProps> = ({
   ];
 
   // Filter out the products with the specified IDs
-  const filteredProducts = products.nodes.filter(
+  const filteredProducts = products?.nodes.filter(
     (product: Product) => !excludedProductIds.includes(product.id)
   );
 
   return (
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 gap-20 py-[70px] lg:py-[150px]">
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-[30px] relative w-full">
-        {filteredProducts.reverse().map((product: Product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        {filteredProducts &&
+          filteredProducts
+            .reverse()
+            .map((product: Product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
         <div className="hidden md:block w-[clamp(350px, 50%, 500px)] relative overflow-hidden ">
           <div className="w-[clamp(350px, 50%, 500px)]">
             <div className="relative w-full pt-[120%] overflow-hidden bg-PrimaryBeige z-10">

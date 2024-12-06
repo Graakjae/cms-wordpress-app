@@ -32,8 +32,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   return (
     <Link
-      href={`/vare/${product.slug}`}
-      key={product.id}
+      href={`/vare/${product?.slug}`}
+      key={product?.id}
       className="w-[clamp(350px, 50%, 500px)] relative overflow-hidden"
     >
       <div className="w-[clamp(350px, 50%, 500px)]">
