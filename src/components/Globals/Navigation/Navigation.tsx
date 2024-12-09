@@ -59,7 +59,6 @@ export default function Navigation({
             width={125}
             height={52}
             className=""
-            priority
           />
         </Link>
         <div className="flex justify-end gap-20 w-[400px]">
