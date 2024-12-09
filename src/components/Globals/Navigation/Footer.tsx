@@ -79,7 +79,7 @@ export default async function Footer() {
         <Link href="/">
           <p>Forlaget fortæl</p>
         </Link>
-        <Link href="/faq">
+        <Link href="/">
           <p>Ofte stillede spørgsmål</p>
         </Link>
       </div>
