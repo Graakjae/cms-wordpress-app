@@ -17,6 +17,7 @@ interface ReadMoreBlogsSectionProps {
   color?: string;
   articles?: ArticleConnection;
   atMistePosts?: BlogConnection;
+  contentType?: string;
 }
 
 const ReadMoreBlogsSection: React.FC<ReadMoreBlogsSectionProps> = ({
@@ -26,12 +27,13 @@ const ReadMoreBlogsSection: React.FC<ReadMoreBlogsSectionProps> = ({
   articles,
   color,
   atMistePosts,
+  contentType,
 }) => {
   return (
     <div
       className={`relative py-[70px] lg:py-[150px] ${
         color ? `bg-${color}` : ""
-      }`}
+      } ${contentType === "at-miste-post" && "bg-PrimaryGreen text-white"}`}
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="w-full flex justify-between items-center mb-[25px]">

@@ -47,6 +47,7 @@ export default async function DisplayPost({ node }: TemplateProps) {
     print(PageQuery),
     { id: node.databaseId }
   );
+  console.log("Blogs", node.contentTypeName);
 
   return (
     <div className="mt-[100px] lg:mt-[130px]">
@@ -54,10 +55,15 @@ export default async function DisplayPost({ node }: TemplateProps) {
         blog={node.contentTypeName === "blogpost" ? blog : atMistePost}
         contentType={node.contentTypeName}
       />
-      <UnderBlogContentSection section={underBlogContentSection || ""} />
+      <div
+        className={`${node.contentTypeName === "at-miste-post" && "hidden"}`}
+      >
+        <UnderBlogContentSection section={underBlogContentSection || ""} />
+      </div>
       <ReadMoreBlogsSection
         globalSection={readMoreBlogsSection || ""}
         blogs={blogs}
+        contentType={node.contentTypeName}
       />
     </div>
   );
