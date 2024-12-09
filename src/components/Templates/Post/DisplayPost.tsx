@@ -3,6 +3,7 @@ import {
   Blog,
   BlogConnection,
   ContentNode,
+  FlexibleSectionsFlexContentLayout,
   GlobalSections,
 } from "@/gql/graphql";
 import { fetchGraphQL } from "@/utils/fetchGraphQL";
@@ -12,6 +13,7 @@ import { GlobalQuery } from "../Page/GlobalQuery";
 import UnderBlogContentSection from "@/components/Sections/UnderBlogContentSection";
 import ReadMoreBlogsSection from "@/components/Sections/ReadMoreBlogsSection";
 import { PageQuery } from "../Page/PageQuery";
+import { renderSections } from "@/utils/renderSections";
 
 interface TemplateProps {
   node: ContentNode;
@@ -39,6 +41,11 @@ export default async function DisplayPost({ node }: TemplateProps) {
   const { blog } = await fetchGraphQL<{ blog: Blog }>(print(PostQuery), {
     id: node.databaseId,
   });
+
+  const sections = blog?.flexibleSections
+    ?.flexContent as FlexibleSectionsFlexContentLayout[];
+
+  console.log("blog222", blog);
   const { atMistePost } = await fetchGraphQL<{ atMistePost: Blog }>(
     print(PostQuery),
     { id: node.databaseId }
@@ -47,7 +54,6 @@ export default async function DisplayPost({ node }: TemplateProps) {
     print(PageQuery),
     { id: node.databaseId }
   );
-  console.log("Blogs", node.contentTypeName);
 
   return (
     <div className="mt-[100px] lg:mt-[130px]">
@@ -65,6 +71,7 @@ export default async function DisplayPost({ node }: TemplateProps) {
         blogs={blogs}
         contentType={node.contentTypeName}
       />
+      {renderSections(sections)}
     </div>
   );
 }

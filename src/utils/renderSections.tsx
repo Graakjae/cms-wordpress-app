@@ -45,6 +45,7 @@ export const renderSections = (
   sections: Array<FlexibleSectionsFlexContentLayout>,
   additionalProps: { [key: string]: any } = {}
 ) => {
+  if (!sections) return null;
   return sections.map((section, index) => {
     const fieldGroupName = section?.fieldGroupName;
     const SectionComponent = fieldGroupName
