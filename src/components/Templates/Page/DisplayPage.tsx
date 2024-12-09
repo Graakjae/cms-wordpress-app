@@ -30,8 +30,6 @@ export default async function DisplayPage({ node }: TemplateProps) {
     id: node.databaseId,
   });
 
-  console.log("page", page);
-
   const { globalSections } = await fetchGraphQL<{
     globalSections: GlobalSections;
   }>(print(GlobalQuery));
@@ -43,7 +41,6 @@ export default async function DisplayPage({ node }: TemplateProps) {
   let articles: ArticleConnection;
   let atMistePosts: BlogConnection;
 
-  console.log("datsbase", node.databaseId);
   if (node.uri === "/blog/" || "/historien/") {
     ({ blogs } = await fetchGraphQL<{ blogs: BlogConnection }>(
       print(PageQuery),

@@ -50,8 +50,6 @@ const AtMistePage: React.FC<AtMisteProps> = ({ sections, blogs }) => {
     scrollToTop();
   };
 
-  console.log("section", sections);
-
   return (
     <div className="pt-[100px] lg:pt-[130px]">
       <div className="bg-PrimaryGreen relative pb-[200px] text-white">

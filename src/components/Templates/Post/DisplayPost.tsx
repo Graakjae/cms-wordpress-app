@@ -45,7 +45,6 @@ export default async function DisplayPost({ node }: TemplateProps) {
   const sections = blog?.flexibleSections
     ?.flexContent as FlexibleSectionsFlexContentLayout[];
 
-  console.log("blog222", blog);
   const { atMistePost } = await fetchGraphQL<{ atMistePost: Blog }>(
     print(PostQuery),
     { id: node.databaseId }

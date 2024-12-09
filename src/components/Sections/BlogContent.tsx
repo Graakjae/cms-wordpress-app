@@ -13,7 +13,6 @@ interface BlogContentProps {
 const BlogContent: React.FC<BlogContentProps> = ({ blog, contentType }) => {
   const blogContent = blog?.blogContent;
   const category = blog?.categories?.nodes[0]?.name;
-  console.log("conetent", blogContent);
   return (
     <div>
       <div

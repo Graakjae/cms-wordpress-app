@@ -43,8 +43,6 @@ const BlogPage: React.FC<BlogPageProps> = ({
     }
   };
 
-  console.log("sections", sections);
-
   const goToPreviousPage = () => {
     if (currentPage > 1) {
       setCurrentPage((prev) => prev - 1);

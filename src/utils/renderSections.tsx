@@ -18,6 +18,9 @@ import MyHistorySection from "@/components/Sections/MyHistorySection";
 import BigPictureSection from "@/components/Sections/BigPictureSection";
 import ContactSection from "@/components/Sections/ContactSection";
 import ThankYouPageSection from "@/components/Sections/ThankYouPageSection";
+import UnderProductSection from "@/components/Sections/UnderProductSection";
+import MoreAboutTheProductSection from "@/components/Sections/MoreAboutTheProductSection";
+import CTASection from "@/components/Sections/CTASection";
 
 const sectionComponents: { [key: string]: React.FC<any> } = {
   FlexibleSectionsFlexContentHeroSectionLayout: HeroSection,
@@ -39,6 +42,10 @@ const sectionComponents: { [key: string]: React.FC<any> } = {
   FlexibleSectionsFlexContentBigPictureSectionLayout: BigPictureSection,
   FlexibleSectionsFlexContentContactTopSectionLayout: ContactSection,
   FlexibleSectionsFlexContentThankYouPageSectionLayout: ThankYouPageSection,
+  FlexibleSectionsFlexContentUnderProductSectionLayout: UnderProductSection,
+  FlexibleSectionsFlexContentMoreAboutTheProductSectionLayout:
+    MoreAboutTheProductSection,
+  FlexibleSectionsFlexContentCtaSectionLayout: CTASection,
 };
 
 export const renderSections = (

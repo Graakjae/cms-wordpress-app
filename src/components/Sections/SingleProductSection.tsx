@@ -57,7 +57,7 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
     (section) =>
       section.fieldGroupName === "FlexibleSectionsFlexContentAccordionLayout"
   ) as FlexibleSectionsFlexContentAccordionLayout;
-  console.log("product", product);
+
   return (
     <div className=" pt-[30px] md:pt-[60px] pb-[150px] flex flex-col tablet:flex-row justify-between gap-[40px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
       <div className="flex flex-col-reverse xsm:flex-row tablet:flex-col-reverse xl:flex-row xsm:gap-x-[25px] w-full tablet:w-[50%] max-h-full xsm:max-h-[600px] tablet:max-h-full  xl:max-h-[800px]">
