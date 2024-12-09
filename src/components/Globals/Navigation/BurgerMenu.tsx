@@ -126,7 +126,6 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
             width={80}
             height={30}
             className=""
-            priority
           />
         </Link>
         <div className="flex gap-[19px] items-center">
