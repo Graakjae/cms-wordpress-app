@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  FlexibleSectionsFlexContentInformationSectionLayout,
-  FlexibleSectionsFlexContentHeroSectionLayout,
-  FlexibleSectionsFlexContentLayout,
-  FlexibleSectionsFlexContentContactTopSectionLayout,
-} from "@/gql/graphql";
-import InformationSection from "../Sections/InformationSection";
-import ContactSection from "../Sections/ContactSection";
+import { FlexibleSectionsFlexContentLayout } from "@/gql/graphql";
 import { renderSections } from "@/utils/renderSections";
 
 interface ContactPageProps {

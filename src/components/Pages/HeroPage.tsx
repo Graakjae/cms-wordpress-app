@@ -5,8 +5,6 @@ import {
   GlobalSections,
   BlogConnection,
 } from "@/gql/graphql";
-import SliderSection from "../Sections/SliderSection";
-import Divider from "../ui/divider";
 import { renderSections } from "@/utils/renderSections";
 
 interface HeroPageProps {

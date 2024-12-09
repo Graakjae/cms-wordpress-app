@@ -2,15 +2,11 @@
 import { useState } from "react";
 import {
   BlogConnection,
-  FlexibleSectionsFlexContentBlogTopSectionLayout,
   FlexibleSectionsFlexContentLayout,
-  FlexibleSectionsFlexContentShareYourStoryFormLayout,
 } from "@/gql/graphql";
-import BlogTopSection from "../Sections/BlogTopSection";
 import BlogCard from "../ui/blogCard";
 import PaginationControls from "../ui/paginationControls";
 import AtMisteAnimation from "../Animations/AtMiste";
-import ShareYourStoryForm from "../Sections/ShareYourStoryForm";
 import { renderSections } from "@/utils/renderSections";
 
 interface AtMisteProps {

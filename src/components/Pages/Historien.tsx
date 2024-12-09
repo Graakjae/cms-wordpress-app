@@ -1,21 +1,11 @@
 import React from "react";
 import {
   FlexibleSectionsFlexContentLayout,
-  FlexibleSectionsFlexContentHistoryTopSectionLayout,
-  FlexibleSectionsFlexContentMyHistorySectionLayout,
-  FlexibleSectionsFlexContentBigPictureSectionLayout,
-  FlexibleSectionsFlexContentStarAnimationLayout,
   BlogConnection,
-  FlexibleSectionsFlexContentMoreBlogsSectionLayout,
   ArticleConnection,
   GlobalSections,
   GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout,
 } from "@/gql/graphql";
-import HistorienTopSection from "../Sections/HistorienTopSection";
-import MyHistorySection from "../Sections/MyHistorySection";
-import BigPictureSection from "../Sections/BigPictureSection";
-import StarAnimationSection from "../Sections/StarAnimationSection";
-import ReadMoreBlogsSection from "../Sections/ReadMoreBlogsSection";
 import SliderSection from "../Sections/SliderSection";
 import Divider from "../ui/divider";
 import { renderSections } from "@/utils/renderSections";

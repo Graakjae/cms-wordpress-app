@@ -1,19 +1,5 @@
 import React from "react";
-import {
-  FlexibleSectionsFlexContentHeroPageSection2Layout,
-  FlexibleSectionsFlexContentHeroPageSection3Layout,
-  FlexibleSectionsFlexContentInformationSectionLayout,
-  FlexibleSectionsFlexContentHeroPageSection5Layout,
-  FlexibleSectionsFlexContentHeroSectionLayout,
-  FlexibleSectionsFlexContentLayout,
-  GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout,
-  FlexibleSectionsFlexContentMoreBlogsSectionLayout,
-  BlogConnection,
-  FlexibleSectionsFlexContentProductsSectionLayout,
-  FlexibleSectionsFlexContentProductsPageSection2Layout,
-  FlexibleSectionsFlexContentProductsPageTopSectionLayout,
-  FlexibleSectionsFlexContentStarAnimationLayout,
-} from "@/gql/graphql";
+import { FlexibleSectionsFlexContentLayout } from "@/gql/graphql";
 import HeroSection from "../components/Sections/HeroPage/HeroSection";
 import SliderSection from "../components/Sections/SliderSection";
 import Section2 from "../components/Sections/HeroPage/Section2";

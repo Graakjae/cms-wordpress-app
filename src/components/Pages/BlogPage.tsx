@@ -3,16 +3,12 @@ import { useState } from "react";
 import {
   ArticleConnection,
   BlogConnection,
-  FlexibleSectionsFlexContentBlogTopSectionLayout,
   FlexibleSectionsFlexContentLayout,
-  FlexibleSectionsFlexContentMoreBlogsSectionLayout,
   GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout,
   GlobalSections,
 } from "@/gql/graphql";
-import BlogTopSection from "../Sections/BlogTopSection";
 import BlogCard from "../ui/blogCard";
 import BlogPageAnimation from "../Animations/BlogPage";
-import ReadMoreBlogsSection from "../Sections/ReadMoreBlogsSection";
 import Divider from "../ui/divider";
 import SliderSection from "../Sections/SliderSection";
 import PaginationControls from "../ui/paginationControls";
