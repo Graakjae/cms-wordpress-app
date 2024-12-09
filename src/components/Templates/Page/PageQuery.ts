@@ -204,6 +204,16 @@ export const PageQuery = gql`
             text
             title
           }
+          ... on FlexibleSectionsFlexContentThankYouPageSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            link {
+              title
+              url
+            }
+            text
+            title
+          }
         }
       }
     }

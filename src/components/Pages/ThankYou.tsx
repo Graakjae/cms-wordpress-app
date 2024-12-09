@@ -1,8 +1,13 @@
 "use client";
 import { useEffect } from "react";
-import { LinkButton } from "../ui/linkButton";
+import { renderSections } from "@/utils/renderSections";
+import { FlexibleSectionsFlexContentLayout } from "@/gql/graphql";
 
-export default function ThankYou() {
+interface ThankYouProps {
+  sections: Array<FlexibleSectionsFlexContentLayout>;
+}
+
+const ThankYouPage: React.FC<ThankYouProps> = ({ sections }) => {
   useEffect(() => {
     const orderCompleted = sessionStorage.getItem("orderCompleted");
 
@@ -15,15 +20,7 @@ export default function ThankYou() {
     }
   }, []);
 
-  return (
-    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 min-h-[90vh] flex justify-center items-center">
-      <div className="text-center">
-        <h1 className="text-[32px] font-semibold">Tak for din ordre!</h1>
-        <p className="text-[18px] mt-4">Vi har modtaget din ordre.</p>
-        <div className="text-[16px] font-semibold text-PrimaryGreen mt-6">
-          <LinkButton link="/">Gå tilbage til forsiden</LinkButton>
-        </div>
-      </div>
-    </div>
-  );
-}
+  return <>{renderSections(sections)}</>;
+};
+
+export default ThankYouPage;

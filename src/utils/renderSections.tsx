@@ -27,6 +27,11 @@ import StarAnimationSection from "../components/Sections/StarAnimationSection";
 import ProductsTopSection from "../components/Sections/ProductsTopSection";
 import BlogTopSection from "@/components/Sections/BlogTopSection";
 import ShareYourStoryForm from "@/components/Sections/ShareYourStoryForm";
+import HistorienTopSection from "@/components/Sections/HistorienTopSection";
+import MyHistorySection from "@/components/Sections/MyHistorySection";
+import BigPictureSection from "@/components/Sections/BigPictureSection";
+import ContactSection from "@/components/Sections/ContactSection";
+import ThankYouPageSection from "@/components/Sections/ThankYouPageSection";
 
 const sectionComponents: { [key: string]: React.FC<any> } = {
   FlexibleSectionsFlexContentHeroSectionLayout: HeroSection,
@@ -42,6 +47,12 @@ const sectionComponents: { [key: string]: React.FC<any> } = {
   FlexibleSectionsFlexContentProductsSectionLayout: ProductSection,
   FlexibleSectionsFlexContentBlogTopSectionLayout: BlogTopSection,
   FlexibleSectionsFlexContentShareYourStoryFormLayout: ShareYourStoryForm,
+  FlexibleSectionsFlexContentArticlesSectionLayout: ReadMoreBlogsSection,
+  FlexibleSectionsFlexContentHistoryTopSectionLayout: HistorienTopSection,
+  FlexibleSectionsFlexContentMyHistorySectionLayout: MyHistorySection,
+  FlexibleSectionsFlexContentBigPictureSectionLayout: BigPictureSection,
+  FlexibleSectionsFlexContentContactTopSectionLayout: ContactSection,
+  FlexibleSectionsFlexContentThankYouPageSectionLayout: ThankYouPageSection,
 };
 
 export const renderSections = (

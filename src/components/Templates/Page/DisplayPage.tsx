@@ -19,7 +19,7 @@ import { GlobalQuery } from "./GlobalQuery";
 import ContactPage from "@/components/Pages/Kontakt";
 import HistoryPage from "@/components/Pages/Historien";
 import Kassen from "@/components/Pages/Kassen";
-import ThankYou from "@/components/Pages/ThankYou";
+import ThankYouPage from "@/components/Pages/ThankYou";
 
 interface TemplateProps {
   node: ContentNode;
@@ -124,7 +124,7 @@ export default async function DisplayPage({ node }: TemplateProps) {
           />
         );
       case "/thank-you/":
-        return <ThankYou />;
+        return <ThankYouPage sections={sections} />;
       default:
         return <p>Page not found</p>;
     }

@@ -19,18 +19,6 @@ interface AtMisteProps {
 }
 
 const AtMistePage: React.FC<AtMisteProps> = ({ sections, blogs }) => {
-  // const blogTopSection = sections.find(
-  //   (section) =>
-  //     section.fieldGroupName ===
-  //     "FlexibleSectionsFlexContentBlogTopSectionLayout"
-  // ) as FlexibleSectionsFlexContentBlogTopSectionLayout;
-
-  // const shareYourStoryForm = sections.find(
-  //   (section) =>
-  //     section.fieldGroupName ===
-  //     "FlexibleSectionsFlexContentShareYourStoryFormLayout"
-  // ) as FlexibleSectionsFlexContentShareYourStoryFormLayout;
-
   const blogsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
 

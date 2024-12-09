@@ -16,6 +16,7 @@ import ReadMoreBlogsSection from "../Sections/ReadMoreBlogsSection";
 import Divider from "../ui/divider";
 import SliderSection from "../Sections/SliderSection";
 import PaginationControls from "../ui/paginationControls";
+import { renderSections } from "@/utils/renderSections";
 
 interface BlogPageProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
@@ -30,12 +31,6 @@ const BlogPage: React.FC<BlogPageProps> = ({
   articles,
   globalSections,
 }) => {
-  const blogTopSection = sections.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentBlogTopSectionLayout"
-  ) as FlexibleSectionsFlexContentBlogTopSectionLayout;
-
   const blogsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -73,12 +68,6 @@ const BlogPage: React.FC<BlogPageProps> = ({
     scrollToTop();
   };
 
-  const articlesSection = sections?.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentArticlesSectionLayout"
-  ) as FlexibleSectionsFlexContentMoreBlogsSectionLayout;
-
   const infiniteSliderSection =
     globalSections?.globalFlexibleSections?.sections?.find(
       (section) =>
@@ -91,7 +80,6 @@ const BlogPage: React.FC<BlogPageProps> = ({
       <div className="bg-SecondaryBeige relative pb-[200px]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8">
           <div className="flex justify-between">
-            <BlogTopSection section={blogTopSection} />
             <BlogPageAnimation />
           </div>
           <div
@@ -113,7 +101,7 @@ const BlogPage: React.FC<BlogPageProps> = ({
           />
         </div>
       </div>
-      <ReadMoreBlogsSection articles={articles} section={articlesSection} />
+      {renderSections(sections, { articles })}
       <Divider />
       <SliderSection section={infiniteSliderSection} />
     </div>

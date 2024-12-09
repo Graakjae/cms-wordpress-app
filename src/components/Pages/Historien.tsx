@@ -18,6 +18,7 @@ import StarAnimationSection from "../Sections/StarAnimationSection";
 import ReadMoreBlogsSection from "../Sections/ReadMoreBlogsSection";
 import SliderSection from "../Sections/SliderSection";
 import Divider from "../ui/divider";
+import { renderSections } from "@/utils/renderSections";
 
 interface HistoryPageProps {
   sections: Array<FlexibleSectionsFlexContentLayout>;
@@ -31,42 +32,6 @@ const HistoryPage: React.FC<HistoryPageProps> = ({
   articles,
   globalSections,
 }) => {
-  const historyTopSection = sections.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentHistoryTopSectionLayout"
-  ) as FlexibleSectionsFlexContentHistoryTopSectionLayout;
-
-  const historySection = sections.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentMyHistorySectionLayout"
-  ) as FlexibleSectionsFlexContentMyHistorySectionLayout;
-
-  const bigPictureSection = sections?.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentBigPictureSectionLayout"
-  ) as FlexibleSectionsFlexContentBigPictureSectionLayout;
-
-  const starAnimation = sections?.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentStarAnimationLayout"
-  ) as FlexibleSectionsFlexContentStarAnimationLayout;
-
-  const moreBlogs = sections?.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentMoreBlogsSectionLayout"
-  ) as FlexibleSectionsFlexContentMoreBlogsSectionLayout;
-
-  const articlesSection = sections?.find(
-    (section) =>
-      section.fieldGroupName ===
-      "FlexibleSectionsFlexContentArticlesSectionLayout"
-  ) as FlexibleSectionsFlexContentMoreBlogsSectionLayout;
-
   const infiniteSliderSection =
     globalSections.globalFlexibleSections?.sections?.find(
       (section) =>
@@ -76,20 +41,7 @@ const HistoryPage: React.FC<HistoryPageProps> = ({
 
   return (
     <div className="mt-[100px] lg:mt-[130px]">
-      {historyTopSection && <HistorienTopSection section={historyTopSection} />}
-      {historySection && <MyHistorySection section={historySection} />}
-      {bigPictureSection && <BigPictureSection section={bigPictureSection} />}
-      {starAnimation && <StarAnimationSection section={starAnimation} />}
-      {moreBlogs && (
-        <ReadMoreBlogsSection
-          color="PrimaryBeige"
-          section={moreBlogs}
-          blogs={blogs}
-        />
-      )}
-      {articles && (
-        <ReadMoreBlogsSection section={articlesSection} articles={articles} />
-      )}
+      {renderSections(sections, { blogs, articles })}
       <Divider />
       <SliderSection section={infiniteSliderSection} />
     </div>
