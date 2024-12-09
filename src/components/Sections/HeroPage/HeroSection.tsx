@@ -18,7 +18,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
         className="w-full md:w-1/2 h-[50vh] md:h-[80vh] object-cover"
         width={960}
         height={790}
-        priority
       />
       <div className=" md:h-[80vh] w-full md:w-1/2 flex items-center bg-PrimaryBeige/60 pt-[40px] pb-[40px] md:pt-[0px] md:pb-[0px]">
         <div className="w-full md:w-[600px] p-4 md:pl-20">

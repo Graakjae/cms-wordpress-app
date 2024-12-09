@@ -266,7 +266,7 @@ export default function Kassen() {
             onClick={handleCheckout}
             disabled={clientCart.length === 0}
           >
-            Gå til betaling
+            Gennemfør ordre
           </Button>
           {errorProcessingOrder && (
             <p className="text-red-500">{errorProcessingOrder}</p>

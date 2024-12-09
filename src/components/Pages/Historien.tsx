@@ -31,7 +31,7 @@ const HistoryPage: React.FC<HistoryPageProps> = ({
 
   return (
     <div className="mt-[100px] lg:mt-[130px]">
-      {renderSections(sections, { blogs, articles })}
+      {renderSections(sections, { blogs, articles, color: "PrimaryBeige" })}
       <Divider />
       <SliderSection section={infiniteSliderSection} />
     </div>
