@@ -7,6 +7,7 @@ import LogoBeige from "@/public/beige-logo.svg";
 import { usePathname } from "next/navigation";
 import SearchIcon from "@/components/icons/SearchIcon";
 import Cart from "../Cart/Cart";
+import { TransitionLink } from "@/utils/TransitionLink";
 
 interface NavigationProps {
   primaryMenu: MenuItem[];
@@ -33,8 +34,7 @@ export default function Navigation({
             if (!item.uri) return null;
             const isActive = pathName === item.uri;
             return (
-              <Link
-                itemProp="url"
+              <TransitionLink
                 href={item.uri}
                 key={index}
                 className={`text-[18px] ${
@@ -48,26 +48,24 @@ export default function Navigation({
                 }`}
               >
                 <span itemProp="name">{item.label}</span>
-              </Link>
+              </TransitionLink>
             );
           })}
         </div>
-        <Link href="/">
+        <TransitionLink href="/">
           <Image
             src={pathName === "/at-miste/" ? LogoBeige : LogoGreen}
             alt="logo"
             width={125}
             height={52}
-            className=""
           />
-        </Link>
+        </TransitionLink>
         <div className="flex justify-end gap-20 w-[400px]">
           {rightMenu.map((item: MenuItem, index: number) => {
             if (!item.uri) return null;
             const isActive = pathName === item.uri;
             return (
-              <Link
-                itemProp="url"
+              <TransitionLink
                 href={item.uri}
                 key={index}
                 className={`text-[18px] ${
@@ -81,7 +79,7 @@ export default function Navigation({
                 }`}
               >
                 <span itemProp="name">{item.label}</span>
-              </Link>
+              </TransitionLink>
             );
           })}
           <div className="flex gap-[38px] items-center">

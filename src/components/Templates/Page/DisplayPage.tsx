@@ -20,6 +20,7 @@ import ContactPage from "@/components/Pages/Kontakt";
 import HistoryPage from "@/components/Pages/Historien";
 import Kassen from "@/components/Pages/Kassen";
 import ThankYouPage from "@/components/Pages/ThankYou";
+import FAQPage from "@/components/Pages/FAQ";
 
 interface TemplateProps {
   node: ContentNode;
@@ -122,6 +123,8 @@ export default async function DisplayPage({ node }: TemplateProps) {
         );
       case "/thank-you/":
         return <ThankYouPage sections={sections} />;
+      case "faq":
+        return <FAQPage sections={sections} />;
       default:
         return <p>Page not found</p>;
     }
@@ -139,6 +142,7 @@ export async function getStaticPaths() {
   const paths = pages.map((page) => ({
     params: { slug: page.slug },
   }));
+  console.log("paths", paths);
 
   return {
     paths,

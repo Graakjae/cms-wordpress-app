@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Madimi+One&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Madimi+One&display=swap"); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +6,19 @@
   :root {
     --radius: 0.5rem;
   }
+}
+
+body {
+  transition-property: opacity, transform, filter, background;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.25s;
+}
+
+.page-transition {
+  opacity: 1;
+  background: white;
+  transform: translateY(0px);
+  filter: blur(12px);
 }
 
 p {

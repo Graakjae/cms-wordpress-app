@@ -17,7 +17,6 @@ const HeroPage: React.FC<HeroPageProps> = ({
   globalSections,
   atMistePosts,
 }) => {
-  console.log("HeroPageProps", { globalSections });
   return (
     <div>{renderSections(sections, { atMistePosts, globalSections })}</div>
   );

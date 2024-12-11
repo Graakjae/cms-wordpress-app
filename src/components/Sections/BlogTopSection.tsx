@@ -54,7 +54,6 @@ const BlogTopSection: React.FC<BlogTopSectionProps> = ({ section, blogs }) => {
     setCurrentPage(page);
     scrollToTop();
   };
-  console.log("currentBlogs", section);
   return (
     <div
       className={`${

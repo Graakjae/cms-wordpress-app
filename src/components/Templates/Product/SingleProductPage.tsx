@@ -2,8 +2,6 @@ import { print } from "graphql/language/printer";
 import {
   ContentNode,
   FlexibleSectionsFlexContentLayout,
-  GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout,
-  GlobalSections,
   ProductConnection,
   SimpleProduct,
 } from "@/gql/graphql";
@@ -11,9 +9,6 @@ import { fetchGraphQL } from "@/utils/fetchGraphQL";
 import { ProductQuery } from "./ProductQuery";
 import SingleProductSection from "@/components/Sections/SingleProductSection";
 import { PageQuery } from "../Page/PageQuery";
-import { GlobalQuery } from "../Page/GlobalQuery";
-import SliderSection from "@/components/Sections/SliderSection";
-import Divider from "@/components/ui/divider";
 import { renderSections } from "@/utils/renderSections";
 
 interface PageProps {
@@ -34,17 +29,6 @@ export default async function SingleProductPage({ node }: PageProps) {
       id: node.databaseId,
     }
   );
-
-  const { globalSections } = await fetchGraphQL<{
-    globalSections: GlobalSections;
-  }>(print(GlobalQuery));
-
-  const infiniteSliderSection =
-    globalSections.globalFlexibleSections?.sections?.find(
-      (section) =>
-        section?.fieldGroupName ===
-        "GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout"
-    ) as GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout;
 
   const sections = product?.flexibleSections
     ?.flexContent as FlexibleSectionsFlexContentLayout[];
