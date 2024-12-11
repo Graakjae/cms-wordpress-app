@@ -12,8 +12,6 @@ import { nextSlugToWpSlug } from "@/utils/nextSlugToWpSlug";
 import DisplayPost from "@/components/Templates/Post/DisplayPost";
 import { SeoQuery } from "@/queries/general/SeoQuery";
 import SingleProductPage from "@/components/Templates/Product/SingleProductPage";
-import { PageQuery } from "@/components/Templates/Page/PageQuery";
-import { PagesQuery } from "@/components/Templates/Page/PagesQuery";
 
 type Props = {
   params: { slug: string };
@@ -22,6 +20,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = nextSlugToWpSlug(params.slug);
   const isPreview = slug.includes("preview");
+  console.log("generateMetadata");
 
   const { contentNode } = await fetchGraphQL<{ contentNode: ContentNode }>(
     print(SeoQuery),
@@ -45,24 +44,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } as Metadata;
 }
 
-export async function generateStaticParams() {
-  console.log("generateStaticParams");
-
-  const response = await fetchGraphQL<{
-    pages: { nodes: Array<{ uri: string }> };
-  }>(print(PagesQuery));
-
-  console.log("fetchGraphQL response:", response);
-
-  const pages = response?.pages?.nodes || [];
-
-  const paths = pages.map((page) => ({
-    params: { slug: page.uri.split("/").filter(Boolean) },
-  }));
-
-  console.log("Generated paths:", paths);
-
-  return paths;
+export function generateStaticParams() {
+  console.log("generateStaticParams ");
+  return [];
 }
 
 export default async function Page({ params }: Props) {

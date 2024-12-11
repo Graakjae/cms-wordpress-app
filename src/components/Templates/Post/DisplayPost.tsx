@@ -97,31 +97,31 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({
-  params,
-}: {
-  params: { slug: string; contentType: string };
-}) {
-  const isBlogpost = params.contentType === "blogpost";
+// export async function getStaticProps({
+//   params,
+// }: {
+//   params: { slug: string; contentType: string };
+// }) {
+//   const isBlogpost = params.contentType === "blogpost";
 
-  const response = await fetchGraphQL<{ blog: Blog }>(print(PostQuery), {
-    id: params.slug,
-  });
-  const responseAtMiste = await fetchGraphQL<{ atMistePost: Blog }>(
-    print(PostQuery),
-    { id: params.slug }
-  );
+//   const response = await fetchGraphQL<{ blog: Blog }>(print(PostQuery), {
+//     id: params.slug,
+//   });
+//   const responseAtMiste = await fetchGraphQL<{ atMistePost: Blog }>(
+//     print(PostQuery),
+//     { id: params.slug }
+//   );
 
-  console.log(
-    "Fetched data for:",
-    params.slug,
-    isBlogpost ? response.blog : responseAtMiste.atMistePost
-  );
+//   console.log(
+//     "Fetched data for:",
+//     params.slug,
+//     isBlogpost ? response.blog : responseAtMiste.atMistePost
+//   );
 
-  return {
-    props: {
-      blog: isBlogpost ? response.blog : responseAtMiste.atMistePost || null,
-      contentType: params.contentType,
-    },
-  };
-}
+//   return {
+//     props: {
+//       blog: isBlogpost ? response.blog : responseAtMiste.atMistePost || null,
+//       contentType: params.contentType,
+//     },
+//   };
+// }

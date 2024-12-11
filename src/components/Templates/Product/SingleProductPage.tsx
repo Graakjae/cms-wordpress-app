@@ -56,17 +56,17 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const response = await fetchGraphQL<{ product: SimpleProduct }>(
-    print(ProductQuery),
-    {
-      id: params.slug,
-    }
-  );
+// export async function getStaticProps({ params }: { params: { slug: string } }) {
+//   const response = await fetchGraphQL<{ product: SimpleProduct }>(
+//     print(ProductQuery),
+//     {
+//       id: params.slug,
+//     }
+//   );
 
-  return {
-    props: {
-      product: response?.product || null,
-    },
-  };
-}
+//   return {
+//     props: {
+//       product: response?.product || null,
+//     },
+//   };
+// }

@@ -37,21 +37,21 @@ export default async function DisplayPage({ node }: TemplateProps) {
 
   const sections = page?.flexibleSections
     ?.flexContent as FlexibleSectionsFlexContentLayout[];
-  // let blogs: BlogConnection;
-  // let products: ProductConnection;
-  // let articles: ArticleConnection;
+  let blogs: BlogConnection;
+  let products: ProductConnection;
+  let articles: ArticleConnection;
   let atMistePosts: BlogConnection;
 
-  // if (node.uri === "/blog/" || "/historien/") {
-  //   ({ blogs } = await fetchGraphQL<{ blogs: BlogConnection }>(
-  //     print(PageQuery),
-  //     {
-  //       id: node.databaseId,
-  //     }
-  //   ));
-  // }
+  if (node.uri === "/blog/" || node.uri === "/historien/") {
+    ({ blogs } = await fetchGraphQL<{ blogs: BlogConnection }>(
+      print(PageQuery),
+      {
+        id: node.databaseId,
+      }
+    ));
+  }
 
-  if (node.uri === "/" || "/at-miste/") {
+  if (node.uri === "/" || node.uri === "/at-miste/") {
     ({ atMistePosts } = await fetchGraphQL<{
       atMistePosts: BlogConnection;
     }>(print(PageQuery), {
@@ -59,23 +59,27 @@ export default async function DisplayPage({ node }: TemplateProps) {
     }));
   }
 
-  // if (node.uri === "/blog/" || "/historien/" || "/at-miste/") {
-  //   ({ articles } = await fetchGraphQL<{ articles: ArticleConnection }>(
-  //     print(PageQuery),
-  //     {
-  //       id: node.databaseId,
-  //     }
-  //   ));
-  // }
+  if (
+    node.uri === "/blog/" ||
+    node.uri === "/historien/" ||
+    node.uri === "/at-miste/"
+  ) {
+    ({ articles } = await fetchGraphQL<{ articles: ArticleConnection }>(
+      print(PageQuery),
+      {
+        id: node.databaseId,
+      }
+    ));
+  }
 
-  // if (node.uri === "/produkter/") {
-  //   ({ products } = await fetchGraphQL<{ products: ProductConnection }>(
-  //     print(PageQuery),
-  //     {
-  //       id: node.databaseId,
-  //     }
-  //   ));
-  // }
+  if (node.uri === "/produkter/") {
+    ({ products } = await fetchGraphQL<{ products: ProductConnection }>(
+      print(PageQuery),
+      {
+        id: node.databaseId,
+      }
+    ));
+  }
 
   const PageToRender = () => {
     switch (node.uri) {
@@ -87,44 +91,44 @@ export default async function DisplayPage({ node }: TemplateProps) {
             atMistePosts={atMistePosts}
           />
         );
-      // case "/produkter/":
-      //   return (
-      //     <ProductsPage
-      //       sections={sections}
-      //       products={products}
-      //       globalSections={globalSections}
-      //     />
-      //   );
-      // case "/blog/":
-      //   return (
-      //     <BlogPage
-      //       sections={sections}
-      //       blogs={blogs}
-      //       articles={articles}
-      //       globalSections={globalSections}
-      //     />
-      //   );
-      // case "/at-miste/":
-      //   return <AtMistePage sections={sections} blogs={atMistePosts} />;
-      // case "/kurv/":
-      //   return <Kurv />;
-      // case "/kassen/":
-      //   return <Kassen />;
-      // case "/kontakt/":
-      //   return <ContactPage sections={sections} />;
-      // case "/historien/":
-      //   return (
-      //     <HistoryPage
-      //       sections={sections}
-      //       blogs={blogs}
-      //       articles={articles}
-      //       globalSections={globalSections}
-      //     />
-      //   );
-      // case "/thank-you/":
-      //   return <ThankYouPage sections={sections} />;
-      // case "faq":
-      //   return <FAQPage sections={sections} />;
+      case "/produkter/":
+        return (
+          <ProductsPage
+            sections={sections}
+            products={products}
+            globalSections={globalSections}
+          />
+        );
+      case "/blog/":
+        return (
+          <BlogPage
+            sections={sections}
+            blogs={blogs}
+            articles={articles}
+            globalSections={globalSections}
+          />
+        );
+      case "/at-miste/":
+        return <AtMistePage sections={sections} blogs={atMistePosts} />;
+      case "/kurv/":
+        return <Kurv />;
+      case "/kassen/":
+        return <Kassen />;
+      case "/kontakt/":
+        return <ContactPage sections={sections} />;
+      case "/historien/":
+        return (
+          <HistoryPage
+            sections={sections}
+            blogs={blogs}
+            articles={articles}
+            globalSections={globalSections}
+          />
+        );
+      case "/thank-you/":
+        return <ThankYouPage sections={sections} />;
+      case "faq":
+        return <FAQPage sections={sections} />;
       default:
         return <p>Page not found</p>;
     }
@@ -134,26 +138,15 @@ export default async function DisplayPage({ node }: TemplateProps) {
 }
 
 export async function getStaticPaths() {
-  console.log("getStaticPaths called");
-
-  const response = await fetchGraphQL<{ pages: Array<{ uri: string }> }>(
+  const { pages } = await fetchGraphQL<{ pages: Array<{ uri: string }> }>(
     print(PageQuery)
   );
-
-  console.log("fetchGraphQL response:", response);
-
-  const pages = response?.pages || [];
 
   const paths = pages.map((page) => ({
     params: { slug: page.uri.split("/").filter(Boolean) },
   }));
 
-  console.log("Generated paths:", paths);
-
-  return {
-    paths,
-    fallback: false,
-  };
+  return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({
@@ -161,18 +154,13 @@ export async function getStaticProps({
 }: {
   params: { slug: string[] };
 }) {
-  console.log("getStaticProps called with params:", params);
-
   const slug = `/${params.slug.join("/")}/`;
-  const response = await fetchGraphQL<{ page: Page }>(print(PageQuery), {
+
+  const { page } = await fetchGraphQL<{ page: Page }>(print(PageQuery), {
     id: slug,
   });
 
-  console.log("fetchGraphQL response for getStaticProps:", response);
+  if (!page) return { notFound: true };
 
-  return {
-    props: {
-      node: response?.page || null,
-    },
-  };
+  return { props: { node: page } };
 }
