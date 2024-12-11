@@ -134,15 +134,21 @@ export default async function DisplayPage({ node }: TemplateProps) {
 }
 
 export async function getStaticPaths() {
-  const response = await fetchGraphQL<{ pages: Array<{ slug: string }> }>(
+  console.log("getStaticPaths called");
+
+  const response = await fetchGraphQL<{ pages: Array<{ uri: string }> }>(
     print(PageQuery)
   );
+
+  console.log("fetchGraphQL response:", response);
+
   const pages = response?.pages || [];
 
   const paths = pages.map((page) => ({
-    params: { slug: page.slug },
+    params: { slug: page.uri.split("/").filter(Boolean) },
   }));
-  console.log("paths", paths);
+
+  console.log("Generated paths:", paths);
 
   return {
     paths,
@@ -150,14 +156,23 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
+export async function getStaticProps({
+  params,
+}: {
+  params: { slug: string[] };
+}) {
+  console.log("getStaticProps called with params:", params);
+
+  const slug = `/${params.slug.join("/")}/`;
   const response = await fetchGraphQL<{ page: Page }>(print(PageQuery), {
-    id: params.slug,
+    id: slug,
   });
+
+  console.log("fetchGraphQL response for getStaticProps:", response);
 
   return {
     props: {
-      page: response?.page || null,
+      node: response?.page || null,
     },
   };
 }
