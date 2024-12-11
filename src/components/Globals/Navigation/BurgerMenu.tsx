@@ -11,6 +11,7 @@ import Image from "next/image";
 import LogoGreen from "@/public/green-logo.svg";
 import SearchIcon from "@/components/icons/SearchIcon";
 import Cart from "../Cart/Cart";
+import { TransitionLink } from "@/utils/TransitionLink";
 interface BurgerMenuProps {
   mobileMenu: MenuItem[];
 }
@@ -58,13 +59,13 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
                               delay: i / 10,
                             }}
                           >
-                            <Link
+                            <TransitionLink
                               href={uri || "/"}
                               onClick={() => setIsOpen(!isOpen)}
                               className="my-[15px] relative block text-[20px] text-black transition-colors duration-200 w-fit after:content-[''] after:absolute after:w-[0] after:bottom-0 after:left-0 after:h-[4px] after:mt-2 after:transition-all after:duration-500 after:ease-in-out hover:after:w-full "
                             >
                               {label}
-                            </Link>
+                            </TransitionLink>
                           </m.div>
                           <div className="w-full">
                             <div className="border-b border-[#C6C6C6]"></div>
