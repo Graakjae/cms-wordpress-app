@@ -70,15 +70,15 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={source.className}>
+      <body className={`${source.className} relative`}>
         <CartProvider>
-          {isEnabled && <PreviewNotice />}
-          <div className="fixed top-0 z-50 w-full">
+          {/* {isEnabled && <PreviewNotice />} */}
+          <div className="fixed top-0 z-50 w-full ">
             <OverNavigation />
             <Navigation primaryMenu={primaryMenu} rightMenu={rightMenu} />
             <BurgerMenu mobileMenu={mobileMenu} />
           </div>
-          {children}
+          <div id="page-transition-box">{children}</div>
           <Footer />
         </CartProvider>
       </body>

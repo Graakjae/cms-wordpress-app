@@ -2,23 +2,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer base {
+
+/* @layer base {
   :root {
     --radius: 0.5rem;
   }
-}
+} */
 
-body {
+#page-transition-box {
   transition-property: opacity, transform, filter, background;
   transition-timing-function: ease-in-out;
-  transition-duration: 0.25s;
+  transition-duration: 0.2s;
 }
 
 .page-transition {
-  opacity: 1;
+  opacity: 0.1;
   background: white;
-  transform: translateY(0px);
-  filter: blur(12px);
 }
 
 p {

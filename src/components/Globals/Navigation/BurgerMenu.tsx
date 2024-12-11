@@ -58,10 +58,10 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
                               duration: 0.25,
                               delay: i / 10,
                             }}
+                            onClick={() => setIsOpen(!isOpen)}
                           >
                             <TransitionLink
                               href={uri || "/"}
-                              onClick={() => setIsOpen(!isOpen)}
                               className="my-[15px] relative block text-[20px] text-black transition-colors duration-200 w-fit after:content-[''] after:absolute after:w-[0] after:bottom-0 after:left-0 after:h-[4px] after:mt-2 after:transition-all after:duration-500 after:ease-in-out hover:after:w-full "
                             >
                               {label}
