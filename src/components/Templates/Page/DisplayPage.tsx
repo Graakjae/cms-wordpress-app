@@ -37,19 +37,19 @@ export default async function DisplayPage({ node }: TemplateProps) {
 
   const sections = page?.flexibleSections
     ?.flexContent as FlexibleSectionsFlexContentLayout[];
-  let blogs: BlogConnection;
-  let products: ProductConnection;
-  let articles: ArticleConnection;
+  // let blogs: BlogConnection;
+  // let products: ProductConnection;
+  // let articles: ArticleConnection;
   let atMistePosts: BlogConnection;
 
-  if (node.uri === "/blog/" || "/historien/") {
-    ({ blogs } = await fetchGraphQL<{ blogs: BlogConnection }>(
-      print(PageQuery),
-      {
-        id: node.databaseId,
-      }
-    ));
-  }
+  // if (node.uri === "/blog/" || "/historien/") {
+  //   ({ blogs } = await fetchGraphQL<{ blogs: BlogConnection }>(
+  //     print(PageQuery),
+  //     {
+  //       id: node.databaseId,
+  //     }
+  //   ));
+  // }
 
   if (node.uri === "/" || "/at-miste/") {
     ({ atMistePosts } = await fetchGraphQL<{
@@ -59,23 +59,23 @@ export default async function DisplayPage({ node }: TemplateProps) {
     }));
   }
 
-  if (node.uri === "/blog/" || "/historien/" || "/at-miste/") {
-    ({ articles } = await fetchGraphQL<{ articles: ArticleConnection }>(
-      print(PageQuery),
-      {
-        id: node.databaseId,
-      }
-    ));
-  }
+  // if (node.uri === "/blog/" || "/historien/" || "/at-miste/") {
+  //   ({ articles } = await fetchGraphQL<{ articles: ArticleConnection }>(
+  //     print(PageQuery),
+  //     {
+  //       id: node.databaseId,
+  //     }
+  //   ));
+  // }
 
-  if (node.uri === "/produkter/") {
-    ({ products } = await fetchGraphQL<{ products: ProductConnection }>(
-      print(PageQuery),
-      {
-        id: node.databaseId,
-      }
-    ));
-  }
+  // if (node.uri === "/produkter/") {
+  //   ({ products } = await fetchGraphQL<{ products: ProductConnection }>(
+  //     print(PageQuery),
+  //     {
+  //       id: node.databaseId,
+  //     }
+  //   ));
+  // }
 
   const PageToRender = () => {
     switch (node.uri) {
@@ -87,44 +87,44 @@ export default async function DisplayPage({ node }: TemplateProps) {
             atMistePosts={atMistePosts}
           />
         );
-      case "/produkter/":
-        return (
-          <ProductsPage
-            sections={sections}
-            products={products}
-            globalSections={globalSections}
-          />
-        );
-      case "/blog/":
-        return (
-          <BlogPage
-            sections={sections}
-            blogs={blogs}
-            articles={articles}
-            globalSections={globalSections}
-          />
-        );
-      case "/at-miste/":
-        return <AtMistePage sections={sections} blogs={atMistePosts} />;
-      case "/kurv/":
-        return <Kurv />;
-      case "/kassen/":
-        return <Kassen />;
-      case "/kontakt/":
-        return <ContactPage sections={sections} />;
-      case "/historien/":
-        return (
-          <HistoryPage
-            sections={sections}
-            blogs={blogs}
-            articles={articles}
-            globalSections={globalSections}
-          />
-        );
-      case "/thank-you/":
-        return <ThankYouPage sections={sections} />;
-      case "faq":
-        return <FAQPage sections={sections} />;
+      // case "/produkter/":
+      //   return (
+      //     <ProductsPage
+      //       sections={sections}
+      //       products={products}
+      //       globalSections={globalSections}
+      //     />
+      //   );
+      // case "/blog/":
+      //   return (
+      //     <BlogPage
+      //       sections={sections}
+      //       blogs={blogs}
+      //       articles={articles}
+      //       globalSections={globalSections}
+      //     />
+      //   );
+      // case "/at-miste/":
+      //   return <AtMistePage sections={sections} blogs={atMistePosts} />;
+      // case "/kurv/":
+      //   return <Kurv />;
+      // case "/kassen/":
+      //   return <Kassen />;
+      // case "/kontakt/":
+      //   return <ContactPage sections={sections} />;
+      // case "/historien/":
+      //   return (
+      //     <HistoryPage
+      //       sections={sections}
+      //       blogs={blogs}
+      //       articles={articles}
+      //       globalSections={globalSections}
+      //     />
+      //   );
+      // case "/thank-you/":
+      //   return <ThankYouPage sections={sections} />;
+      // case "faq":
+      //   return <FAQPage sections={sections} />;
       default:
         return <p>Page not found</p>;
     }

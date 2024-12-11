@@ -22,7 +22,6 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = nextSlugToWpSlug(params.slug);
   const isPreview = slug.includes("preview");
-  console.log("generateMetadata hej hej s");
 
   const { contentNode } = await fetchGraphQL<{ contentNode: ContentNode }>(
     print(SeoQuery),
