@@ -24,7 +24,6 @@ import CTASection from "@/components/Sections/CTASection";
 
 const sectionComponents: { [key: string]: React.FC<any> } = {
   FlexibleSectionsFlexContentHeroSectionLayout: HeroSection,
-  GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout: SliderSection,
   FlexibleSectionsFlexContentHeroPageSection2Layout: Section2,
   FlexibleSectionsFlexContentHeroPageSection3Layout: Section3,
   FlexibleSectionsFlexContentInformationSectionLayout: InformationSection,
@@ -46,6 +45,7 @@ const sectionComponents: { [key: string]: React.FC<any> } = {
   FlexibleSectionsFlexContentMoreAboutTheProductSectionLayout:
     MoreAboutTheProductSection,
   FlexibleSectionsFlexContentCtaSectionLayout: CTASection,
+  FlexibleSectionsFlexContentInfiniteSliderSectionLayout: SliderSection,
 };
 
 export const renderSections = (

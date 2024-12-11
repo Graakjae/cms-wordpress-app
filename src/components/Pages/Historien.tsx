@@ -19,21 +19,14 @@ interface HistoryPageProps {
 const HistoryPage: React.FC<HistoryPageProps> = ({
   sections,
   blogs,
-  articles,
   globalSections,
 }) => {
-  const infiniteSliderSection =
-    globalSections.globalFlexibleSections?.sections?.find(
-      (section) =>
-        section?.fieldGroupName ===
-        "GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout"
-    ) as GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout;
-
   return (
     <div className="mt-[100px] lg:mt-[130px]">
-      {renderSections(sections, { blogs, articles, color: "PrimaryBeige" })}
-      <Divider />
-      <SliderSection section={infiniteSliderSection} />
+      {renderSections(sections, {
+        blogs,
+        globalSections,
+      })}
     </div>
   );
 };

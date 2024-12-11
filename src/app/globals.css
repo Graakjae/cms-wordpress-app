@@ -50,6 +50,9 @@ input[type="radio"]:checked {
 .scroller[data-speed="fast"] {
   --_animation-duration: 80s;
 }
+.scroller[data-speed="slow"] {
+  --_animation-duration: 160s;
+}
 
 @keyframes scroll {
   to {

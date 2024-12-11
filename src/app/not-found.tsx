@@ -7,7 +7,6 @@ import { fetchGraphQL } from "@/utils/fetchGraphQL";
 import { ContentNode, Page } from "@/gql/graphql";
 import { PageQuery } from "@/components/Templates/Page/PageQuery";
 import { SeoQuery } from "@/queries/general/SeoQuery";
-import Link from "next/link";
 import { LinkButton } from "@/components/ui/linkButton";
 
 const notFoundPageWordPressId = 824;

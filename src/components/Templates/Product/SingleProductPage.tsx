@@ -53,8 +53,6 @@ export default async function SingleProductPage({ node }: PageProps) {
     <div className="mt-[100px] lg:mt-[130px]">
       <SingleProductSection product={product} sections={sections} />
       {renderSections(sections, { products })}
-      <Divider />
-      <SliderSection section={infiniteSliderSection} />
     </div>
   );
 }

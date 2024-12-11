@@ -161,6 +161,7 @@ export const PageQuery = gql`
             fieldGroupName
             subtitle
             text
+            blogsOrAtMiste
             title
           }
           ... on FlexibleSectionsFlexContentUnderBlogContentSectionLayout {
@@ -213,6 +214,11 @@ export const PageQuery = gql`
             }
             text
             title
+          }
+          ... on FlexibleSectionsFlexContentInfiniteSliderSectionLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            divider
           }
         }
       }

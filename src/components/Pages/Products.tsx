@@ -19,18 +19,9 @@ const ProductsPage: React.FC<ProductsPageProps> = ({
   products,
   globalSections,
 }) => {
-  const infiniteSliderSection =
-    globalSections.globalFlexibleSections?.sections?.find(
-      (section) =>
-        section?.fieldGroupName ===
-        "GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout"
-    ) as GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout;
-
   return (
     <div className="mt-[100px] lg:mt-[130px]">
-      {renderSections(sections, { products })}
-      <Divider />
-      <SliderSection section={infiniteSliderSection} />
+      {renderSections(sections, { products, globalSections })}
     </div>
   );
 };

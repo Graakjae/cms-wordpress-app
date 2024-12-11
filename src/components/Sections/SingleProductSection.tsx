@@ -156,7 +156,7 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
                   {isAccordionOpen ? <MinusIcon /> : <PlusIcon />}
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="mt-[20px] absolute max-h-[150px] overflow-y-auto border-b-[0.5px] border-[#707070]">
+              <AccordionContent className="mt-[20px] absolute max-h-[150px]  border-b-[0.5px] border-[#707070]">
                 {specificationsAccordion?.specifications?.map((spec, index) => (
                   <div
                     key={index}
