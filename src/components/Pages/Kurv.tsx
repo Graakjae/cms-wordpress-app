@@ -16,7 +16,7 @@ export default function Kurv() {
     throw new Error("CartContext must be used within a CartProvider");
   }
 
-  const { cart, clearCart, setCart } = cartContext;
+  const { cart, setCart } = cartContext;
   const { removeFromCart } = useCart();
   const [clientCart, setClientCart] = useState<CartItem[]>([]);
 

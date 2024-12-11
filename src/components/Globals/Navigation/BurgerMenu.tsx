@@ -23,16 +23,16 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
       enabled={isOpen}
       className="lg:hidden block relative bg-white h-[65px] px-4 shadow-lg"
     >
-      <div className="flex justify-between items-center z-10 relative">
+      <div className="flex justify-between items-center z-20 relative">
         <div>
           <AnimatePresence>
             {isOpen && (
-              <div className="z-20 ">
+              <div className="z-30 ">
                 <m.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0, transition: { duration: 0.2 } }}
-                  className="bg-black/50 inset-0 fixed w-[100svw] "
+                  className="bg-black/50 inset-0 fixed w-[100svw] z-10"
                   onClick={() => setIsOpen(false)}
                 />
                 <m.aside
@@ -43,13 +43,13 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
                   }}
                   exit={{ x: "-100%" }}
                   transition={{ duration: 0.2 }}
-                  className={`w-[80%] h-full  top-0 left-0 p-8 flex flex-col fixed bg-white z-30 overflow-y-auto
+                  className={`w-[80%] h-full  top-0 left-0 p-8 flex flex-col fixed bg-white z-40 overflow-y-auto
                                 `}
                 >
                   <div className="text-center md:text-end flex-col gap-4 mt-[100px]">
                     {mobileMenu &&
                       mobileMenu.map(({ label, uri }, i) => (
-                        <div className="">
+                        <div className="" key={i}>
                           <m.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
