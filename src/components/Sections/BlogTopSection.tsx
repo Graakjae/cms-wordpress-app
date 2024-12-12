@@ -84,7 +84,7 @@ const BlogTopSection: React.FC<BlogTopSectionProps> = ({ section, blogs }) => {
               slug={
                 section?.blogsOrAtMiste === "Blogs"
                   ? "/blogpost/"
-                  : "/at-miste/"
+                  : "/at-miste-post/"
               }
             />
           ))}
