@@ -12,6 +12,8 @@ import { nextSlugToWpSlug } from "@/utils/nextSlugToWpSlug";
 import DisplayPost from "@/components/Templates/Post/DisplayPost";
 import { SeoQuery } from "@/queries/general/SeoQuery";
 import SingleProductPage from "@/components/Templates/Product/SingleProductPage";
+import gql from "graphql-tag";
+import { fetchGraphQLNoDraft } from "@/utils/fetchGraphQLNoDraft";
 
 type Props = {
   params: { slug: string };
@@ -44,9 +46,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } as Metadata;
 }
 
-export function generateStaticParams() {
-  console.log("generateStaticParams ");
-  return [];
+export async function generateStaticParams() {
+  async function getData() {
+    const { pages } = await fetchGraphQLNoDraft<{
+      pages: { nodes: { uri: string }[] };
+    }>(
+      print(gql`
+        query PageQuery {
+          pages(first: 1000) {
+            nodes {
+              uri
+            }
+          }
+        }
+      `),
+      {}
+    );
+    const slugs = pages.nodes.map((page) => ({
+      params: { slug: page.uri.replace(/^\/|\/$/g, "") },
+    }));
+
+    return slugs;
+  }
+
+  const params = await getData();
+  return params;
 }
 
 export default async function Page({ params }: Props) {

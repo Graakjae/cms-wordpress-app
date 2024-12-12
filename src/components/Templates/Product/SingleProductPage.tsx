@@ -10,6 +10,8 @@ import { ProductQuery } from "./ProductQuery";
 import SingleProductSection from "@/components/Sections/SingleProductSection";
 import { PageQuery } from "../Page/PageQuery";
 import { renderSections } from "@/utils/renderSections";
+import { fetchGraphQLNoDraft } from "@/utils/fetchGraphQLNoDraft";
+import gql from "graphql-tag";
 
 interface PageProps {
   node: ContentNode;
@@ -40,33 +42,3 @@ export default async function SingleProductPage({ node }: PageProps) {
     </div>
   );
 }
-
-export async function getStaticPaths() {
-  const response = await fetchGraphQL<{
-    products: { nodes: Array<{ slug: string }> };
-  }>(print(ProductQuery));
-
-  const paths = response.products.nodes.map((product) => ({
-    params: { slug: product.slug },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-// export async function getStaticProps({ params }: { params: { slug: string } }) {
-//   const response = await fetchGraphQL<{ product: SimpleProduct }>(
-//     print(ProductQuery),
-//     {
-//       id: params.slug,
-//     }
-//   );
-
-//   return {
-//     props: {
-//       product: response?.product || null,
-//     },
-//   };
-// }
