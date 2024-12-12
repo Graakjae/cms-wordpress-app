@@ -72,7 +72,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${source.className} relative`}>
         <CartProvider>
-          {/* {isEnabled && <PreviewNotice />} */}
+          {isEnabled && <PreviewNotice />}
           <div className="fixed top-0 z-50 w-full ">
             <OverNavigation />
             <Navigation primaryMenu={primaryMenu} rightMenu={rightMenu} />
