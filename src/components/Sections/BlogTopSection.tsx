@@ -6,7 +6,6 @@ import {
   GlobalSections,
 } from "@/gql/graphql";
 import React, { useState } from "react";
-import AtMiste from "../Animations/AtMiste";
 import BlogPageAnimation from "../Animations/BlogPage";
 import BlogCard from "../ui/blogCard";
 import PaginationControls from "../ui/paginationControls";
@@ -79,7 +78,15 @@ const BlogTopSection: React.FC<BlogTopSectionProps> = ({ section, blogs }) => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[31px] relative"
         >
           {currentBlogs?.map((blog) => (
-            <BlogCard blog={blog} key={blog.id} slug={"/blogpost/"} />
+            <BlogCard
+              blog={blog}
+              key={blog.id}
+              slug={
+                section?.blogsOrAtMiste === "Blogs"
+                  ? "/blogpost/"
+                  : "/at-miste/"
+              }
+            />
           ))}
         </div>
 

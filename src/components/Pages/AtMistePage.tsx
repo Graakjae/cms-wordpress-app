@@ -1,12 +1,7 @@
-"use client";
-import { useState } from "react";
 import {
   BlogConnection,
   FlexibleSectionsFlexContentLayout,
 } from "@/gql/graphql";
-import BlogCard from "../ui/blogCard";
-import PaginationControls from "../ui/paginationControls";
-import AtMisteAnimation from "../Animations/AtMiste";
 import { renderSections } from "@/utils/renderSections";
 
 interface AtMisteProps {
