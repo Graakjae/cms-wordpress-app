@@ -19,6 +19,8 @@ type Props = {
   params: { slug: string };
 };
 
+export const dynamic = "force-static";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = nextSlugToWpSlug(params.slug);
   const isPreview = slug.includes("preview");
@@ -48,8 +50,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export async function generateStaticParams() {
   async function getData() {
-    const { pages } = await fetchGraphQLNoDraft<{
+    const { pages, blogs, products, atMistePosts } = await fetchGraphQLNoDraft<{
       pages: { nodes: { uri: string }[] };
+      blogs: { nodes: { uri: string }[] };
+      products: { nodes: { slug: string }[] };
+      atMistePosts: { nodes: { uri: string }[] };
     }>(
       print(gql`
         query PageQuery {
@@ -58,13 +63,47 @@ export async function generateStaticParams() {
               uri
             }
           }
+          blogs(first: 1000) {
+            nodes {
+              uri
+            }
+          }
+          products(first: 1000) {
+            nodes {
+              slug
+            }
+          }
+          atMistePosts {
+            nodes {
+              uri
+            }
+          }
         }
       `),
       {}
     );
-    const slugs = pages.nodes.map((page) => ({
-      params: { slug: page.uri.replace(/^\/|\/$/g, "") },
-    }));
+
+    const slugs = [
+      { slug: undefined }, // Explicitly include the front page
+      ...pages.nodes.map((page) => ({
+        slug:
+          page.uri === "/" ? undefined : page.uri.split("/").filter(Boolean),
+      })),
+      ...blogs.nodes.map((blog) => ({
+        slug: blog.uri.split("/").filter(Boolean),
+      })),
+      ...products.nodes.map((product) => {
+        const fullUri = `/vare/${product.slug}`;
+        return {
+          slug: fullUri.split("/").filter(Boolean),
+        };
+      }),
+      ...atMistePosts.nodes.map((post) => ({
+        slug: post.uri.split("/").filter(Boolean),
+      })),
+    ];
+
+    console.log("slugs", slugs);
 
     return slugs;
   }

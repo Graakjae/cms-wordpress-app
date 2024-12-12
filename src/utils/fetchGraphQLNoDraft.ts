@@ -18,7 +18,7 @@ export async function fetchGraphQLNoDraft<T = any>(
           ...headers,
         },
         body,
-        cache: "default",
+        cache: "force-cache",
         next: {
           tags: ["wordpress"],
         },
