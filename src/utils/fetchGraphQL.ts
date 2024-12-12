@@ -1,12 +1,24 @@
+import { draftMode, cookies } from "next/headers";
+
 export async function fetchGraphQL<T = any>(
   query: string,
   variables?: { [key: string]: any },
   headers?: { [key: string]: string }
 ): Promise<T> {
+  const { isEnabled: preview } = draftMode();
+
   try {
+    let authHeader = "";
+    if (preview) {
+      const auth = cookies().get("wp_jwt")?.value;
+      if (auth) {
+        authHeader = `Bearer ${auth}`;
+      }
+    }
+
     const body = JSON.stringify({
       query,
-      variables,
+      variables: variables ? { ...variables, preview } : { preview },
     });
 
     const response = await fetch(
@@ -15,10 +27,11 @@ export async function fetchGraphQL<T = any>(
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          ...(authHeader && { Authorization: authHeader }),
           ...headers,
         },
         body,
-        cache: "default",
+        cache: preview ? "no-cache" : "default",
         next: {
           tags: ["wordpress"],
         },
