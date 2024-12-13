@@ -22,7 +22,7 @@ type Props = {
 export const dynamic = "force-static";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = nextSlugToWpSlug(params.slug);
+  const slug = params.slug ? nextSlugToWpSlug(params.slug) : "/";
   const isPreview = slug.includes("preview");
   console.log("generateMetadata");
 
@@ -84,10 +84,9 @@ export async function generateStaticParams() {
     );
 
     const slugs = [
-      { slug: undefined }, // Explicitly include the front page
+      { slug: [] },
       ...pages.nodes.map((page) => ({
-        slug:
-          page.uri === "/" ? undefined : page.uri.split("/").filter(Boolean),
+        slug: page.uri === "/" ? [] : page.uri.split("/").filter(Boolean),
       })),
       ...blogs.nodes.map((blog) => ({
         slug: blog.uri.split("/").filter(Boolean),

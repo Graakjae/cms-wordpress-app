@@ -58,6 +58,7 @@ export default function Navigation({
             alt="logo"
             width={125}
             height={52}
+            priority
           />
         </TransitionLink>
         <div className="flex justify-end gap-20 w-[400px]">

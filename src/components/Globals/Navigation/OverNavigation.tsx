@@ -38,7 +38,13 @@ export default function OverNavigation() {
         href={links[currentIndex].href}
       >
         {links[currentIndex].text}
-        <Image src={arrowRight} alt="Arrow right" width={13} height={13} />
+        <Image
+          src={arrowRight}
+          alt="Arrow right"
+          width={13}
+          height={13}
+          priority
+        />
       </Link>
     </div>
   );

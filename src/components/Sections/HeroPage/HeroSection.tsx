@@ -51,6 +51,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
         width={75}
         height={75}
         className="absolute bottom-0 left-0 right-0 mx-auto w-[62px] h-[62px] md:w-[75px] md:h-[75px] z-10"
+        priority
       />
     </div>
   );
