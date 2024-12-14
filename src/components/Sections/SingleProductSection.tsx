@@ -118,8 +118,12 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
           <div className="flex justify-between gap-[15px]">
             <div className="w-[30%] h-[60px] flex justify-around items-center mb-[20px] border-[0.5px] border-[#797979]">
               <div
-                onClick={() => setQuantity(quantity - 1)}
-                className="text-[#797979] hover:text-black p-2 cursor-pointer text-[20px]"
+                onClick={() => setQuantity((prev) => Math.max(prev - 1, 1))}
+                className={`${
+                  quantity === 1
+                    ? "text-[#797979]/50"
+                    : "text-[#797979] cursor-pointer hover:text-black"
+                }  p-2  text-[20px]`}
               >
                 <MinusIcon />
               </div>

@@ -19,6 +19,8 @@ const Cart: React.FC<CartProps> = ({ pathName }) => {
     setTotalQuantity(total);
   }, [cart]);
 
+  console.log("totalQuantity", totalQuantity);
+
   return (
     <TransitionLink
       href="/kurv"
@@ -27,7 +29,9 @@ const Cart: React.FC<CartProps> = ({ pathName }) => {
       <ShoppingBagIcon pathName={pathName || ""} />
       <div className="absolute right-0 top-0">
         <div className="bg-PrimaryBeige w-[19px] h-[19px] rounded-full flex justify-center items-center ">
-          <p className="cursor-pointer">{totalQuantity}</p>
+          <p className="cursor-pointer">
+            {isNaN(totalQuantity) ? 0 : totalQuantity}
+          </p>
         </div>
       </div>
     </TransitionLink>

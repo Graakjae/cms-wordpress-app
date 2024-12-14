@@ -10,8 +10,6 @@ import { ProductQuery } from "./ProductQuery";
 import SingleProductSection from "@/components/Sections/SingleProductSection";
 import { PageQuery } from "../Page/PageQuery";
 import { renderSections } from "@/utils/renderSections";
-import { fetchGraphQLNoDraft } from "@/utils/fetchGraphQLNoDraft";
-import gql from "graphql-tag";
 
 interface PageProps {
   node: ContentNode;

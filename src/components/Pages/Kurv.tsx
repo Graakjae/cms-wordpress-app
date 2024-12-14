@@ -19,6 +19,7 @@ export default function Kurv() {
   const { cart, setCart } = cartContext;
   const { removeFromCart } = useCart();
   const [clientCart, setClientCart] = useState<CartItem[]>([]);
+  const [isRemoving, setIsRemoving] = useState(true);
 
   useEffect(() => {
     setClientCart(cart);
@@ -74,11 +75,32 @@ export default function Kurv() {
               className="flex justify-between items-center border-b border-[#C7C7C7] py-[30px]"
             >
               <div className="w-[35px] xl:w-[165px] flex gap-[30px] items-center">
-                <div
-                  className="cursor-pointer"
-                  onClick={() => handleRemoveFromCart(item.id)}
-                >
-                  <CrossIcon />
+                <div>
+                  {isRemoving && (
+                    <div className="absolute  bg-white shadow-md z-10 rounded-[20px] p-2 mb-[10px] translate-y-[-20px] translate-x-[6px] ">
+                      <p> Er du sikker på du vil fjerne denne vare?</p>
+                      <div className="flex gap-4 justify-center">
+                        <p
+                          className="cursor-pointer"
+                          onClick={() => handleRemoveFromCart(item.id)}
+                        >
+                          Ja
+                        </p>
+                        <p
+                          className="cursor-pointer"
+                          onClick={() => setIsRemoving(false)}
+                        >
+                          Nej
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                  <div
+                    className="cursor-pointer"
+                    onClick={() => setIsRemoving(!isRemoving)}
+                  >
+                    <CrossIcon />
+                  </div>
                 </div>
                 <Image
                   src={item?.image}
@@ -105,9 +127,10 @@ export default function Kurv() {
                 <input
                   type="number"
                   value={item.quantity}
-                  onChange={(e) =>
-                    handleQuantityChange(item.id, parseInt(e.target.value))
-                  }
+                  onChange={(e) => {
+                    const value = Math.max(1, parseInt(e.target.value));
+                    handleQuantityChange(item.id, value);
+                  }}
                   className="w-[57px] h-[36px] text-[14px] border border-[#C7C7C7] text-center"
                 />
               </div>
