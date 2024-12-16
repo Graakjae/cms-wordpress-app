@@ -16,7 +16,6 @@ export default function Navigation({
   rightMenu,
 }: NavigationProps) {
   const pathName = usePathname();
-  console.log("path", pathName);
   return (
     <nav
       className={`w-full h-[90px] shadow-custom hidden lg:block ${
