@@ -46,13 +46,13 @@ export default async function Footer() {
         <TransitionLink href="/vare/barnets-bog">
           <p>Barnets bog</p>
         </TransitionLink>
-        <TransitionLink href="/vare/barnets-bog">
+        <TransitionLink href="/vare/haandlavet-mindeaeske">
           <p>Mindeæske</p>
         </TransitionLink>
-        <TransitionLink href="/vare/barnets-bog">
+        <TransitionLink href="/vare/barnets-bog-mindeaeske">
           <p>Bundle</p>
         </TransitionLink>
-        <TransitionLink href="/vare/barnets-bog">
+        <TransitionLink href="/vare/barnets-bog-smaa-skoenhedsfejl">
           <p>2. sortering</p>
         </TransitionLink>
       </div>
