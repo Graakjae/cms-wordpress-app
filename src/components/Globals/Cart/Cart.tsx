@@ -14,12 +14,9 @@ const Cart: React.FC<CartProps> = ({ pathName }) => {
   const [totalQuantity, setTotalQuantity] = useState(0);
 
   useEffect(() => {
-    // Calculate the total quantity of all items in the cart
     const total = cart.reduce((total, item) => total + item.quantity, 0);
     setTotalQuantity(total);
   }, [cart]);
-
-  console.log("totalQuantity", totalQuantity);
 
   return (
     <TransitionLink

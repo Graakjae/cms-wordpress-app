@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Logo from "@/public/gold-logo.svg";
+import Logo from "/public/gold-logo.svg";
 import InstagramIcon from "@/components/icons/Instagram";
 import Link from "next/link";
-import StarBeige from "@/public/star-beige.svg";
+import StarBeige from "/public/star-beige.svg";
 import FacebookIcon from "@/components/icons/Facebook";
 
 export default async function Footer() {

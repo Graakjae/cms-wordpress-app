@@ -1,6 +1,6 @@
 import { FlexibleSectionsFlexContentUnderProductSectionLayout } from "@/gql/graphql";
 import Image from "next/image";
-import StarBeige from "../../public/star-beige2.svg";
+import StarBeige from "/public/star-beige2.svg";
 import { formatContent } from "@/utils/formatContent";
 interface UnderProductSectionProps {
   section: FlexibleSectionsFlexContentUnderProductSectionLayout;

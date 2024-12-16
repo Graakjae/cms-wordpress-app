@@ -1,11 +1,7 @@
 import { FlexibleSectionsFlexContentBigPictureSectionLayout } from "@/gql/graphql";
 import Image from "next/image";
-import { ButtonWithIcon } from "../ui/buttonWithIcon";
-import VideoComponent from "../ui/videoComponent";
-import { LinkButton } from "../ui/linkButton";
-import { formatContent } from "@/utils/formatContent";
-import BackgroundImageOrange from "@/public/orange-background-image.png";
-import BackgroundImageGreen from "@/public/green-background.svg";
+import BackgroundImageOrange from "/public/orange-background-image.png";
+import BackgroundImageGreen from "/public/green-background.svg";
 
 interface BigPictureSectionProps {
   section: FlexibleSectionsFlexContentBigPictureSectionLayout;

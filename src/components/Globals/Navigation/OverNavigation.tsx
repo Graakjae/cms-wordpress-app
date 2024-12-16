@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import arrowRight from "@/public/arrow-right-black.svg";
+import arrowRight from "/public/arrow-right-black.svg";
 
 export default function OverNavigation() {
   const links = [

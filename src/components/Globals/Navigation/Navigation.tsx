@@ -1,9 +1,7 @@
 "use client";
-import Link from "next/link";
 import { MenuItem } from "@/gql/graphql";
 import Image from "next/image";
-import LogoGreen from "@/public/green-logo.svg";
-import LogoBeige from "@/public/beige-logo.svg";
+import LogoBeige from "/public/beige-logo.svg";
 import { usePathname } from "next/navigation";
 import SearchIcon from "@/components/icons/SearchIcon";
 import Cart from "../Cart/Cart";
@@ -54,7 +52,11 @@ export default function Navigation({
         </div>
         <TransitionLink href="/">
           <Image
-            src={pathName === "/at-miste/" ? LogoBeige : LogoGreen}
+            src={
+              pathName === "/at-miste/"
+                ? "/beige-logo.webp"
+                : "/green-logo.webp"
+            }
             alt="logo"
             width={125}
             height={52}

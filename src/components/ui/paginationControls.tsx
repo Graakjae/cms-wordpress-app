@@ -1,5 +1,3 @@
-import Image from "next/image";
-import ArrowRight from "@/public/Icon-feather-arrow-up-right.svg";
 import PaginationArrowIcon from "../icons/PaginationArrow";
 
 interface PaginationControlsProps {

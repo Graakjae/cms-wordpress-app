@@ -11,7 +11,6 @@ import CrossIcon from "../icons/Cross";
 
 export default function Kurv() {
   const cartContext = useContext(CartContext);
-  // Add a guard clause to handle the case where the context is undefined
   if (!cartContext) {
     throw new Error("CartContext must be used within a CartProvider");
   }
@@ -19,7 +18,7 @@ export default function Kurv() {
   const { cart, setCart } = cartContext;
   const { removeFromCart } = useCart();
   const [clientCart, setClientCart] = useState<CartItem[]>([]);
-  const [isRemoving, setIsRemoving] = useState(true);
+  const [isRemoving, setIsRemoving] = useState(false);
 
   useEffect(() => {
     setClientCart(cart);
@@ -77,7 +76,7 @@ export default function Kurv() {
               <div className="w-[35px] xl:w-[165px] flex gap-[30px] items-center">
                 <div>
                   {isRemoving && (
-                    <div className="absolute  bg-white shadow-md z-10 rounded-[20px] p-2 mb-[10px] translate-y-[-20px] translate-x-[6px] ">
+                    <div className="absolute  bg-white shadow-md z-10 rounded-[20px] p-2 mb-[10px] translate-y-[-22px] translate-x-[14px] ">
                       <p> Er du sikker på du vil fjerne denne vare?</p>
                       <div className="flex gap-4 justify-center">
                         <p
