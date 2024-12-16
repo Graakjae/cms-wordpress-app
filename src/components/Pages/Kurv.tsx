@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import ChevronLeft from "../icons/ChevronLeft";
 import CrossIcon from "../icons/Cross";
+import { TransitionLink } from "@/utils/TransitionLink";
 
 export default function Kurv() {
   const cartContext = useContext(CartContext);
@@ -40,13 +41,13 @@ export default function Kurv() {
 
   return (
     <div className="mt-[120px] xl:mt-[200px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 min-h-[100vh]">
-      <Link
+      <TransitionLink
         className="group flex gap-2 items-center text-[16px] hover:text-PrimaryGreen"
         href="/produkter"
       >
         <ChevronLeft />
         Tilbage til produkter
-      </Link>
+      </TransitionLink>
       <div className="flex items-center gap-4 mb-[30px] mt-[40px]">
         <h1 className="text-[24px] xl:text-[32px] font-semibold">Din kurv</h1>
         <p className="text-[20px] font-light">( {clientCart?.length} varer )</p>
@@ -177,9 +178,9 @@ export default function Kurv() {
             <p>Total</p>
             <p>*Total pris*</p>
           </div>
-          <Link href="/kassen">
+          <TransitionLink href="/kassen">
             <Button size="lg">Videre til kassen</Button>
-          </Link>
+          </TransitionLink>
         </div>
       </div>
     </div>

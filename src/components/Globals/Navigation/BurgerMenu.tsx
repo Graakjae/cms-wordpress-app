@@ -120,7 +120,7 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
             </m.button>
           </AnimatePresence>
         </div>
-        <Link href="/">
+        <TransitionLink href="/">
           <Image
             src={LogoGreen}
             alt="logo"
@@ -128,7 +128,7 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
             height={30}
             className=""
           />
-        </Link>
+        </TransitionLink>
         <div className="flex gap-[19px] items-center">
           <SearchIcon />
           <Cart />

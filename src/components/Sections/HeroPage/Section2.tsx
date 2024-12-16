@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ButtonWithIcon } from "../../ui/buttonWithIcon";
 import VideoComponent from "../../ui/videoComponent";
 import Link from "next/link";
+import { TransitionLink } from "@/utils/TransitionLink";
 interface Section2Props {
   section: FlexibleSectionsFlexContentHeroPageSection2Layout;
 }
@@ -22,9 +23,9 @@ const Section2: React.FC<Section2Props> = ({ section }) => {
         <p className="text-[18px] mt-[15px] mb-[30px] max-w-[530px]">
           {section.text}
         </p>
-        <Link href={`${section?.buttonText?.url}`}>
+        <TransitionLink href={`${section?.buttonText?.url}`}>
           <ButtonWithIcon>{section?.buttonText?.title}</ButtonWithIcon>
-        </Link>
+        </TransitionLink>
         <Image
           src={section?.leftImage?.node?.sourceUrl || ""}
           alt={section?.leftImage?.node?.altText || ""}

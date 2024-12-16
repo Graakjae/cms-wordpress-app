@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { TransitionLink } from "@/utils/TransitionLink";
 import Link from "next/link";
 
 export function LinkButton({
@@ -11,7 +12,7 @@ export function LinkButton({
   color?: string;
 }) {
   return (
-    <Link href={link}>
+    <TransitionLink href={link}>
       <Button
         variant={"link"}
         size="link"
@@ -41,6 +42,6 @@ export function LinkButton({
           />
         </svg>
       </Button>
-    </Link>
+    </TransitionLink>
   );
 }

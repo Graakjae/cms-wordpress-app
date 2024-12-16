@@ -10,6 +10,7 @@ import Image from "next/image";
 import { formatContent } from "@/utils/formatContent";
 import ProductCard from "../ui/productCard";
 import Link from "next/link";
+import { TransitionLink } from "@/utils/TransitionLink";
 
 interface ProductTopSectionProps {
   section: FlexibleSectionsFlexContentProductsPageTopSectionLayout;
@@ -42,9 +43,12 @@ const ProductTopSection: React.FC<ProductTopSectionProps> = ({
               __html: formatContent(section?.text) || "",
             }}
           />
-          <Link href={`${section?.buttonText?.url}`} className="mt-[10px]">
+          <TransitionLink
+            href={`${section?.buttonText?.url}`}
+            className="mt-[10px]"
+          >
             <ButtonWithIcon>{section?.buttonText?.title}</ButtonWithIcon>
-          </Link>
+          </TransitionLink>
         </div>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-2 gap-[31px] relative w-full lg:w-[70%]">

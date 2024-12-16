@@ -4,6 +4,7 @@ import StarBeige from "/public/star-beige2.svg";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { formatContent } from "@/utils/formatContent";
+import { TransitionLink } from "@/utils/TransitionLink";
 interface Section3Props {
   section: FlexibleSectionsFlexContentHeroPageSection3Layout;
 }
@@ -27,11 +28,11 @@ const Section3: React.FC<Section3Props> = ({ section }) => {
               }}
             />
 
-            <Link href={`${section?.buttonText?.url}`}>
+            <TransitionLink href={`${section?.buttonText?.url}`}>
               <Button className="mt-[50px]">
                 {section?.buttonText?.title}
               </Button>
-            </Link>
+            </TransitionLink>
           </div>
         </div>
         <div className="w-full md:w-1/2 h-[380px] md:h-[80vh] relative">

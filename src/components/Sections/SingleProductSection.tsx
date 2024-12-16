@@ -20,6 +20,7 @@ import { useCart } from "../Globals/Cart/useCart";
 import PlusIcon from "../icons/Plus";
 import MinusIcon from "../icons/Minus";
 import SmallGoldStarIcon from "../icons/SmallGoldStar";
+import { TransitionLink } from "@/utils/TransitionLink";
 
 interface SingleProductSectionProps {
   product: SimpleProduct;
@@ -107,12 +108,12 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
           <div className="flex justify-between items-end mb-[20px]">
             <p className="text-[35px] h-[44px]">{product.price}</p>
             {product?.id === "cHJvZHVjdDoxMDc5" && (
-              <Link
+              <TransitionLink
                 href="/vare/barnets-bog-smaa-skoenhedsfejl"
                 className="text-[16px] underline-offset-0"
               >
                 Køb produkt som 2. sortering
-              </Link>
+              </TransitionLink>
             )}
           </div>
           <div className="flex justify-between gap-[15px]">

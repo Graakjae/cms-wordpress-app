@@ -4,6 +4,7 @@ import { Blog } from "@/gql/graphql";
 import Link from "next/link";
 import { ButtonWithIcon } from "./buttonWithIcon";
 import { Button } from "./button";
+import { TransitionLink } from "@/utils/TransitionLink";
 
 interface BlogCardProps {
   blog: Blog;
@@ -13,7 +14,7 @@ interface BlogCardProps {
 const BlogCard: React.FC<BlogCardProps> = ({ blog, slug }) => {
   const category = blog?.categories?.nodes[0]?.name || "Aftenstjerner";
   return (
-    <Link href={`${slug}${blog.slug}`} passHref>
+    <TransitionLink href={`${slug}${blog.slug}`} passHref>
       <div className="w-[clamp(150px, 50%, 300px)] relative overflow-hidden">
         <div className="bg-PrimaryBeige/75 absolute top-5 right-0 py-[8px] z-10">
           <span className="text-black italic font-light text-[16px] md:text-[18px] px-[30px]">
@@ -69,7 +70,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, slug }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </TransitionLink>
   );
 };
 

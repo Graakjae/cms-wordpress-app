@@ -7,6 +7,7 @@ import {
 } from "@/gql/graphql";
 import Link from "next/link";
 import { useState } from "react";
+import { TransitionLink } from "@/utils/TransitionLink";
 
 interface ProductCardProps {
   product: SimpleProduct;
@@ -31,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   ) as FlexibleSectionsFlexContentProductImageHoverLayout;
 
   return (
-    <Link
+    <TransitionLink
       href={`/vare/${product?.slug}`}
       key={product?.id}
       className="w-[clamp(350px, 50%, 500px)] relative overflow-hidden"
@@ -73,7 +74,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           )}
         </div>
       </div>
-    </Link>
+    </TransitionLink>
   );
 };
 

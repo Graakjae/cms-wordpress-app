@@ -4,6 +4,7 @@ import { Article } from "@/gql/graphql";
 import Link from "next/link";
 import { ButtonWithIcon } from "./buttonWithIcon";
 import { Button } from "./button";
+import { TransitionLink } from "@/utils/TransitionLink";
 
 interface ArticleCardProps {
   article: Article;
@@ -11,7 +12,7 @@ interface ArticleCardProps {
 
 const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
   return (
-    <Link href={article.articleContent?.linkToArticle?.url || ""}>
+    <TransitionLink href={article.articleContent?.linkToArticle?.url || ""}>
       <div className="w-[clamp(150px, 50%, 300px)] relative overflow-hidden">
         <div className="w-[clamp(150px, 50%, 300px)]">
           <div className="relative w-full pt-[80%] overflow-hidden">
@@ -66,7 +67,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </TransitionLink>
   );
 };
 

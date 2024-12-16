@@ -4,6 +4,7 @@ import InstagramIcon from "../icons/Instagram";
 import Link from "next/link";
 import Image from "next/image";
 import { formatContent } from "@/utils/formatContent";
+import { TransitionLink } from "@/utils/TransitionLink";
 
 interface BlogContentProps {
   blog: Blog;
@@ -58,18 +59,12 @@ const BlogContent: React.FC<BlogContentProps> = ({ blog, contentType }) => {
             <div className=" lg:w-full pl-[25px] flex flex-col lg:flex-row justify-end items-center gap-2">
               <p className="text-[16px] text-center font-light">Del:</p>
               <div className="flex justify-end items-center gap-4">
-                <Link
-                  href="https://www.facebook.com/Aftenstjerner"
-                  target="_blank"
-                >
+                <TransitionLink href="https://www.facebook.com/Aftenstjerner">
                   <FacebookIcon />
-                </Link>
-                <Link
-                  href="https://www.instagram.com/aftenstjerner/"
-                  target="_blank"
-                >
+                </TransitionLink>
+                <TransitionLink href="https://www.instagram.com/aftenstjerner/">
                   <InstagramIcon />
-                </Link>
+                </TransitionLink>
               </div>
             </div>
           </div>

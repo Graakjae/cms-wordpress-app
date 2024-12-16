@@ -6,6 +6,7 @@ import { InputCheckout } from "../ui/inputCheckout";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import ChevronLeft from "../icons/ChevronLeft";
+import { TransitionLink } from "@/utils/TransitionLink";
 
 export default function Kassen() {
   const cartContext = useContext(CartContext);
@@ -127,13 +128,13 @@ export default function Kassen() {
 
   return (
     <div className="mt-[120px] xl:mt-[200px] max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 min-h-[100vh]">
-      <Link
+      <TransitionLink
         className="group flex gap-2 items-center text-[16px] hover:text-PrimaryGreen"
         href="/kurv"
       >
         <ChevronLeft />
         Rediger din indkøbskurv
-      </Link>
+      </TransitionLink>
       <div className="flex items-center gap-4 mb-[30px] mt-[40px]">
         <h1 className="text-[24px] xl:text-[32px] font-semibold">
           Faktureringsoplysninger

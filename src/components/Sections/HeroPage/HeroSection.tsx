@@ -4,6 +4,7 @@ import Image from "next/image";
 import StarBeige from "/public/star-beige.svg";
 import Link from "next/link";
 import { formatContent } from "@/utils/formatContent";
+import { TransitionLink } from "@/utils/TransitionLink";
 
 interface HeroSectionProps {
   section: FlexibleSectionsFlexContentHeroSectionLayout;
@@ -35,14 +36,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ section }) => {
               __html: formatContent(section?.text) || "",
             }}
           />
-          <Link
+          <TransitionLink
             className="flex justify-center md:justify-start"
             href={`${section?.buttonText?.url}`}
           >
             <Button className="mt-[10px] md:mt-[30px]">
               {section?.buttonText?.title}
             </Button>
-          </Link>
+          </TransitionLink>
         </div>
       </div>
       <Image

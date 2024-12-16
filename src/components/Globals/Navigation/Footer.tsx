@@ -4,6 +4,7 @@ import InstagramIcon from "@/components/icons/Instagram";
 import Link from "next/link";
 import StarBeige from "/public/star-beige.svg";
 import FacebookIcon from "@/components/icons/Facebook";
+import { TransitionLink } from "@/utils/TransitionLink";
 
 export default async function Footer() {
   return (
@@ -25,63 +26,65 @@ export default async function Footer() {
         />
         <p className="font-light text-[16px] mb-4">Find os på:</p>
         <div className="flex gap-[15px]">
-          <Link href="https://www.facebook.com/aftenstjerner">
+          <TransitionLink href="https://www.facebook.com/aftenstjerner">
             <FacebookIcon />
-          </Link>
-          <Link href="https://www.instagram.com/aftenstjerner/">
+          </TransitionLink>
+          <TransitionLink href="https://www.instagram.com/aftenstjerner/">
             <InstagramIcon />
-          </Link>
+          </TransitionLink>
         </div>
       </div>
       <div className="mt-6">
         <p>Aftenstjerner ApS</p>
         <p className="uppercase mt-[10px] mb-[25px]">cvr:43660098</p>
-        <Link href="mailto:info@aftenstjerner.dk">info@aftenstjerner.dk</Link>
+        <TransitionLink href="mailto:info@aftenstjerner.dk">
+          info@aftenstjerner.dk
+        </TransitionLink>
       </div>
       <div className="flex flex-col gap-[10px] mt-6">
         <p className="font-bold mb-1">Shop</p>
-        <Link href="/vare/barnets-bog">
+        <TransitionLink href="/vare/barnets-bog">
           <p>Barnets bog</p>
-        </Link>
-        <Link href="/vare/barnets-bog">
+        </TransitionLink>
+        <TransitionLink href="/vare/barnets-bog">
           <p>Mindeæske</p>
-        </Link>
-        <Link href="/vare/barnets-bog">
+        </TransitionLink>
+        <TransitionLink href="/vare/barnets-bog">
           <p>Bundle</p>
-        </Link>
-        <Link href="/vare/barnets-bog">
+        </TransitionLink>
+        <TransitionLink href="/vare/barnets-bog">
           <p>2. sortering</p>
-        </Link>
+        </TransitionLink>
       </div>
       <div className="flex flex-col gap-[10px] mt-6">
         <p className="font-bold mb-1">Læs mere</p>
-        <Link href="/at-miste">
+        <TransitionLink href="/at-miste">
           <p>At miste</p>
-        </Link>
-        <Link href="/blog">
+        </TransitionLink>
+        <TransitionLink href="/blog">
           <p>Blog</p>
-        </Link>
-        <Link href="/historien">
+        </TransitionLink>
+        <TransitionLink href="/historien">
           <p>Historien bag</p>
-        </Link>
-        <Link href="/kontakt">
+        </TransitionLink>
+        <TransitionLink href="/kontakt">
           <p>Offentlige/erhverv --pil</p>
-        </Link>
+        </TransitionLink>
       </div>
       <div className="flex flex-col gap-[10px] mt-6">
         <p className="font-bold mb-1">Information</p>
-        <Link href="/">
+        <TransitionLink href="/">
           <p>Handelsbetingelser</p>
-        </Link>
-        <Link href="/">
+        </TransitionLink>
+        <TransitionLink href="/">
           <p>Levering og retur</p>
-        </Link>
-        <Link href="/">
+        </TransitionLink>
+        <TransitionLink href="/">
           <p>Forlaget fortæl</p>
-        </Link>
-        <Link href="/">
+        </TransitionLink>
+        <TransitionLink href="/">
           <p>Ofte stillede spørgsmål</p>
-        </Link>
+        </TransitionLink>
       </div>
     </footer>
   );

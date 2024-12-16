@@ -13,21 +13,18 @@ export default function OverNavigation() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [animationState, setAnimationState] = useState("enter"); // Possible states: 'enter', 'exit'
+  const [animationState, setAnimationState] = useState("enter");
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Set to exit state, wait for animation to complete
       setAnimationState("exit");
-
-      // Change index after a slight delay to allow exit animation to finish
       setTimeout(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % links.length);
-        setAnimationState("enter"); // Set back to enter state for next text
-      }, 500); // This delay should match the exit animation duration
-    }, 4000); // Change text every 4 seconds
+        setAnimationState("enter");
+      }, 500);
+    }, 4000);
 
-    return () => clearInterval(interval); // Cleanup on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -40,7 +37,7 @@ export default function OverNavigation() {
       >
         {links[currentIndex].text}
         <Image
-          src="/arrow-right.jpg"
+          src="/arrow-right-black.svg"
           alt="Arrow right"
           width={13}
           height={13}

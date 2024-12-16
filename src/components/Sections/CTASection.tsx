@@ -4,6 +4,7 @@ import StarBeige from "../../public/star-beige.svg";
 import { formatContent } from "@/utils/formatContent";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { TransitionLink } from "@/utils/TransitionLink";
 interface CTASectionProps {
   section: FlexibleSectionsFlexContentCtaSectionLayout;
 }
@@ -34,11 +35,11 @@ const CTASection: React.FC<CTASectionProps> = ({ section }) => {
               }}
               className="mb-[40px] text-[16px]"
             />
-            <Link href={`${section?.buttonText?.url}`}>
+            <TransitionLink href={`${section?.buttonText?.url}`}>
               <Button variant={"lightGreen"}>
                 {section?.buttonText?.title}
               </Button>
-            </Link>
+            </TransitionLink>
           </div>
         </div>
       </div>
