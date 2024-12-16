@@ -122,7 +122,7 @@ export default function BurgerMenu({ mobileMenu }: BurgerMenuProps) {
         </div>
         <TransitionLink href="/">
           <Image
-            src={LogoGreen}
+            src="/green-logo.png"
             alt="logo"
             width={80}
             height={30}

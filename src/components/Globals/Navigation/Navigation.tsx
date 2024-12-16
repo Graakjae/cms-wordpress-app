@@ -16,10 +16,11 @@ export default function Navigation({
   rightMenu,
 }: NavigationProps) {
   const pathName = usePathname();
+  console.log("path", pathName);
   return (
     <nav
       className={`w-full h-[90px] shadow-custom hidden lg:block ${
-        pathName === "/at-miste/" ? "bg-PrimaryGreen" : "bg-white"
+        pathName === "/at-miste" ? "bg-PrimaryGreen" : "bg-white"
       } `}
       role="navigation"
       itemScope
@@ -36,10 +37,10 @@ export default function Navigation({
                 key={index}
                 className={`text-[18px] ${
                   isActive
-                    ? pathName === "/at-miste/"
+                    ? pathName === "/at-miste"
                       ? "text-PrimaryBeige border-b border-PrimaryBeige"
                       : "text-PrimaryGreen border-b border-PrimaryGreen"
-                    : pathName === "/at-miste/"
+                    : pathName === "/at-miste"
                     ? "text-white border-b border-PrimaryGreen hover:text-Beige hover:border-Beige cursor-pointer"
                     : "text-black border-b border-white hover:text-PrimaryGreen hover:border-PrimaryGreen cursor-pointer"
                 }`}
@@ -52,9 +53,7 @@ export default function Navigation({
         <TransitionLink href="/">
           <Image
             src={
-              pathName === "/at-miste/"
-                ? "/beige-logo.webp"
-                : "/green-logo.webp"
+              pathName === "/at-miste" ? "/beige-logo.png" : "/green-logo.png"
             }
             alt="logo"
             width={125}
@@ -72,10 +71,10 @@ export default function Navigation({
                 key={index}
                 className={`text-[18px] ${
                   isActive
-                    ? pathName === "/at-miste/"
+                    ? pathName === "/at-miste"
                       ? "text-Beige border-b border-PrimaryBeige"
                       : "text-PrimaryGreen border-b border-PrimaryGreen"
-                    : pathName === "/at-miste/"
+                    : pathName === "/at-miste"
                     ? "text-white border-b border-PrimaryGreen hover:text-PrimaryBeige hover:border-PrimaryBeige cursor-pointer"
                     : "text-black border-b border-white hover:text-PrimaryGreen hover:border-PrimaryGreen cursor-pointer"
                 }`}
