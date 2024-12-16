@@ -21,7 +21,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ section }) => {
             }}
             className="text-[16px]"
           />
-          <p className="font-greatVibes text-[28px] mt-[45px]">Stine Rathcke</p>
+          <p className="text-[28px] mt-[45px]">Stine Rathcke</p>
           <p className="mt-[20px]">Stine Rathcke Vestergård / Forfatter</p>
           <p className="mt-[50px]">E-mail: {section?.mail}</p>
           <div className="mt-[20px] md:mt-[115px]">
