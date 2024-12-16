@@ -1,7 +1,6 @@
 import React from "react";
 import {
   FlexibleSectionsFlexContentLayout,
-  GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout,
   GlobalSections,
   BlogConnection,
 } from "@/gql/graphql";

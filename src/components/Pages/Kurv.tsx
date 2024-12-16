@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext, CartItem } from "../Globals/Cart/context/CartContext";
 import { useCart } from "../Globals/Cart/useCart";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "../ui/button";
 import ChevronLeft from "../icons/ChevronLeft";
 import CrossIcon from "../icons/Cross";

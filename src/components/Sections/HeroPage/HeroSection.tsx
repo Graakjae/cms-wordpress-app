@@ -2,7 +2,6 @@ import { FlexibleSectionsFlexContentHeroSectionLayout } from "@/gql/graphql";
 import { Button } from "../../ui/button";
 import Image from "next/image";
 import StarBeige from "/public/star-beige.svg";
-import Link from "next/link";
 import { formatContent } from "@/utils/formatContent";
 import { TransitionLink } from "@/utils/TransitionLink";
 

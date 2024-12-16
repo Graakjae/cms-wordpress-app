@@ -1,12 +1,9 @@
 import React from "react";
 import {
   FlexibleSectionsFlexContentLayout,
-  GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout,
   GlobalSections,
   ProductConnection,
 } from "@/gql/graphql";
-import Divider from "../ui/divider";
-import SliderSection from "../Sections/SliderSection";
 import { renderSections } from "@/utils/renderSections";
 
 interface ProductsPageProps {

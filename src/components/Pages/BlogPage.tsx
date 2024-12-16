@@ -1,17 +1,9 @@
-"use client";
-import { useState } from "react";
 import {
   ArticleConnection,
   BlogConnection,
   FlexibleSectionsFlexContentLayout,
-  GlobalFlexibleSectionsSectionsInfiniteSliderSectionLayout,
   GlobalSections,
 } from "@/gql/graphql";
-import BlogCard from "../ui/blogCard";
-import BlogPageAnimation from "../Animations/BlogPage";
-import Divider from "../ui/divider";
-import SliderSection from "../Sections/SliderSection";
-import PaginationControls from "../ui/paginationControls";
 import { renderSections } from "@/utils/renderSections";
 
 interface BlogPageProps {

@@ -6,7 +6,7 @@ const BlogPageAnimation = () => (
     width="563.64697265625"
     height="268.67401123046875"
     viewBox="0 0 563.647 268.674"
-    className="mt-[30px] w-full md:w-[563px] absolute lg:relative right-0 left-0 top-0 mx-auto z-0"
+    className="mt-[30px] w-full md:w-[563px] absolute lg:relative right-0 left-0 top-0 mx-auto z-0 "
   >
     <g
       id="Group_11749"

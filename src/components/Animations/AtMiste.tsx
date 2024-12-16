@@ -19,7 +19,7 @@ const AtMisteAnimation = () => (
         d="M332.045,664.267h0c2.192,6.586,9.509,13.323,16.254,14.966-6.587,2.192-13.324,9.51-14.97,16.25-2.188-6.583-9.506-13.324-16.25-14.966,6.587-2.188,13.324-9.506,14.966-16.25"
         transform="translate(968.824 -496.35) rotate(-2)"
         fill="#e6dac7"
-        className="svg-elem-1"
+        className="at-miste-elem-1"
       ></path>
       <path
         id="Path_1374"
@@ -27,7 +27,7 @@ const AtMisteAnimation = () => (
         d="M328.787,664.267h0c1.715,5.153,7.44,10.424,12.716,11.708-5.153,1.715-10.424,7.44-11.711,12.713-1.712-5.15-7.437-10.424-12.713-11.708,5.153-1.711,10.424-7.437,11.708-12.713"
         transform="translate(909.293 -324.879) rotate(-2)"
         fill="#e6dac7"
-        className="svg-elem-2"
+        className="at-miste-elem-2"
       ></path>
       <path
         id="Path_1376"
@@ -35,7 +35,7 @@ const AtMisteAnimation = () => (
         d="M325.831,664.267h0a14.9,14.9,0,0,0,9.506,8.752,14.905,14.905,0,0,0-8.755,9.5,14.892,14.892,0,0,0-9.5-8.752,14.886,14.886,0,0,0,8.752-9.5"
         transform="translate(1426.635 -253.713) rotate(-2)"
         fill="#e6dac7"
-        className="svg-elem-3"
+        className="at-miste-elem-3"
       ></path>
       <path
         id="Path_1375"
@@ -43,7 +43,7 @@ const AtMisteAnimation = () => (
         d="M328.338,664.267h0c1.649,4.955,7.154,10.023,12.228,11.259-4.956,1.649-10.024,7.154-11.262,12.225-1.646-4.953-7.151-10.023-12.225-11.259,4.956-1.646,10.024-7.151,11.259-12.225"
         transform="translate(1356.254 -417.96) rotate(20)"
         fill="#e6dac7"
-        className="svg-elem-4"
+        className="at-miste-elem-4"
       ></path>
       <line
         id="Line_235"
@@ -54,7 +54,7 @@ const AtMisteAnimation = () => (
         fill="none"
         stroke="#e6dac7"
         strokeWidth="1"
-        className="svg-elem-5"
+        className="at-miste-elem-5"
       ></line>
       <line
         id="Line_236"
@@ -65,7 +65,7 @@ const AtMisteAnimation = () => (
         fill="none"
         stroke="#e6dac7"
         strokeWidth="1"
-        className="svg-elem-6"
+        className="at-miste-elem-6"
       ></line>
       <line
         id="Line_237"
@@ -76,7 +76,7 @@ const AtMisteAnimation = () => (
         fill="none"
         stroke="#e6dac7"
         strokeWidth="1"
-        className="svg-elem-7"
+        className="at-miste-elem-7"
       ></line>
       <line
         id="Line_238"
@@ -87,7 +87,7 @@ const AtMisteAnimation = () => (
         fill="none"
         stroke="#e6dac7"
         strokeWidth="1"
-        className="svg-elem-8"
+        className="at-miste-elem-8"
       ></line>
     </g>
   </svg>

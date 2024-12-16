@@ -2,7 +2,6 @@
 import Link, { LinkProps } from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import ClipLoader from "react-spinners/ClipLoader";
 
 interface TransitionLinkProps extends LinkProps {
   children: React.ReactNode;
@@ -30,8 +29,6 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
 
     const body = document.querySelector("#page-transition-box");
 
-    setIsLoading(true);
-
     body?.classList.add("page-transition");
 
     await sleep(250);
@@ -39,28 +36,17 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
     router.push(href);
 
     await sleep(500);
-    setIsLoading(false);
     body?.classList.remove("page-transition");
   };
 
   return (
-    <>
-      {isLoading && (
-        <div
-          id="loading-spinner"
-          className="fixed inset-0 flex items-center justify-center z-50"
-        >
-          <ClipLoader color="#005E61" size={50} />
-        </div>
-      )}
-      <Link
-        {...props}
-        href={href}
-        onClick={handleTransition}
-        className={`${className}`}
-      >
-        {children}
-      </Link>
-    </>
+    <Link
+      {...props}
+      href={href}
+      onClick={handleTransition}
+      className={`${className}`}
+    >
+      {children}
+    </Link>
   );
 };
