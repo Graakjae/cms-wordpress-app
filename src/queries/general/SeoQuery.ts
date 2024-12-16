@@ -26,21 +26,11 @@ export const SeoQuery = gql`
         opengraphUrl
         readingTime
         title
-        twitterDescription
-        twitterTitle
         opengraphImage {
           altText
           mediaDetails {
             height
             width
-          }
-          sourceUrl
-        }
-        twitterImage {
-          altText
-          mediaDetails {
-            width
-            height
           }
           sourceUrl
         }

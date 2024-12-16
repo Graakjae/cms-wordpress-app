@@ -24,7 +24,6 @@ export const dynamic = "force-static";
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.slug ? nextSlugToWpSlug(params.slug) : "/";
   const isPreview = slug.includes("preview");
-  console.log("generateMetadata");
 
   const { contentNode } = await fetchGraphQL<{ contentNode: ContentNode }>(
     print(SeoQuery),
