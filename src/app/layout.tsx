@@ -2,7 +2,7 @@ import { draftMode } from "next/headers";
 import { Source_Sans_3 } from "next/font/google";
 
 import "@/app/globals.css";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navigation from "@/components/Globals/Navigation/Navigation";
 import { PreviewNotice } from "@/components/Globals/PreviewNotice/PreviewNotice";
 import OverNavigation from "@/components/Globals/Navigation/OverNavigation";
@@ -81,6 +81,7 @@ export default async function RootLayout({
           <div id="page-transition-box">{children}</div>
           <Footer />
         </CartProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
