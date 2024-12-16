@@ -18,7 +18,7 @@ export default async function Footer() {
       <div className="md:pr-[50px]">
         <Image
           className="mb-[70px]"
-          src={Logo}
+          src="/footer-logo.webp"
           alt="Logo"
           width={100}
           height={120}

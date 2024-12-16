@@ -1,7 +1,6 @@
 "use client";
 import { MenuItem } from "@/gql/graphql";
 import Image from "next/image";
-import LogoBeige from "/public/beige-logo.svg";
 import { usePathname } from "next/navigation";
 import SearchIcon from "@/components/icons/SearchIcon";
 import Cart from "../Cart/Cart";
