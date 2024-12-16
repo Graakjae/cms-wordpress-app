@@ -21,30 +21,46 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
   ...props
 }) => {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleTransition = async (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
     e.preventDefault();
+
     const body = document.querySelector("#page-transition-box");
+
+    setIsLoading(true);
 
     body?.classList.add("page-transition");
 
     await sleep(250);
-    router.push(href);
-    await sleep(250);
 
+    router.push(href);
+
+    await sleep(500);
+    setIsLoading(false);
     body?.classList.remove("page-transition");
   };
 
   return (
-    <Link
-      {...props}
-      href={href}
-      onClick={handleTransition}
-      className={`${className}`}
-    >
-      {children}
-    </Link>
+    <>
+      {isLoading && (
+        <div
+          id="loading-spinner"
+          className="fixed inset-0 flex items-center justify-center z-50"
+        >
+          <ClipLoader color="#005E61" size={50} />
+        </div>
+      )}
+      <Link
+        {...props}
+        href={href}
+        onClick={handleTransition}
+        className={`${className}`}
+      >
+        {children}
+      </Link>
+    </>
   );
 };

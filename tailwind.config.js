@@ -1,10 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: [
-    // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     screens: {
       xsm: "600px",
@@ -32,9 +29,6 @@ module.exports = {
         SecondaryGreen: "#83C4AE",
         SecondaryGreenHover: "#6CAD97",
       },
-      // fontFamily: {
-      //   greatVibes: ["Great Vibes", "cursive"],
-      // },
       keyframes: {
         dropIn: {
           "0%": {

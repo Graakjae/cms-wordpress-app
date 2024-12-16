@@ -24,7 +24,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const firstImageAlt = firstImage?.altText || "";
   const secondImageAlt = secondImage?.altText || "";
 
-  // Find the section with fieldGroupName "FlexibleSectionsFlexContentProductImageHoverLayout"
   const hoverSection = product?.flexibleSections?.flexContent?.find(
     (section) =>
       section?.fieldGroupName ===

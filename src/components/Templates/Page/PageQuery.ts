@@ -215,6 +215,16 @@ export const PageQuery = gql`
             text
             title
           }
+          ... on FlexibleSectionsFlexContentNotFoundPageLayout {
+            acfeFlexibleLayoutTitle
+            fieldGroupName
+            link {
+              title
+              url
+            }
+            text
+            title
+          }
           ... on FlexibleSectionsFlexContentInfiniteSliderSectionLayout {
             acfeFlexibleLayoutTitle
             fieldGroupName

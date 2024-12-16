@@ -11,12 +11,13 @@
 
 #page-transition-box {
   transition-property: opacity, transform, filter, background;
-  transition-timing-function: ease-in-out;
+  transition: opacity 0.2s ease-in-out, background 0.2s ease-in-out;
   transition-duration: 0.2s;
+  opacity: 1;
 }
 
 .page-transition {
-  opacity: 0;
+  opacity: 0 !important;
   background: white;
 }
 

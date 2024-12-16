@@ -3,6 +3,7 @@ import Image from "next/image";
 import { formatContent } from "@/utils/formatContent";
 import FacebookIcon from "../icons/Facebook";
 import InstagramIcon from "../icons/Instagram";
+import Link from "next/link";
 interface ContactSectionProps {
   section: FlexibleSectionsFlexContentContactTopSectionLayout;
 }
@@ -27,8 +28,18 @@ const ContactSection: React.FC<ContactSectionProps> = ({ section }) => {
           <div className="mt-[20px] md:mt-[115px]">
             <p className="font-light text-[16px] mb-4">Find os på:</p>
             <div className="flex gap-[15px]">
-              <FacebookIcon />
-              <InstagramIcon />
+              <Link
+                href="https://www.facebook.com/aftenstjerner"
+                target="_blank"
+              >
+                <FacebookIcon />
+              </Link>
+              <Link
+                href="https://www.instagram.com/aftenstjerner/"
+                target="_blank"
+              >
+                <InstagramIcon />
+              </Link>
             </div>
           </div>
         </div>

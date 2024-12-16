@@ -21,6 +21,7 @@ import ThankYouPageSection from "@/components/Sections/ThankYouPageSection";
 import UnderProductSection from "@/components/Sections/UnderProductSection";
 import MoreAboutTheProductSection from "@/components/Sections/MoreAboutTheProductSection";
 import CTASection from "@/components/Sections/CTASection";
+import NotFoundSection from "@/components/Sections/NotFoundSection";
 
 const sectionComponents: { [key: string]: React.FC<any> } = {
   FlexibleSectionsFlexContentHeroSectionLayout: HeroSection,
@@ -46,6 +47,7 @@ const sectionComponents: { [key: string]: React.FC<any> } = {
     MoreAboutTheProductSection,
   FlexibleSectionsFlexContentCtaSectionLayout: CTASection,
   FlexibleSectionsFlexContentInfiniteSliderSectionLayout: SliderSection,
+  FlexibleSectionsFlexContentNotFoundPageLayout: NotFoundSection,
 };
 
 export const renderSections = (
