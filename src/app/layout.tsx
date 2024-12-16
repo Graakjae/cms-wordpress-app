@@ -79,9 +79,9 @@ export default async function RootLayout({
             <BurgerMenu mobileMenu={mobileMenu} />
           </div>
           <div id="page-transition-box">{children}</div>
+          <SpeedInsights />
           <Footer />
         </CartProvider>
-        <SpeedInsights />
       </body>
     </html>
   );
