@@ -21,6 +21,7 @@ import PlusIcon from "../icons/Plus";
 import MinusIcon from "../icons/Minus";
 import SmallGoldStarIcon from "../icons/SmallGoldStar";
 import { TransitionLink } from "@/utils/TransitionLink";
+import { useToast } from "@/hooks/use-toast";
 
 interface SingleProductSectionProps {
   product: SimpleProduct;
@@ -42,6 +43,8 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
     setSelectedImage(image);
   };
 
+  const { toast } = useToast();
+
   const { addToCart } = useCart();
   const handleAddToCart = () => {
     addToCart(
@@ -52,6 +55,10 @@ const SingleProductSection: React.FC<SingleProductSectionProps> = ({
       quantity,
       product?.galleryImages?.nodes[0]?.sourceUrl || ""
     );
+    toast({
+      title: "Produkt tilføjet til kurv",
+      description: `${quantity} x ${product?.name}`,
+    });
   };
 
   const specificationsAccordion = sections?.find(

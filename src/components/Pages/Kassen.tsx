@@ -3,10 +3,10 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext, CartItem } from "../Globals/Cart/context/CartContext";
 import { InputCheckout } from "../ui/inputCheckout";
-import Link from "next/link";
-import { Button } from "../ui/button";
-import ChevronLeft from "../icons/ChevronLeft";
 import { TransitionLink } from "@/utils/TransitionLink";
+import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
+import ChevronLeft from "../icons/ChevronLeft";
 
 export default function Kassen() {
   const cartContext = useContext(CartContext);
@@ -28,21 +28,19 @@ export default function Kassen() {
     phone: "",
     notes: "",
   });
-
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [errorProcessingOrder, setErrorProcessingOrder] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // Loader state
 
   useEffect(() => {
     setClientCart(cart);
   }, [cart]);
 
-  // Handle input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle textarea changes
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -77,6 +75,9 @@ export default function Kassen() {
     if (!validateForm()) {
       return;
     }
+
+    setIsLoading(true); // Start loading state
+
     const customerData = {
       firstName: formData?.firstName,
       lastName: formData?.lastName,
@@ -113,16 +114,16 @@ export default function Kassen() {
         window.location.href = `/thank-you?orderId=${result.order_id}`;
         sessionStorage.setItem("orderCompleted", "true");
       } else {
-        console.error("Error processing order:", result.message);
         setErrorProcessingOrder(
           "Failed to process the order: " + result.message
         );
       }
     } catch (error) {
-      console.error("Order submission failed:", error);
       setErrorProcessingOrder(
         "An unexpected error occurred. Please try again."
       );
+    } finally {
+      setIsLoading(false); // Stop loading state
     }
   }
 
@@ -265,9 +266,16 @@ export default function Kassen() {
             variant={clientCart.length === 0 ? "disabled" : "default"}
             size="lg"
             onClick={handleCheckout}
-            disabled={clientCart.length === 0}
+            disabled={isLoading || clientCart.length === 0}
           >
-            Gennemfør ordre
+            {isLoading ? (
+              <>
+                <Loader2 className="animate-spin mr-2" />
+                Behandler...
+              </>
+            ) : (
+              "Gennemfør ordre"
+            )}
           </Button>
           {errorProcessingOrder && (
             <p className="text-red-500">{errorProcessingOrder}</p>

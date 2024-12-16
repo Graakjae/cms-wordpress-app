@@ -15,9 +15,6 @@ const ThankYouPageSection: React.FC<ThankYouPageSectionProps> = ({
     if (!orderCompleted) {
       // Redirect to the homepage if the session flag is missing
       window.location.href = "/";
-    } else {
-      // Clear the session flag after validation
-      sessionStorage.removeItem("orderCompleted");
     }
   }, []);
   return (

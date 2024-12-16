@@ -13,6 +13,7 @@ import gql from "graphql-tag";
 import { RootQueryToMenuItemConnection } from "@/gql/graphql";
 import { CartProvider } from "@/components/Globals/Cart/context/CartContext";
 import BurgerMenu from "@/components/Globals/Navigation/BurgerMenu";
+import { Toaster } from "@/components/ui/toaster";
 
 const source = Source_Sans_3({ subsets: ["latin"] });
 
@@ -80,6 +81,7 @@ export default async function RootLayout({
           </div>
           <div id="page-transition-box">{children}</div>
           <SpeedInsights />
+          <Toaster />
           <Footer />
         </CartProvider>
       </body>
