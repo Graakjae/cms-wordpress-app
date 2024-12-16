@@ -7,7 +7,7 @@ interface SearchIconProps {
 const SearchIcon: React.FC<SearchIconProps> = ({ pathName }) => (
   <div
     className={`${
-      pathName === "/at-miste/"
+      pathName === "/at-miste"
         ? "text-white hover:text-PrimaryBeige"
         : "text-black hover:text-PrimaryGreen"
     } cursor-pointer`}

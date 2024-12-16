@@ -7,7 +7,7 @@ interface ShoppingBagProps {
 const ShoppingBagIcon: React.FC<ShoppingBagProps> = ({ pathName }) => (
   <div
     className={`${
-      pathName === "/at-miste/"
+      pathName === "/at-miste"
         ? "fill-white hover:fill-PrimaryBeige"
         : "fill-black hover:fill-PrimaryGreen"
     } cursor-pointer`}
