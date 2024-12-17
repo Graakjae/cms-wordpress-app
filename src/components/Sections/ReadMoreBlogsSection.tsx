@@ -2,20 +2,15 @@ import {
   BlogConnection,
   GlobalFlexibleSectionsSectionsReadMoreBlogsLayout,
   FlexibleSectionsFlexContentMoreBlogsSectionLayout,
-  ArticleConnection,
-  AtMistePostConnection,
-  Blog,
 } from "@/gql/graphql";
 import { LinkButton } from "../ui/linkButton";
 import BlogCard from "../ui/blogCard";
-import ArticleCard from "../ui/articleCard";
 
 interface ReadMoreBlogsSectionProps {
   section?: FlexibleSectionsFlexContentMoreBlogsSectionLayout;
   globalSection?: GlobalFlexibleSectionsSectionsReadMoreBlogsLayout;
   blogs?: BlogConnection;
   color?: string;
-  articles?: ArticleConnection;
   atMistePosts?: BlogConnection;
   contentType?: string;
 }
@@ -24,7 +19,6 @@ const ReadMoreBlogsSection: React.FC<ReadMoreBlogsSectionProps> = ({
   section,
   globalSection,
   blogs,
-  articles,
   color,
   atMistePosts,
   contentType,
@@ -58,13 +52,6 @@ const ReadMoreBlogsSection: React.FC<ReadMoreBlogsSectionProps> = ({
               .slice(0, 3)
               .map((blog) => (
                 <BlogCard key={blog.id} blog={blog} slug="/blogpost/" />
-              ))}
-
-          {articles &&
-            articles?.nodes
-              .slice(0, 3)
-              .map((article) => (
-                <ArticleCard key={article.id} article={article} />
               ))}
 
           {atMistePosts &&

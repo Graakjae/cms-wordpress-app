@@ -54,6 +54,11 @@ export default async function DisplayPost({ node }: TemplateProps) {
     { id: node.databaseId }
   );
 
+  const { atMistePosts } = await fetchGraphQL<{ atMistePosts: BlogConnection }>(
+    print(PageQuery),
+    { id: node.databaseId }
+  );
+
   return (
     <div className="mt-[100px] lg:mt-[130px]">
       <BlogContent
@@ -67,7 +72,10 @@ export default async function DisplayPost({ node }: TemplateProps) {
       </div>
       <ReadMoreBlogsSection
         globalSection={readMoreBlogsSection || ""}
-        blogs={blogs}
+        blogs={node.contentTypeName === "blogpost" ? blogs : undefined}
+        atMistePosts={
+          node.contentTypeName === "at-miste-post" ? atMistePosts : undefined
+        }
         contentType={node.contentTypeName}
       />
       {renderSections(sections)}

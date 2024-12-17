@@ -22,6 +22,7 @@ import UnderProductSection from "@/components/Sections/UnderProductSection";
 import MoreAboutTheProductSection from "@/components/Sections/MoreAboutTheProductSection";
 import CTASection from "@/components/Sections/CTASection";
 import NotFoundSection from "@/components/Sections/NotFoundSection";
+import ArticlesSection from "@/components/Sections/ArticlesSection";
 
 const sectionComponents: { [key: string]: React.FC<any> } = {
   FlexibleSectionsFlexContentHeroSectionLayout: HeroSection,
@@ -36,7 +37,7 @@ const sectionComponents: { [key: string]: React.FC<any> } = {
   FlexibleSectionsFlexContentProductsSectionLayout: ProductSection,
   FlexibleSectionsFlexContentBlogTopSectionLayout: BlogTopSection,
   FlexibleSectionsFlexContentShareYourStoryFormLayout: ShareYourStoryForm,
-  FlexibleSectionsFlexContentArticlesSectionLayout: ReadMoreBlogsSection,
+  FlexibleSectionsFlexContentArticlesSectionLayout: ArticlesSection,
   FlexibleSectionsFlexContentHistoryTopSectionLayout: HistorienTopSection,
   FlexibleSectionsFlexContentMyHistorySectionLayout: MyHistorySection,
   FlexibleSectionsFlexContentBigPictureSectionLayout: BigPictureSection,

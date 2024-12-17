@@ -17,12 +17,15 @@ const HistoryPage: React.FC<HistoryPageProps> = ({
   sections,
   blogs,
   globalSections,
+  articles,
 }) => {
   return (
     <div className="mt-[100px] lg:mt-[130px]">
       {renderSections(sections, {
         blogs,
         globalSections,
+        articles,
+        color: "SecondaryBeige",
       })}
     </div>
   );
