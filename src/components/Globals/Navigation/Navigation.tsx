@@ -52,7 +52,7 @@ export default function Navigation({
         <TransitionLink href="/">
           <Image
             src={
-              pathName === "/at-miste" ? "/beige-logo.png" : "/green-logo.png"
+              pathName === "/at-miste" ? "/beige-logo.png" : "/logo-green.webp"
             }
             alt="logo"
             width={125}
