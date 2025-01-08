@@ -9,16 +9,15 @@
   }
 } */
 
-#page-transition-box {
+#page-transition-container {
   transition-property: opacity, transform, filter, background;
-  transition: opacity 0.2s ease-in-out, background 0.2s ease-in-out;
-  transition-duration: 0.2s;
-  opacity: 1;
+  transition-timing-function: ease-in-out;
+  transition-duration: 250ms;
 }
 
 .page-transition {
-  opacity: 0 !important;
-  background: white;
+  opacity: 1;
+  background: rgb(252 250 248);
 }
 
 p {

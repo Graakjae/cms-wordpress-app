@@ -1,16 +1,12 @@
 "use client";
+import usePageTransition from "@/hooks/use-page-transition";
 import Link, { LinkProps } from "next/link";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import React from "react";
 
 interface TransitionLinkProps extends LinkProps {
   children: React.ReactNode;
   href: string;
   className?: string;
-}
-
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export const TransitionLink: React.FC<TransitionLinkProps> = ({
@@ -19,31 +15,14 @@ export const TransitionLink: React.FC<TransitionLinkProps> = ({
   className,
   ...props
 }) => {
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleTransition = async (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
-    e.preventDefault();
-
-    const body = document.querySelector("#page-transition-box");
-
-    body?.classList.add("page-transition");
-
-    await sleep(250);
-
-    router.push(href);
-
-    await sleep(500);
-    body?.classList.remove("page-transition");
-  };
+  const { handleTransition } = usePageTransition();
 
   return (
     <Link
       {...props}
       href={href}
-      onClick={handleTransition}
+      prefetch={false}
+      onClick={(e) => handleTransition(e, href || "#")}
       className={`${className}`}
     >
       {children}

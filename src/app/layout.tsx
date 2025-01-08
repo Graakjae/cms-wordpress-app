@@ -79,7 +79,11 @@ export default async function RootLayout({
             <Navigation primaryMenu={primaryMenu} rightMenu={rightMenu} />
             <BurgerMenu mobileMenu={mobileMenu} />
           </div>
-          <div id="page-transition-box">{children}</div>
+          <div
+            id="page-transition-container"
+            className="pointer-events-none fixed inset-0 z-40"
+          />
+          {children}
           <SpeedInsights />
           <Toaster />
           <Footer />
